@@ -438,3 +438,84 @@ Small Device Styles
     }
 
 }
+/*************************************************************************************************
+                               Styles for the TeamCity Build Status
+*************************************************************************************************/
+        /*------------- Structural */
+        table.tcTable {
+            width: 100%;
+            padding: 5px;
+            font-size: 80%;
+            font-family: helvetica neue, tahoma, arial, sans-serif;
+            border: 1px solid #A0A0A0;
+            margin-top: -15px;
+        }
+
+        table.tcTable tr {
+            vertical-align: top;
+        }
+
+        table.tcTable td {
+            padding-bottom: 5px;
+            border: 1px solid #A0A0A0;
+        }
+
+        /*----------- Components*/
+        table.tcTable div.projectName {
+            /* UNCOMMENT TO REMOVE PROJECT NAME FROM THE EMBEDLET */
+            /*display:none;*/
+            margin: 0;
+            padding: 0;
+            font-size: 130%;
+        }
+
+        table.tcTable td.buildConfigurationName {
+            font-weight: bold;
+            padding-right: 10px;
+        }
+
+        table.tcTable td.buildNumberDate {
+            /* UNCOMMENT TO REMOVE BUILD NUMBER AND DATE FROM THE EMBEDLET */
+            /*display:none;*/
+
+            padding-right: 10px;
+        }
+
+        table.tcTable td.buildResults {
+            /* UNCOMMENT TO REMOVE BUILD RESULTS/ARTIFACTS LINK FROM THE EMBEDLET */
+            /*display:none;*/
+        }
+
+        table.tcTable td.buildNumberDate div.teamCityDateTime {
+            /* UNCOMMENT TO REMOVE THE LAST BUILD DATE FROM THE EMBEDLET */
+            /*display:none;*/
+
+            color: #696B71;
+        }
+
+        table.tcTable span.teamCityIcon {
+            white-space: nowrap;
+        }
+
+            /*------- Appearance */
+        table.tcTable img {
+            vertical-align: top;
+        }
+
+        table.tcTable a {
+            color: #1564C2;
+            text-decoration: none;
+        }
+
+        table.tcTable a:hover {
+            text-decoration: underline;
+            color: #1564C2;
+        }
+
+        table.tcTable img {
+            width: auto;
+            border: none;
+            box-shadow: none;
+            margin: 0;
+            vertical-align: middle;
+        }
