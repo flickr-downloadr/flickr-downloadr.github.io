@@ -1,0 +1,45 @@
+body {
+    background-image: url(../img/furley_bg.png);
+}
+
+.fd-screenshots {
+    text-align: center;
+}
+
+#sitelogo {
+    margin: 10px 10px 0 0;
+}
+
+/* -- Overrides -- */
+.hero-unit {
+    background-color: #fff;
+}
+
+#slideshow .modal-body {
+    max-height: 800px;
+}
+
+#slideshow {
+    width: 800px;
+    margin: -370px 0 0 -400px;
+}
+
+#slideshow #myCarousel {
+    margin-bottom: 0;
+}
+
+#slideshow.fade.in {
+    top: 65%;
+}
+
+.fd-screenshots-carousel .item {
+    text-align: center;
+}
+
+.fd-screenshots-carousel .item > img {
+    display: inline;
+}
+
+.fd-screenshots-carousel .item .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.35);
+}
