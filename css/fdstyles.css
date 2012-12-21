@@ -1,5 +1,6 @@
 body {
     background-image: url(../img/furley_bg.png);
+    background-attachment: fixed;
 }
 
 .fd-screenshots {
