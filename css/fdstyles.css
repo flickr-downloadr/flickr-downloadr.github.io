@@ -3,12 +3,19 @@ body {
     background-attachment: fixed;
 }
 
-.fd-screenshots {
-    text-align: center;
+#fd-forkme-ribbon img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
 }
 
-#sitelogo {
+#fd-appicon {
     margin: 10px 10px 0 0;
+}
+
+.fd-screenshots-thumb {
+    text-align: center;
 }
 
 /* -- Overrides -- */
@@ -16,21 +23,25 @@ body {
     background-color: #fff;
 }
 
-#slideshow .modal-body {
+.hero-unit blockquote {
+    font-size: 14px;
+}
+
+#fd-slideshow-dialog .modal-body {
     max-height: 800px;
 }
 
-#slideshow {
-    width: 800px;
-    margin: -370px 0 0 -400px;
+#fd-slideshow-dialog {
+    /*width: 800px;*/
+    /*margin: -370px 0 0 -400px;*/
 }
 
-#slideshow #myCarousel {
+#fd-slideshow-dialog #myCarousel {
     margin-bottom: 0;
 }
 
-#slideshow.fade.in {
-    top: 65%;
+#fd-slideshow-dialog.fade.in {
+    /*top: 65%;*/
 }
 
 .fd-screenshots-carousel .item {
@@ -43,4 +54,101 @@ body {
 
 .fd-screenshots-carousel .item .carousel-caption {
     background-color: rgba(0, 0, 0, 0.35);
+}
+
+.fd-footer-credits {
+    float: left;
+}
+
+.fd-footer-copyright {
+    float: right;
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+    #fd-forkme-ribbon {
+        display: inline;
+    }
+
+    #fd-forkme-menu {
+        display: none;
+    }
+}
+
+@media (min-width: 980px) and (max-width: 1199px) {
+    #fd-forkme-ribbon {
+        display: inline;
+    }
+
+    #fd-forkme-menu {
+        display: none;
+    }
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+    #fd-forkme-ribbon {
+        display: none;
+    }
+
+    #fd-forkme-menu {
+        display: inline;
+    }
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+    #fd-forkme-ribbon {
+        display: none;
+    }
+
+    #fd-forkme-menu {
+        display: inline;
+    }
+}
+
+@media (max-width: 679px) {
+    .hero-unit h1 {
+        font-size: 40px;
+    }
+
+    .hero-unit img {
+        max-width: 40px;
+    }
+
+    .hero-unit .btn-large {
+        font-size: 14.5px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    #fd-forkme-ribbon {
+        display: none;
+    }
+
+    #fd-forkme-menu {
+        display: inline;
+    }
+
+    footer p {
+        text-align: center;
+    }
+
+    .fd-footer-credits, .fd-footer-copyright {
+        float: none;
+        display: inline-block;
+    }
+
+    .carousel-caption h4 {
+        font-size: 16px;
+    }
+
+    .modal-body {
+        max-height: 250px;
+    }
 }
