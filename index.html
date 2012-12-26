@@ -130,16 +130,16 @@
 
         <p><a class="btn"
               data-remote="https://api.github.com/repos/flickr-downloadr/flickr-downloadr/commits"
-              role="button" data-toggle="modal" href="#commits">View Changelog &raquo;</a></p>
+              role="button" data-toggle="modal" href="#commitsdialog">View Changelog &raquo;</a></p>
 
-        <div id="commits" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        <div id="commitsdialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 <h3>Github Commits</h3>
             </div>
             <div class="modal-body">
-                <h5>Coming soon...</h5>
+                <div id='commits'></div>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
@@ -319,5 +319,7 @@
 <script src="js/jquery-1.8.3.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/script.js"></script>
+<script src='http://gitlive.com/githublive.min.js'></script>
+<script>var GithubPush = {num_old:5,nodes:['flickr-downloadr/flickr-downloadr']}</script>
 </body>
 </html>
