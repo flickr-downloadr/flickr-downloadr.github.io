@@ -56,6 +56,10 @@ body {
     background-color: rgba(0, 0, 0, 0.35);
 }
 
+footer p {
+    text-align: center;
+}
+
 .fd-footer-credits {
     float: left;
 }
@@ -133,10 +137,6 @@ body {
 
     #fd-forkme-menu {
         display: inline;
-    }
-
-    footer p {
-        text-align: center;
     }
 
     .fd-footer-credits, .fd-footer-copyright {
