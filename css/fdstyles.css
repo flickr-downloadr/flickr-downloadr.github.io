@@ -14,7 +14,7 @@ body {
     margin: 10px 10px 0 0;
 }
 
-#fd-version {
+.fd-version {
     display: none;
 }
 
@@ -24,6 +24,7 @@ body {
 
 /* -- Overrides -- */
 .hero-unit {
+    padding: 40px;
     background-color: #fff;
 }
 
@@ -35,17 +36,8 @@ body {
     max-height: 800px;
 }
 
-#fd-slideshow-dialog {
-    /*width: 800px;*/
-    /*margin: -370px 0 0 -400px;*/
-}
-
 #fd-slideshow-dialog #myCarousel {
     margin-bottom: 0;
-}
-
-#fd-slideshow-dialog.fade.in {
-    /*top: 65%;*/
 }
 
 .fd-screenshots-carousel .item {
@@ -147,8 +139,12 @@ footer p {
         max-width: 40px;
     }
 
-    .hero-unit .btn-large {
+    .btn-large {
         font-size: 14.5px;
+    }
+
+    h1 {
+        font-size: 32px;
     }
 
     h2 {

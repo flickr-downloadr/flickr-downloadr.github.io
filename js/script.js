@@ -46,7 +46,7 @@ $(function () {
 
     $.get('build.number',
         function (data) {
-            $('#fd-version-text').text(data);
-            $('#fd-version').fadeIn();
+            $('.fd-version-text').text(data);
+            $('.fd-version').fadeIn();
         });
 });
