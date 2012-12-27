@@ -49,4 +49,39 @@ $(function () {
             $('.fd-version-text').text(data);
             $('.fd-version').fadeIn();
         });
+
+    Handlebars.registerHelper('strip_sign', function (message) {
+        var signOffStart = message.indexOf('Signed-off-by:');
+        return signOffStart ? message.slice(0, signOffStart) : message;
+    });
+
+    Handlebars.registerHelper('format_date', function (date) {
+        var dateToFormat = (new Date(date));
+        return dateToFormat.toLocaleDateString() + ' ' + dateToFormat.toLocaleTimeString();
+    });
+
+    Handlebars.registerHelper('fix_github_url', function (url) {
+        var returnUrl = url.replace('https://api.github.com/users/', 'https://github.com/');
+        returnUrl = returnUrl.replace('https://api.github.com/repos/', 'https://github.com/');
+        return returnUrl.replace('/commits/', '/commit/');
+    });
+
+    $(document).on('click', '#getCommits', function () {
+        $.get('https://api.github.com/repos/flickr-downloadr/flickr-downloadr/commits',
+            function (data) {
+                var commitsView = "<table><thead><th class='fd-commitname'>Author</th>" +
+                    "<th class='fd-commitmessage'>Message</th></thead><tbody>{{#commitsarray}}" +
+                    "<tr><td class='fd-commitname'>" +
+                    "<a href='{{fix_github_url author.url}}' target='_blank'>{{commit.author.name}}</a></td>" +
+                    "<td class='fd-commitmessage'><span>{{strip_sign commit.message}}</span>" +
+                    "<span><a href='{{fix_github_url url}}' title='{{format_date commit.author.date}}' " +
+                    "target='_blank'>&raquo;</a></span></td></tr>" +
+                    "{{/commitsarray}}</tbody></table>";
+                var commits = {
+                    commitsarray:data
+                };
+                var output = Handlebars.compile(commitsView)(commits);
+                $('#commitsContainer').append(output);
+            });
+    });
 });

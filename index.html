@@ -125,18 +125,17 @@
         </ul>
 
 
-        <p><a class="btn btn-primary"
-              data-remote="https://api.github.com/repos/flickr-downloadr/flickr-downloadr/commits"
-              role="button" data-toggle="modal" href="#commits">View Changelog &raquo;</a></p>
+        <p><a id="getCommits" class="btn btn-primary" role="button" data-toggle="modal" href="#commits">
+            View Changelog &raquo;</a></p>
 
         <div id="commits" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3>Github Commits</h3>
+                <h3>Recent Commits on GitHub</h3>
             </div>
             <div class="modal-body">
-                <h5>Coming soon...</h5>
+                <div id="commitsContainer"></div>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">Close</button>
@@ -317,6 +316,7 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="js/jquery-1.8.3.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/handlebars-1.0.rc.1.min.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>

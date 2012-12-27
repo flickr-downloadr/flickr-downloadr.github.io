@@ -18,6 +18,18 @@ body {
     display: none;
 }
 
+th {
+    text-align: left;
+}
+
+.fd-commitname {
+    width: 30%;
+}
+
+.fd-commitname, .fd-commitmessage {
+    border-bottom: dotted thin #e1e1e8;
+}
+
 .fd-screenshots-thumb {
     text-align: center;
 }
