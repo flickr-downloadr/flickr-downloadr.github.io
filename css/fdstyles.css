@@ -113,8 +113,31 @@ footer p {
     #fd-forkme-menu {
         display: inline;
     }
+
+    .fd-footer-credits, .fd-footer-copyright {
+        float: none;
+        display: inline-block;
+    }
+
 }
 
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    .hero-unit {
+        padding: 20px;
+        line-height: 25px;
+    }
+
+    .carousel-caption h4 {
+        font-size: 16px;
+    }
+
+    .modal-body {
+        max-height: 250px;
+    }
+}
+
+/* Special for header adjustment */
 @media (max-width: 679px) {
     .hero-unit h1 {
         font-size: 40px;
@@ -131,28 +154,8 @@ footer p {
     h2 {
         font-size: 25px;
     }
-}
 
-/* Landscape phones and down */
-@media (max-width: 480px) {
-    #fd-forkme-ribbon {
-        display: none;
-    }
-
-    #fd-forkme-menu {
-        display: inline;
-    }
-
-    .fd-footer-credits, .fd-footer-copyright {
-        float: none;
-        display: inline-block;
-    }
-
-    .carousel-caption h4 {
-        font-size: 16px;
-    }
-
-    .modal-body {
-        max-height: 250px;
+    h3 {
+        font-size: 18px;
     }
 }
