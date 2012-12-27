@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="flickr downloadr.exe" version="0.6.0.33" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="flickr downloadr.exe" version="0.6.1.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="flickr downloadr" version="0.6.0.33" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="flickr downloadr" version="0.6.1.2" language="neutral" processorArchitecture="msil" />
     <commandLine file="flickr downloadr.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -55,86 +55,86 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="flickr downloadr.exe" size="285184">
-      <assemblyIdentity name="flickr downloadr" version="0.6.0.33" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="flickr downloadr.exe" size="284672">
+      <assemblyIdentity name="flickr downloadr" version="0.6.1.2" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>/sG4TllLkKP5gsHNbFz66fXMEZKmO2TvPD4qvLMEaT4=</dsig:DigestValue>
+        <dsig:DigestValue>ZRXTkbtd4UxrQOgbqbbozfs6K5n1zxX1DKNwMxpmzsY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FloydPink.Flickr.Downloadr.Bootstrap.dll" size="9216">
-      <assemblyIdentity name="FloydPink.Flickr.Downloadr.Bootstrap" version="0.6.0.33" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="FloydPink.Flickr.Downloadr.Bootstrap" version="0.6.1.2" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>hZEWrd/qpErlsev6QIbZ6+Pg/2Kwmkb/T8WSK9hxRL0=</dsig:DigestValue>
+        <dsig:DigestValue>5Wik1CmsnLM6uWw5h1xVBEuuHuWCkdPLX/qrZvyJxYw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FloydPink.Flickr.Downloadr.Logic.dll" size="22528">
-      <assemblyIdentity name="FloydPink.Flickr.Downloadr.Logic" version="0.6.0.33" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="FloydPink.Flickr.Downloadr.Logic" version="0.6.1.2" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>w+1vpyK5ltFmPRHtXF4ulg3lQJ9iXVw06MEvPI05xsw=</dsig:DigestValue>
+        <dsig:DigestValue>ChL/TRYLgXzdl0UA1ftuEpxozeaJkziegMaTxdE9+bU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FloydPink.Flickr.Downloadr.Model.dll" size="17920">
-      <assemblyIdentity name="FloydPink.Flickr.Downloadr.Model" version="0.6.0.33" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="FloydPink.Flickr.Downloadr.Model" version="0.6.1.2" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>o4TEYlhmhK7tcxYNxFpSSBZ2lpmPc4ienplXY8n8OnU=</dsig:DigestValue>
+        <dsig:DigestValue>Wb+8QmHfMMIUpEprZWmDo3OKACJwBR1nK3DDqiHBm3M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FloydPink.Flickr.Downloadr.OAuth.dll" size="15872">
-      <assemblyIdentity name="FloydPink.Flickr.Downloadr.OAuth" version="0.6.0.33" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="FloydPink.Flickr.Downloadr.OAuth" version="0.6.1.2" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>jFmpfWgRiprF4K4gkyp9NRyNNXwJizLcs5gxRi2zs8E=</dsig:DigestValue>
+        <dsig:DigestValue>ClxEJGLqR9dt+aU2NADWNEryEd2nxzHRwhJUAJ5hOH8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FloydPink.Flickr.Downloadr.Presentation.dll" size="18944">
-      <assemblyIdentity name="FloydPink.Flickr.Downloadr.Presentation" version="0.6.0.33" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="FloydPink.Flickr.Downloadr.Presentation" version="0.6.1.2" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>gl67nTfFEqbDNSrlb10zmXngvHpyUZc8MHnixXXU8OE=</dsig:DigestValue>
+        <dsig:DigestValue>1ydwJH6h0euaaKKarfoa/6SXwb9i0KxtIWDYXcjhDxk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FloydPink.Flickr.Downloadr.Repository.dll" size="8704">
-      <assemblyIdentity name="FloydPink.Flickr.Downloadr.Repository" version="0.6.0.33" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="FloydPink.Flickr.Downloadr.Repository" version="0.6.1.2" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>e5vWVCES2V9gZly94fuiwcIuXCrs6gkwSKjwL1DUWaA=</dsig:DigestValue>
+        <dsig:DigestValue>bWY+uKPf71VdzmPda3xNPdcsCn0ucZXhNwOMJ9EZre8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
