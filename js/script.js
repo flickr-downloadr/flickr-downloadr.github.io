@@ -43,4 +43,10 @@ $(function () {
                     break;
             }
         });
+
+    $.get('build.number',
+        function (data) {
+            $('#fd-fd-version-text').text(data);
+            $('#fd-fd-version').fadeIn();
+        });
 });
