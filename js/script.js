@@ -67,7 +67,7 @@ $(function () {
     });
 
     $(document).on('click', '#getCommits', function () {
-        $.get('https://api.github.com/repos/flickr-downloadr/flickr-downloadr/commits',
+        $.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr/commits',
             function (data) {
                 var commitsView = "<table><thead><th class='fd-commitname'>Author</th>" +
                     "<th class='fd-commitmessage'>Message</th></thead><tbody>{{#commitsarray}}" +
