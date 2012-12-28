@@ -23,7 +23,11 @@ th {
 }
 
 .fd-commitname {
-    width: 30%;
+    width: 20%;
+}
+
+.fd-commitmessage {
+    word-wrap: break-word;
 }
 
 .fd-commitname, .fd-commitmessage {
@@ -165,5 +169,9 @@ footer p {
 
     h3 {
         font-size: 18px;
+    }
+
+    .fd-commitname, .fd-commitmessage {
+        font-size: 11px;
     }
 }

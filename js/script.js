@@ -68,17 +68,17 @@ $(function () {
 
     $(document).on('click', '#getCommits', function () {
         $.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr/commits?callback=?',
-            function (data) {
-                var commitsView = "<table><thead><th class='fd-commitname'>Author</th>" +
-                    "<th class='fd-commitmessage'>Message</th></thead><tbody>{{#commitsarray}}" +
-                    "<tr><td class='fd-commitname'>" +
-                    "<a href='{{fix_github_url author.url}}' target='_blank'>{{commit.author.name}}</a></td>" +
+            function (response) {
+                var commitsView = "<table><thead><th class='fd-commitmessage'>Message</th>" +
+                    "<th class='fd-commitname'>Author</th></thead><tbody>{{#commitsarray}}<tr>" +
                     "<td class='fd-commitmessage'><span>{{strip_sign commit.message}}</span>" +
                     "<span><a href='{{fix_github_url url}}' title='{{format_date commit.author.date}}' " +
-                    "target='_blank'>&raquo;</a></span></td></tr>" +
-                    "{{/commitsarray}}</tbody></table>";
+                    "target='_blank'>&raquo;</a></span></td>" +
+                    "<td class='fd-commitname'><a href='{{fix_github_url author.url}}' " +
+                    "target='_blank'>{{commit.author.name}}</a></td>" +
+                    "</tr>{{/commitsarray}}</tbody></table>";
                 var commits = {
-                    commitsarray:data.data
+                    commitsarray:response.data
                 };
                 var output = Handlebars.compile(commitsView)(commits);
                 $('#commitsContainer').append(output);
