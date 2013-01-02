@@ -52,7 +52,7 @@ $(function () {
 
     Handlebars.registerHelper('strip_sign', function (message) {
         var signOffStart = message.indexOf('Signed-off-by:');
-        return signOffStart ? message.slice(0, signOffStart) : message;
+        return signOffStart !== -1 ? message.slice(0, signOffStart) : message;
     });
 
     Handlebars.registerHelper('format_date', function (date) {
