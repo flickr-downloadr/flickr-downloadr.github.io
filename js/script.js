@@ -67,6 +67,7 @@ $(function () {
     });
 
     $(document).on('click', '#getCommits', function () {
+        $('#commitsContainer').empty().append($('<div><span class="muted">Loading...</span></div>'));
         $.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr/commits?callback=?',
             function (response) {
                 var commitsView = "<table><thead><th class='fd-commitmessage'>Message</th>" +
@@ -81,7 +82,7 @@ $(function () {
                     commitsarray:response.data
                 };
                 var output = Handlebars.compile(commitsView)(commits);
-                $('#commitsContainer').append(output);
+                $('#commitsContainer').empty().append(output);
             });
     });
 });
