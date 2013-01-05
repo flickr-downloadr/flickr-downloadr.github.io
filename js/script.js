@@ -74,7 +74,7 @@ $(function () {
                     "<th class='fd-commitname'>Author</th></thead><tbody>{{#commitsarray}}<tr>" +
                     "<td class='fd-commitmessage'><span>{{strip_sign commit.message}}</span>" +
                     "<span><a href='{{fix_github_url url}}' title='{{format_date commit.author.date}}' " +
-                    "target='_blank'>&raquo;</a></span></td>" +
+                    "target='_blank'> &raquo;</a></span></td>" +
                     "<td class='fd-commitname'><a href='{{fix_github_url author.url}}' " +
                     "target='_blank'>{{commit.author.name}}</a></td>" +
                     "</tr>{{/commitsarray}}</tbody></table>";
