@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://flickr-downloadr.github.com/flickr-downloadr-blog/blogs/sitemap.xml 
