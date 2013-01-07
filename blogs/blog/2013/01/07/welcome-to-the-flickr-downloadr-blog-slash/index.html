@@ -288,7 +288,15 @@
 
 
 
-
+<script type="text/javascript">
+    $('#socialicons').find('img').hover(
+            function () {
+                $(this).attr('src', $(this).attr('src').replace('_c.png', '.png'));
+            },
+            function () {
+                $(this).attr('src', $(this).attr('src').replace('.png', '_c.png'));
+            });
+</script>
 
 </body>
 </html>
