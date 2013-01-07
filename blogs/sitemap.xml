@@ -1,12 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>
-            http://flickrdownloadr.com/blogs/blog/2013/01/07/welcome-to-the-flickr-downloadr-blog-slash/
-        </loc>
-        <lastmod>2013-01-07T15:30:35-05:00</lastmod>
-    </url>
-    <url>
         <loc>http://flickrdownloadr.com/blogs/blog/archives/</loc>
         <lastmod>2013-01-07T15:30:35-05:00</lastmod>
     </url>
