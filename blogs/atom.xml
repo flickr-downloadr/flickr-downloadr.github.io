@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[flickr downloadr blog]]></title>
+  <title><![CDATA[flickr downloadr]]></title>
   <link href="http://flickr-downloadr.github.com/flickr-downloadr-blog/blogs/atom.xml" rel="self"/>
   <link href="http://flickr-downloadr.github.com/flickr-downloadr-blog/blogs/"/>
-  <updated>2013-01-06T23:59:30-05:00</updated>
+  <updated>2013-01-07T00:07:40-05:00</updated>
   <id>http://flickr-downloadr.github.com/flickr-downloadr-blog/blogs/</id>
   <author>
     <name><![CDATA[flickr downloadr]]></name>
