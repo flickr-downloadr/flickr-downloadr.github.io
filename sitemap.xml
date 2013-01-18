@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://flickrdownloadr.com/</loc>
+  <lastmod>2013-01-18T09:58:07+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://flickrdownloadr.com/blogs/</loc>
+  <lastmod>2013-01-18T09:58:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://flickrdownloadr.com/downloads/latest/</loc>
+  <lastmod>2013-01-18T09:58:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://flickrdownloadr.com/blogs/blog/2013/01/15/single-click-deployment-of-wpf-application-to-github-pages/</loc>
+  <lastmod>2013-01-18T09:58:07+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://flickrdownloadr.com/blogs/blog/2013/01/07/hello-world/</loc>
+  <lastmod>2013-01-18T09:58:07+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://flickrdownloadr.com/blogs/blog/archives/</loc>
+  <lastmod>2013-01-18T09:58:07+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://flickrdownloadr.com/blogs/blog/categories/-net/</loc>
+  <lastmod>2013-01-18T09:58:07+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://flickrdownloadr.com/blogs/blog/categories/clickonce-deployment/</loc>
+  <lastmod>2013-01-18T09:58:07+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://flickrdownloadr.com/blogs/blog/categories/github-pages/</loc>
+  <lastmod>2013-01-18T09:58:07+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://flickrdownloadr.com/blogs/blog/categories/msbuild/</loc>
+  <lastmod>2013-01-18T09:58:07+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://flickrdownloadr.com/blogs/blog/categories/nant/</loc>
+  <lastmod>2013-01-18T09:58:07+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://flickrdownloadr.com/blogs/blog/categories/technical/</loc>
+  <lastmod>2013-01-18T09:58:07+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://flickrdownloadr.com/blogs/blog/categories/wpf-application/</loc>
+  <lastmod>2013-01-18T09:58:07+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://flickrdownloadr.com/blogs/blog/categories/automation/</loc>
+  <lastmod>2013-01-18T09:58:07+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://flickrdownloadr.com/blogs/blog/categories/bash/</loc>
+  <lastmod>2013-01-18T09:58:07+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://flickrdownloadr.com/blogs/blog/categories/deployment/</loc>
+  <lastmod>2013-01-18T09:58:07+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://flickrdownloadr.com/blogs/blog/categories/flickr-downloadr/</loc>
+  <lastmod>2013-01-18T09:58:07+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://flickrdownloadr.com/blogs/blog/categories/git/</loc>
+  <lastmod>2013-01-18T09:58:07+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://flickrdownloadr.com/blogs/blog/categories/general/</loc>
+  <lastmod>2013-01-18T09:58:07+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://flickrdownloadr.com/blogs/blog/categories/history/</loc>
+  <lastmod>2013-01-18T09:58:07+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+</urlset>
