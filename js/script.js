@@ -1,27 +1,13 @@
 var fdScripts = (function ($) {
     return {
-        gaTrack:function (link, category, action, label, value, nonInteraction) {
+        gaTrack:function (category, action, label, value, nonInteraction) {
             if (window._gaq) {
-                var filetypes = /\.(application|zip|exe|pdf|doc*|xls*|ppt*|mp3)$/i;
-                var targetAttr = $(link).attr('target');
-                var hrefAttr = $(link).attr('href');
-                var autoSuffix = '';
-                if (hrefAttr && (hrefAttr.match(/^https?:/i)) && (!hrefAttr.match(document.domain))){
-                    autoSuffix = ' - external';
-                } else if (hrefAttr && hrefAttr.match(filetypes)){
-                    autoSuffix = ' - download';
-                }
-                label += autoSuffix;
                 if (nonInteraction !== undefined) {
                     window._gaq.push(['_trackEvent', category, action, label, value, nonInteraction]);
                 } else if (value !== undefined) {
                     window._gaq.push(['_trackEvent', category, action, label, value]);
                 } else {
                     window._gaq.push(['_trackEvent', category, action, label]);
-                }
-                if (!targetAttr || targetAttr.toLowerCase() !== '_blank'){
-                    setTimeout(function() {location.href = hrefAttr;}, 200);
-                    return false;
                 }
             }
         }
