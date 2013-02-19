@@ -21,7 +21,6 @@
 
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-4869398-5']);
-        _gaq.push(['_setDomainName', 'flickrdownloadr.com']);
         _gaq.push(['_trackPageview']);
 
         (function () {
@@ -70,26 +69,33 @@
                             <li class="active"><a href="/downloads/latest">Latest Release</a></li>
                             <li class="divider"></li>
                             <li class="nav-header">On GitHub</li>
-                            <li><a href="https://github.com/flickr-downloadr/flickr-downloadr/zipball/master">Source as
+                            <li><a onclick="fdScripts.gaTrack('Files', 'Download', 'zipball (downloads)');"
+                                   href="https://github.com/flickr-downloadr/flickr-downloadr/zipball/master">Source as
                                 ZIP</a>
                             </li>
-                            <li><a href="https://github.com/flickr-downloadr/flickr-downloadr/tarball/master">Source as
+                            <li><a onclick="fdScripts.gaTrack('Files', 'Download', 'tarball (downloads)');"
+                                   href="https://github.com/flickr-downloadr/flickr-downloadr/tarball/master">Source as
                                 TAR</a>
                             </li>
                         </ul>
                     </li>
-                    <li><a href="https://github.com/flickr-downloadr/flickr-downloadr/issues" target="_blank">Support</a></li>
+                    <li><a onclick="fdScripts.gaTrack('External', 'Click', 'Support (downloads)');"
+                           href="https://github.com/flickr-downloadr/flickr-downloadr/issues"
+                           target="_blank">Support</a></li>
                     <li><a href="mailto:contact.us@flickrdownloadr.com">Contact Us</a></li>
-                    <li id="fd-forkme-menu"><a href="https://github.com/flickr-downloadr/flickr-downloadr" target="_blank">
-                        Fork me on GitHub</a></li>
+                    <li id="fd-forkme-menu">
+                        <a onclick="fdScripts.gaTrack('Source', 'Fork', 'mobile banner (downloads)');"
+                           href="https://github.com/flickr-downloadr/flickr-downloadr" target="_blank">
+                            Fork me on GitHub</a>
+                    </li>
                 </ul>
             </div>
             <!--/.nav-collapse -->
         </div>
     </div>
-    <a id="fd-forkme-ribbon" href="https://github.com/flickr-downloadr/flickr-downloadr" target="_blank">
-        <img src="/img/forkme.png"
-             alt="Fork me on GitHub">
+    <a id="fd-forkme-ribbon" onclick="fdScripts.gaTrack('Source', 'Fork', 'banner (downloads)');"
+       href="https://github.com/flickr-downloadr/flickr-downloadr" target="_blank">
+        <img src="/img/forkme.png" alt="Fork me on GitHub">
     </a>
 </div>
 
@@ -101,7 +107,8 @@
         </blockquote>
         <hr/>
         <p>Click the button below to install from Microsoft .NET Framework ClickOnce Installer.
-            <a href="http://go.microsoft.com/fwlink/?LinkId=154571" target="_blank">Learn
+            <a onclick="fdScripts.gaTrack('External', 'Click', 'MS-ClickOnce');"
+               href="http://go.microsoft.com/fwlink/?LinkId=154571" target="_blank">Learn
                 more &raquo;</a></p>
     </div>
     <div class="row">
@@ -121,10 +128,14 @@
             </ul>
         </blockquote>
         <p>If these components are already installed, you can
-            <a href="/downloads/latest/flickr%20downloadr.application">launch</a> the application now. Otherwise,
+            <a href="/downloads/latest/flickr%20downloadr.application"
+               onclick="fdScripts.gaTrack('Files', 'Download', 'flickr downloadr.application (downloads)');">launch</a>
+            the
+            application now. Otherwise,
             click the button below to install the prerequisites and run the application.</p>
         <blockquote>
-            <a class="btn btn-success" href="/downloads/latest/setup.exe">Install &raquo;</a>
+            <a class="btn btn-success" onclick="fdScripts.gaTrack('Files', 'Download', 'setup.exe (downloads)');"
+               href="/downloads/latest/setup.exe">Install &raquo;</a>
         </blockquote>
     </div>
 
@@ -145,12 +156,18 @@
 
         <p>
             <span class="fd-footer-credits">
-                <small>Built with <a href="http://twitter.github.com/bootstrap/" target="_blank">Bootstrap</a>.</small>
+                <small>Built with <a onclick="fdScripts.gaTrack('External', 'Click', 'Bootstrap (downloads)');"
+                                     href="http://twitter.github.com/bootstrap/" target="_blank">Bootstrap</a>.
+                </small>
                 <small> |</small>
-                <small>Hosted on <a href="http://pages.github.com/" target="_blank">GitHub Pages</a>.</small>
+                <small>Hosted on <a onclick="fdScripts.gaTrack('External', 'Click', 'GH Pages (downloads)');"
+                                    href="http://pages.github.com/" target="_blank">GitHub Pages</a>.
+                </small>
             </span>
             <span class="fd-footer-copyright">
-                <small>&copy; 2012-2013 <a href="http://www.harimenon.com">Haridas Pachuveetil</a></small>
+                 <small>&copy; 2012-2013 <a
+                         onclick="fdScripts.gaTrack('External', 'Click', 'harimenon.com (downloads)');"
+                         href="http://www.harimenon.com">Haridas Pachuveetil</a></small>
             </span>
         </p>
     </footer>

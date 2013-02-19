@@ -1,3 +1,19 @@
+var fdScripts = (function ($) {
+    return {
+        gaTrack:function (category, action, label, value, nonInteraction) {
+            if (window._gaq) {
+                if (nonInteraction !== undefined) {
+                    window._gaq.push(category, action, label, value, nonInteraction);
+                } else if (value !== undefined) {
+                    window._gaq.push(category, action, label, value);
+                } else {
+                    window._gaq.push(category, action, label);
+                }
+            }
+        }
+    };
+})(jQuery);
+
 $(function () {
     var socialIcons = $('#socialicons');
     socialIcons.find('img').hover(
@@ -87,7 +103,7 @@ $(function () {
             });
     });
 
-    $('#fd-slideshow-dialog').find('img').wrap(function(){
+    $('#fd-slideshow-dialog').find('img').wrap(function () {
         return '<a href="' + $(this).attr('src') + '" target="_blank" title="Click to see actual size" />';
     });
 });
