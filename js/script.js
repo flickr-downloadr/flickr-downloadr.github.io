@@ -3,11 +3,11 @@ var fdScripts = (function ($) {
         gaTrack:function (category, action, label, value, nonInteraction) {
             if (window._gaq) {
                 if (nonInteraction !== undefined) {
-                    window._gaq.push('_trackEvent', category, action, label, value, nonInteraction);
+                    window._gaq.push(['_trackEvent', category, action, label, value, nonInteraction]);
                 } else if (value !== undefined) {
-                    window._gaq.push('_trackEvent', category, action, label, value);
+                    window._gaq.push(['_trackEvent', category, action, label, value]);
                 } else {
-                    window._gaq.push('_trackEvent', category, action, label);
+                    window._gaq.push(['_trackEvent', category, action, label]);
                 }
             }
         }
