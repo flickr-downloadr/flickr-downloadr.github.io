@@ -26,7 +26,7 @@ $(function () {
     socialIcons.find('a').each(
         function () {
             var button = $(this).find('img').attr('alt');
-            $(this).attr('target', '_blank');
+            $(this).attr('target', '_blank').attr('onclick', "fdScripts.gaTrack('External', 'Click', 'Social (" + button + ")');");
             switch (button) {
                 case 'facebook':
                     $(this).attr('title', 'Like us on Facebook').
