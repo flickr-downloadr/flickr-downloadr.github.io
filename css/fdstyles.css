@@ -48,6 +48,10 @@ th {
     font-size: 14px;
 }
 
+.modal.fade.in {
+  top: 5%;
+}
+
 #fd-slideshow-dialog .modal-body {
     max-height: 800px;
 }
@@ -65,7 +69,7 @@ th {
 }
 
 .fd-screenshots-carousel .item .carousel-caption {
-    background-color: rgba(0, 0, 0, 0.35);
+    background-color: rgba(0, 0, 0, 0.30);
 }
 
 footer p {

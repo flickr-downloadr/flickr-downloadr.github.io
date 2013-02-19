@@ -86,4 +86,8 @@ $(function () {
                 $('#commitsContainer').empty().append(output);
             });
     });
+
+    $('#fd-slideshow-dialog').find('img').wrap(function(){
+        return '<a href="' + $(this).attr('src') + '" target="_blank" title="Click to see actual size" />';
+    });
 });

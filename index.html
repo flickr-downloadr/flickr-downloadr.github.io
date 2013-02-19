@@ -45,8 +45,8 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="img/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="img/ico/favicon.png">
-    <meta name="alexaVerifyID" content="4z0Ir-Mh2ilfzA1bos0KYDqV3sY" />
-    <meta name="msvalidate.01" content="09CA63FA87D1D25673E09F580DDBA74D" />
+    <meta name="alexaVerifyID" content="4z0Ir-Mh2ilfzA1bos0KYDqV3sY"/>
+    <meta name="msvalidate.01" content="09CA63FA87D1D25673E09F580DDBA74D"/>
     <meta name="p:domain_verify" content="aaa2d2ddeccc9f2cd4a6d10b52321e47"/>
     <meta name="google-site-verification" content="9jxRrp3Qs6QHwLjulH0ndErPffM0pzVQ-7XJT1sMCtk"/>
 </head>
@@ -82,8 +82,11 @@
                             </li>
                         </ul>
                     </li>
+                    <li><a href="https://github.com/flickr-downloadr/flickr-downloadr/issues"
+                           target="_blank">Support</a></li>
                     <li><a href="mailto:contact.us@flickrdownloadr.com">Contact Us</a></li>
-                    <li id="fd-forkme-menu"><a href="https://github.com/flickr-downloadr/flickr-downloadr" target="_blank">
+                    <li id="fd-forkme-menu"><a href="https://github.com/flickr-downloadr/flickr-downloadr"
+                                               target="_blank">
                         Fork me on GitHub</a></li>
                 </ul>
             </div>
@@ -122,12 +125,17 @@
         <hr/>
 
         <ul>
-            <li>Photos downloaded in original sizes (PRO accounts)</li>
-            <li>Download all, all public or selected photos</li>
-            <li>Title, Tags, Description etc. downloaded as JSON</li>
-            <li>Uses OAuth to authenticate via Flickr</li>
+            <li>Log in securely to your flickr account via
+                <a href="http://www.flickr.com/services/api/auth.oauth.html"
+                   title="Read about OAuth on flickr.com">OAuth</a>
+            </li>
+            <li>View all the public photos (or <em>all</em> of them)</li>
+            <li>Select specific photos and download as a batch</li>
+            <li>Or download them all with one click.</li>
+            <li>Set preferences for download size, metadata etc.</li>
         </ul>
 
+        <p>&nbsp;</p>
 
         <p><a id="getCommits" class="btn btn-primary" role="button" data-toggle="modal" href="#commits">
             View Changelog &raquo;</a></p>
@@ -151,7 +159,9 @@
         <hr/>
 
         <p class="fd-screenshots-thumb">
-            <img src="img/screenshots/screenshots.png" alt="Screenshots" class="img-polaroid"/>
+            <a href="#fd-slideshow-dialog" data-toggle="modal">
+                <img src="img/screenshots/screenshots.png" alt="Screenshots" class="img-polaroid"/>
+            </a>
         </p>
 
         <p><a class="btn btn-primary" href="#fd-slideshow-dialog" role="button" data-toggle="modal">View all &raquo;</a>
@@ -174,7 +184,7 @@
                                 <div class="carousel-caption">
                                     <h4>Login Window</h4>
 
-                                    <p>The flickr downloadr Login screen that welcomes the users.</p>
+                                    <p>The flickr downloadr login screen that first greets you.</p>
                                 </div>
                             </div>
                             <div class="item">
@@ -183,8 +193,18 @@
                                 <div class="carousel-caption">
                                     <h4>Logging In using OAuth</h4>
 
-                                    <p>flickr downloadr opens flickr on the default web browser to authenticate a
-                                        user and to gain authorization.</p>
+                                    <p>flickr downloadr opening flickr on your web browser to authenticate you
+                                        securely.</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="img/screenshots/flickrAuth.png" alt="flickr confirming your approval">
+
+                                <div class="carousel-caption">
+                                    <h4>flickr confirming your approval</h4>
+
+                                    <p>This page would open in your browser if and when you're logged in to your flickr
+                                        account.</p>
                                 </div>
                             </div>
                             <div class="item">
@@ -194,6 +214,15 @@
                                     <h4>Logged In !</h4>
 
                                     <p>User successfully logged in and authorized flickr downloadr.</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="img/screenshots/preferencesScreen.png" alt="Preferences Window">
+
+                                <div class="carousel-caption">
+                                    <h4>Preferences window</h4>
+
+                                    <p>The screen to set your preferences.</p>
                                 </div>
                             </div>
                             <div class="item">
@@ -224,7 +253,8 @@
             flickr
             downloadr subject to certain conditions.</p>
 
-        <p>&nbsp;</p>
+        <p>If you're into C#/.NET, WPF etc., go crazy forking and submitting pull requests <a
+                href="https://github.com/flickr-downloadr/flickr-downloadr" title="Fork me on GitHub">here</a></p>
 
         <p><a class="btn btn-primary" href="#license" role="button" data-toggle="modal">View License &raquo;</a>
         </p>
@@ -307,7 +337,7 @@
             <small>Hosted on <a href="http://pages.github.com/" target="_blank">GitHub Pages</a>.</small>
         </span>
         <span class="fd-footer-copyright">
-            <small>&copy; 2012-2013 Haridas Pachuveetil</small>
+            <small>&copy; 2012-2013 <a href="http://www.harimenon.com">Haridas Pachuveetil</a></small>
         </span>
     </p>
 </footer>
