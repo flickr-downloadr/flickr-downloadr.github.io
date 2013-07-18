@@ -1,181 +1,196 @@
 body {
-    background-image: url(../img/furley_bg.png);
-    background-attachment: fixed;
+  background-image      : url(../img/furley_bg.png);
+  background-attachment : fixed;
 }
 
 #fd-forkme-ribbon img {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: 0;
+  position : absolute;
+  top      : 0;
+  right    : 0;
+  border   : 0;
 }
 
 #fd-appicon {
-    margin: 10px 10px 0 0;
+  margin : 10px 10px 0 0;
 }
 
 .fd-version {
-    display: none;
+  display : none;
+}
+
+.fd-released {
+  font-size : x-small;
 }
 
 th {
-    text-align: left;
-}
-
-.fd-commitname {
-    width: 20%;
+  text-align : left;
 }
 
 .fd-commitmessage {
-    word-wrap: break-word;
+  word-wrap : break-word;
 }
 
-.fd-commitname, .fd-commitmessage {
-    border-bottom: dotted thin #e1e1e8;
+.fd-commitname {
+  width : 20%;
+}
+
+.fd-commitdate {
+  width : 20%;
+}
+
+.fd-commitmessage, .fd-commitname, .fd-commitdate {
+  border-bottom : dotted thin #e1e1e8;
 }
 
 .fd-screenshots-thumb {
-    text-align: center;
+  text-align : center;
 }
 
 /* -- Overrides -- */
 .hero-unit {
-    padding: 40px;
-    background-color: #fff;
+  padding          : 40px;
+  background-color : #fff;
 }
 
 .hero-unit blockquote {
-    font-size: 14px;
+  font-size : 14px;
 }
 
 .modal.fade.in {
-  top: 5%;
+  top : 5%;
 }
 
 #fd-slideshow-dialog .modal-body {
-    max-height: 800px;
+  max-height : 800px;
 }
 
 #fd-slideshow-dialog #myCarousel {
-    margin-bottom: 0;
+  margin-bottom : 0;
 }
 
 .fd-screenshots-carousel .item {
-    text-align: center;
+  text-align : center;
 }
 
 .fd-screenshots-carousel .item > img {
-    display: inline;
+  display : inline;
 }
 
 .fd-screenshots-carousel .item .carousel-caption {
-    background-color: rgba(0, 0, 0, 0.30);
+  background-color : rgba(0, 0, 0, 0.30);
 }
 
 footer p {
-    text-align: center;
+  text-align : center;
 }
 
 .fd-footer-credits {
-    float: left;
+  float : left;
 }
 
 .fd-footer-copyright {
-    float: right;
+  float : right;
 }
 
 /* Large desktop */
 @media (min-width: 1200px) {
-    #fd-forkme-ribbon {
-        display: inline;
-    }
+  #fd-forkme-ribbon {
+    display : inline;
+  }
 
-    #fd-forkme-menu {
-        display: none;
-    }
+  #fd-forkme-menu {
+    display : none;
+  }
 }
 
 @media (min-width: 980px) and (max-width: 1199px) {
-    #fd-forkme-ribbon {
-        display: inline;
-    }
+  #fd-forkme-ribbon {
+    display : inline;
+  }
 
-    #fd-forkme-menu {
-        display: none;
-    }
+  #fd-forkme-menu {
+    display : none;
+  }
 }
 
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
-    #fd-forkme-ribbon {
-        display: none;
-    }
+  #fd-forkme-ribbon {
+    display : none;
+  }
 
-    #fd-forkme-menu {
-        display: inline;
-    }
+  #fd-forkme-menu {
+    display : inline;
+  }
 }
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
-    #fd-forkme-ribbon {
-        display: none;
-    }
+  #fd-forkme-ribbon {
+    display : none;
+  }
 
-    #fd-forkme-menu {
-        display: inline;
-    }
+  #fd-forkme-menu {
+    display : inline;
+  }
 
-    .fd-footer-credits, .fd-footer-copyright {
-        float: none;
-        display: block;
-    }
-
+  .fd-footer-credits, .fd-footer-copyright {
+    float   : none;
+    display : block;
+  }
 }
 
 /* Landscape phones and down */
 @media (max-width: 480px) {
-    .hero-unit {
-        padding: 20px;
-        line-height: 25px;
-    }
+  .hero-unit {
+    padding     : 20px;
+    line-height : 25px;
+  }
 
-    .carousel-caption h4 {
-        font-size: 16px;
-    }
+  .carousel-caption h4 {
+    font-size : 16px;
+  }
 
-    .modal-body {
-        max-height: 250px;
-    }
+  .modal-body {
+    max-height : 250px;
+  }
+
+  .fd-commitmessage, .fd-commitname, .fd-commitdate {
+    font-size : 10px;
+  }
+
+  .fd-commitdate {
+    display : none;
+  }
 }
 
 /* Special for header adjustment */
 @media (max-width: 679px) {
-    .hero-unit h1 {
-        font-size: 40px;
-    }
+  .hero-unit h1 {
+    font-size : 40px;
+  }
 
-    .hero-unit img {
-        max-width: 40px;
-    }
+  .hero-unit img {
+    max-width : 40px;
+  }
 
-    .btn-large {
-        font-size: 14.5px;
-    }
+  .btn-large {
+    font-size : 14.5px;
+  }
 
-    h1 {
-        font-size: 32px;
-    }
+  h1 {
+    font-size : 32px;
+  }
 
-    h2 {
-        font-size: 25px;
-    }
+  h2 {
+    font-size : 25px;
+  }
 
-    h3 {
-        font-size: 18px;
-    }
+  h3 {
+    font-size : 18px;
+  }
 
-    .fd-commitname, .fd-commitmessage {
-        font-size: 11px;
-    }
+  .fd-commitmessage, .fd-commitname, .fd-commitdate {
+    font-size : 11px;
+  }
 }
