@@ -80,6 +80,10 @@ th {
   background-color : rgba(0, 0, 0, 0.30);
 }
 
+.fd-empty-documentation {
+  min-height: 30em;
+}
+
 footer p {
   text-align : center;
 }
