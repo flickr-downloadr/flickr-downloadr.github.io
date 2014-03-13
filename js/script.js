@@ -96,6 +96,9 @@ $(function () {
   });
 
   Handlebars.registerHelper('fix_github_url', function (url) {
+    if (!url) {
+      return url;
+    }
     var returnUrl = url.replace('https://api.github.com/users/', 'https://github.com/');
     returnUrl = returnUrl.replace('https://api.github.com/repos/', 'https://github.com/');
     return returnUrl.replace('/commits/', '/commit/');
