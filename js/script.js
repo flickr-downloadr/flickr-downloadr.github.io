@@ -79,10 +79,10 @@ $(function () {
         });
       });
 
-  Handlebars.registerHelper('strip_sign', function (message) {
+  Handlebars.registerHelper('strip_sign', function (message, length) {
     var signOffStart = message.indexOf('Signed-off-by:');
     var returnMessage = signOffStart !== -1 ? message.slice(0, signOffStart) : message;
-    return returnMessage.length > 39 ? returnMessage.slice(0, 40) + '...' : returnMessage;
+    return returnMessage.length > length - 1 ? returnMessage.slice(0, length) + '...' : returnMessage;
   });
 
   Handlebars.registerHelper('format_date', function (date) {
@@ -118,13 +118,13 @@ $(function () {
                   " {{#commitsarray}}" +
                   "   <tr>" +
                   "     <td class='fd-commitmessage'>" +
-                  "       <span>{{strip_sign commit.message}}</span>" +
+                  "       <span>{{strip_sign commit.message 40}}</span>" +
                   "       <span>" +
                   "         <a href='{{fix_github_url url}}' title='{{format_date_time commit.author.date}}' target='_blank'> &raquo;</a>" +
                   "       </span>" +
                   "     </td>" +
                   "     <td class='fd-commitname'>" +
-                  "       <a href='{{fix_github_url author.url}}' target='_blank'>{{commit.author.name}}</a>" +
+                  "       <a href='{{fix_github_url author.url}}' target='_blank'>{{strip_sign commit.author.name 15}}</a>" +
                   "     </td>" +
                   "     <td class='fd-commitdate'>" +
                   "       <abbr class='timeago' title='{{commit.author.date}}'>{{format_date commit.author.date}}</abbr>" +
