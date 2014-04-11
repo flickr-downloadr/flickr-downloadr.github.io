@@ -1,0 +1,65 @@
+==================================================================
+https://keybase.io/floydpink
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://flickrdownloadr.com
+  * I am floydpink (https://keybase.io/floydpink) on keybase.
+  * I have a public key with fingerprint F79E FDED 6BAC 4B7D C436  A838 9B5A 929A C7A3 F555
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "f79efded6bac4b7dc436a8389b5a929ac7a3f555",
+            "host": "keybase.io",
+            "key_id": "9b5a929ac7a3f555",
+            "uid": "557e6daf4634224fed7aaa37801c1100",
+            "username": "floydpink"
+        },
+        "service": {
+            "hostname": "flickrdownloadr.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1397255198,
+    "expire_in": 157680000,
+    "prev": "5f3da9a92e30abccac98463ce5a1e20fe0f18c072f202ea23b550f64bd7c355d",
+    "seqno": 6,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v0.1.5
+Comment: https://keybase.io/crypto
+
+yMH1AnicbVFdSFRZHJ/RNFcSLKWa3BRuSyAOdj/m3I95WcwFfcke3CJkYzj3nnPH
+i+O9tzt31GGYAltN/Gh33VZh1WVTllIMV6RCcRtbIoNioYcSe7C1bKnoy9l0LVQ8
+V7aeOi+H8zu/j/+P/42sVFemu6eq8+fpgaUj7ttT7yKuyvJQfoySDRSl/DGqBm9e
+qqYHsWVamm5TfkoVJKwijHgZKj5ZQIqP46HIiZIMoMRKUBEgpwIAKC9VbYQdBbGR
+YRgXawbByCOgIYJ+gh/Z/ABAwDyCqo/nfCzrUzESIIScINKMwjA07RDD2NJhLXbG
+CRlRZGp6DRX3UgSu0xQCxzazP1I0pcZCRr0eMiCyihWjlniYlmEbihEihGrbNv2O
+3o6ajqAey4H/rQKypiPSnwjqsBXWDJ3yM4Sp2JrjzXCSwALASKKXwg2mZuGA5jCA
+wIs0OU4MrnNKqRyCEimMORrKigIVSSQFFQwgg1laxbTKiAotsCpLsxiynAwArfI+
+GQkKBwAi+WF8QjcoP0/GhEFiGdaCOrQjFqbif059s8XlznSlp6U4G3Rlfpb9Ya9/
+N2e4rnbf+apg5d+jF9uH2goGfk0E6dLqC+/N3cMLZc3u+fW7pV+YM/mNe5dRWVNf
+1/3VL689XlloFWdvJT7/MS9ncD2rJ/fld/GWJJ9sK5l4cLCjvqQ/2VtxPL1FQ8d6
+T7c+fD1zAFwZbvpnMm1S6tvfX1L89ULBXGrVnngi8HYZCP0V346Nlyd/fy5Glnao
+441di+d2bm+ILsbmdnUOjlwam/FO02uX7bXsokNvfvtrjgl05LgK0exqkedpa84P
+iXs3U1H7pKf2J+vkiPdRd/qLylejzDYP/E8XzxRmTFQCZOWd8k14rZTr7aZn3+FE
+Bb+1+Y/Robb573PP//LsyWra2Q1+ARzz
+=NsC1
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/floydpink
+
+==================================================================
