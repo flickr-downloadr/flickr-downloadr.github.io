@@ -34,7 +34,7 @@ $(function () {
         switch (button) {
           case 'facebook':
             $(this).attr('title', 'Like us on Facebook').
-                attr('href', 'http://www.facebook.com/FlickrDownloadrPage');
+                attr('href', 'https://www.facebook.com/flickr.downloadr');
             break;
           case 'flickr':
             $(this).attr('title', 'Follow us on flickr').
