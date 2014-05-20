@@ -21,6 +21,9 @@ $.ajaxSetup({
 });
 
 $(function () {
+
+  Detectizr.detect({detectScreen:false});
+
   var socialIcons = $('#social-icons'),
       socialHash = {
         'facebook'  : {
@@ -71,8 +74,8 @@ $(function () {
       $('.fd-version-text').text(data);
       $fdVersion.fadeIn();
       // get the commit sha for this tag
-      $.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr/git/refs/tags/v' + data + '?callback=?', function (tagref) {
-        $.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr/git/tags/' + tagref.data.object.sha + '?callback=?', function (tag) {
+      $.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr-gtk/git/refs/tags/v' + data + '?callback=?', function (tagref) {
+        $.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr-gtk/git/tags/' + tagref.data.object.sha + '?callback=?', function (tag) {
           var dateAbbr = $('<abbr></abbr>').attr('title', tag.data.tagger.date).text(' (' + (new Date(tag.data.tagger.date)).toLocaleDateString() + ')').addClass('timeago');
           $fdVersion.append($('<span></span>').addClass('fd-released').append($('<span></span>').text(' - ')).append(dateAbbr));
           $('abbr.timeago').timeago();
@@ -107,7 +110,7 @@ $(function () {
 
   $(document).on('click', '#getCommits', function () {
     $('#commitsContainer').empty().append($('<div><span class="muted">Loading...</span></div>'));
-    $.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr/commits?callback=?',
+    $.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr-gtk/commits?callback=?',
       function (response) {
         var commitsView = '<table>' +
               ' <thead>' +

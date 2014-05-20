@@ -81,14 +81,14 @@
 
 <p>The sequence of steps from the single-click deployment process, gets kicked off by the <code>deploy.bat</code> file. Here are the contents of that file:</p>
 
-<p><code>bat deploy.bat https://github.com/flickr-downloadr/flickr-downloadr/blob/master/build/deploy.bat on GitHub
+<p><code>bat deploy.bat https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/master/build/deploy.bat on GitHub
 go deploy Release
 pause
 </code></p>
 
 <p>Here <code>go</code> is another batch file that is there in the same directory:</p>
 
-<p><code>bat go.bat https://github.com/flickr-downloadr/flickr-downloadr/blob/master/build/go.bat on GitHub
+<p><code>bat go.bat https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/master/build/go.bat on GitHub
 @echo off
 IF dummy==dummy%2 (
 nant\nant-0.92\bin\NAnt.exe -buildfile:FlickrDownloadr.build %1 -D:project.build.type=Debug
@@ -101,7 +101,7 @@ pause
 
 <p>So, as evident here, this calls NAnt with <code>FlickrDownloadr.build</code> as the build file and <code>deploy</code> as the target to run, with <code>Release</code> as the build configuration.</p>
 
-<p>``` xml deploy https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L110 on GitHub
+<p>``` xml deploy https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L110 on GitHub
   <target name="deploy" depends="publish"></p>
 
 <pre><code>&lt;exec program="bash.exe" basedir="C:\Program Files (x86)\Git\bin\" verbose="true"&gt;
@@ -119,7 +119,7 @@ pause
 
 <p>This target first waits for its dependant target <code>publish</code> to execute. Let's see what that does first and we shall come back to this target to see when it would execute the <code>deploy.sh</code> bash script.</p>
 
-<p>``` xml publish https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L121 on GitHub
+<p>``` xml publish https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L121 on GitHub
   <target name="publish" depends="compilesolution"></p>
 
 <pre><code>&lt;msbuild project="${source.directory}\${flickrdownloadr.app.project}"&gt;
@@ -155,7 +155,7 @@ pause
 
 <p>The <code>compilesolution</code> task is another straight-forward one like this:</p>
 
-<p>``` xml compilesolution https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L40 on GitHub
+<p>``` xml compilesolution https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L40 on GitHub
   <target name="compilesolution" depends="cleanBin, createBin, increment-version"></p>
 
 <pre><code>&lt;echo message="Compiling Solution:" /&gt;
@@ -169,7 +169,7 @@ pause
 
 <p>As mentioned earlier, this time around MSBuild is being invoked on the Visual Studio solution itself. But the most interesting aspect here is the <code>increment-version</code> target that is a dependency:</p>
 
-<p>``` xml increment-version https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L66 on GitHub
+<p>``` xml increment-version https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L66 on GitHub
   <target name="increment-version"></p>
 
 <pre><code>&lt;echo message="Incrementing the version:" /&gt;
@@ -186,7 +186,7 @@ pause
 
 <p>Then we get to the <a href="http://nant.sourceforge.net/release/latest/help/tasks/asminfo.html">NAnt asminfo</a> task to generate one, shared <code>CommonAssemblyInfo.cs</code> file, which is linked to by all the projects in the solution as their <code>AssemblyInfo.cs</code> modules.</p>
 
-<p>``` xml create-common-assemblyinfo https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L72 on GitHub
+<p>``` xml create-common-assemblyinfo https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L72 on GitHub
   <target name="create-common-assemblyinfo"></p>
 
 <pre><code>&lt;!-- ensure source/CommonAssemblyInfo.cs is writable if it already exists --&gt;
@@ -290,7 +290,7 @@ else
 fi
 
 cd ../source/bin/Release
-REPO=git@github.com:flickr-downloadr/flickr-downloadr.git
+REPO=git@github.com:flickr-downloadr/flickr-downloadr-gtk.git
 MSG=&quot;application (v${BUILDNUMBER})&quot;
 
 #clone repo in a tmp dir
@@ -341,7 +341,7 @@ exit</code></pre></noscript></div>
 <p>One really nagging thing after everything started (seemingly) working as expected, was that the ClickOnce updater/installer started complaining about some signing or manifest or something (I can't find the exact error now, shall recreate it and update here soon) and would not install/upgrade the app at all. After some googling  found out that it had to do with how the cr-lf differences between Windows and *NIX are being handled by the Git clients and/or GitHub etc.</p>
 
 <p>To fix this, a <code>.gitattributes</code> file was added into the <code>gh-pages</code> branch <code>downloads</code> directory, following <a href="https://help.github.com/articles/dealing-with-line-endings">this helpfile at GitHub</a>, to the effect of asking git to treat everything within the <code>/downloads</code> directory as non-text files:
-<code>plain .gitattributes https://github.com/flickr-downloadr/flickr-downloadr/blob/gh-pages/downloads/.gitattributes on GitHub
+<code>plain .gitattributes https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/gh-pages/downloads/.gitattributes on GitHub
 *  -text
 </code></p>
 

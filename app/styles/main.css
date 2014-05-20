@@ -1,224 +1,243 @@
 .browsehappy {
-  margin     : 0.2em 0;
-  background : #ccc;
-  color      : #000;
-  padding    : 0.2em 0;
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
 }
 
 /* Space out content a bit */
 body {
-  padding-top    : 60px;
-  padding-bottom : 40px;
+  padding-top: 60px;
+  padding-bottom: 40px;
 }
 
 body {
-  background-image      : url(../images/furley_bg.png);
-  background-attachment : fixed;
+  background-image: url(../images/furley_bg.png);
+  background-attachment: fixed;
 }
 
 #fd-forkme-ribbon img {
-  position : absolute;
-  top      : 0;
-  right    : 0;
-  border   : 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
 }
 
 .fd-logo {
-  min-height      : 200px;
-  background      : url('../images/logo.png') no-repeat center;
-  background-size : 100%;
+  min-height: 200px;
+  background: url('../images/logo.png') no-repeat center;
+  background-size: 100%;
 }
 
 .fd-version {
-  display : none;
+  display: none;
 }
 
 .fd-released {
-  font-size : x-small;
+  font-size: x-small;
 }
 
 th {
-  text-align : left;
+  text-align: left;
 }
 
 .fd-commitmessage {
-  word-wrap : break-word;
+  word-wrap: break-word;
 }
 
 .fd-commitname {
-  width : 20%;
+  width: 20%;
 }
 
 .fd-commitdate {
-  width : 20%;
+  width: 20%;
 }
 
 .fd-commitmessage, .fd-commitname, .fd-commitdate {
-  border-bottom : dotted thin #e1e1e8;
+  border-bottom: dotted thin #e1e1e8;
 }
 
 .fd-screenshots-thumb {
-  text-align : center;
+  text-align: center;
 }
 
 /* -- Overrides -- */
 .jumbotron {
-  padding          : 40px;
-  background-color : #fff;
+  padding: 40px;
+  background-color: #fff;
 }
 
 .jumbotron blockquote {
-  font-size : 14px;
+  font-size: 14px;
   line-height: 0.9em;
 }
 
 .modal.fade.in {
-  top : 5%;
+  top: 5%;
+}
+
+.modal-body {
+  overflow-y: auto;
 }
 
 #fd-slideshow-dialog .modal-body {
-  max-height : 800px;
+  max-height: 800px;
 }
 
 #fd-slideshow-dialog #myCarousel {
-  margin-bottom : 0;
+  margin-bottom: 0;
 }
 
 .fd-screenshots-carousel .item {
-  text-align : center;
+  text-align: center;
 }
 
-.fd-screenshots-carousel .item > img {
-  display : inline;
+.fd-screenshots-carousel .item > a {
+  display: block;
+}
+
+.fd-screenshots-carousel .item > a > img {
+  display: inline;
+  margin: 0 auto;
 }
 
 .fd-screenshots-carousel .item .carousel-caption {
-  background-color : rgba(0, 0, 0, 0.30);
+  background-color: rgba(0, 0, 0, 0.60);
+  display: none;
+  left: 0;
+  right: 0;
+  border-radius: 10px;
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.fd-screenshots-carousel .item:hover .carousel-caption {
+  display: block;
 }
 
 .fd-empty-documentation {
-  min-height : 25em;
+  min-height: 25em;
 }
 
 footer p {
-  text-align : center;
+  text-align: center;
 }
 
 .fd-footer-credits {
-  float : left;
+  float: left;
 }
 
 .fd-footer-copyright {
-  float : right;
+  float: right;
 }
 
 /* Large desktop */
-@media (min-width : 1200px) {
+@media (min-width: 1200px) {
   #fd-forkme-ribbon {
-    display : inline;
+    display: inline;
   }
 
   #fd-forkme-menu {
-    display : none;
+    display: none;
   }
 }
 
-@media (min-width : 980px) and (max-width : 1199px) {
+@media (min-width: 980px) and (max-width: 1199px) {
   .fd-logo {
     min-height: 180px;
   }
 
   #fd-forkme-ribbon {
-    display : inline;
+    display: inline;
   }
 
   #fd-forkme-menu {
-    display : none;
+    display: none;
   }
 }
 
 /* Portrait tablet to landscape and desktop */
-@media (min-width : 768px) and (max-width : 979px) {
+@media (min-width: 768px) and (max-width: 979px) {
   .fd-logo {
     min-height: 160px;
   }
 
   #fd-forkme-ribbon {
-    display : inline;
+    display: inline;
   }
 
   #fd-forkme-menu {
-    display : none;
+    display: none;
   }
 }
 
 /* Landscape phone to portrait tablet */
-@media (max-width : 767px) {
+@media (max-width: 767px) {
   .fd-logo {
     min-height: 120px;
   }
 
   #fd-forkme-ribbon {
-    display : none;
+    display: none;
   }
 
   #fd-forkme-menu {
-    display : inline;
+    display: inline;
   }
 
   .fd-footer-credits, .fd-footer-copyright {
-    float   : none;
-    display : block;
+    float: none;
+    display: block;
   }
 }
 
 /* Landscape phones and down */
-@media (max-width : 480px) {
+@media (max-width: 480px) {
   .fd-logo {
     min-height: 100px;
   }
 
   .jumbotron {
-    padding     : 20px;
-    line-height : 25px;
+    padding: 20px;
+    line-height: 25px;
   }
 
   .carousel-caption h4 {
-    font-size : 16px;
+    font-size: 16px;
   }
 
   .modal-body {
-    max-height : 250px;
+    max-height: 250px;
   }
 
   .fd-commitmessage, .fd-commitname, .fd-commitdate {
-    font-size : 10px;
+    font-size: 10px;
   }
 
   .fd-commitdate {
-    display : none;
+    display: none;
   }
 }
 
 /* Special for header adjustment */
-@media (max-width : 679px) {
+@media (max-width: 679px) {
   .btn-large {
-    font-size : 14.5px;
+    font-size: 14.5px;
   }
 
   h1 {
-    font-size : 32px;
+    font-size: 32px;
   }
 
   h2 {
-    font-size : 25px;
+    font-size: 25px;
   }
 
   h3 {
-    font-size : 18px;
+    font-size: 18px;
   }
 
   .fd-commitmessage, .fd-commitname, .fd-commitdate {
-    font-size : 11px;
+    font-size: 11px;
   }
 }

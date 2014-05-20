@@ -81,14 +81,14 @@
                     <li>
                       <a onClick="fdScripts.gaTrack('Files', 'Download', 'zipball (home)');"
                          target="_blank"
-                         href="https://github.com/flickr-downloadr/flickr-downloadr/zipball/master">Source
+                         href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/zipball/master">Source
                         as
                         ZIP</a>
                     </li>
                     <li>
                       <a onClick="fdScripts.gaTrack('Files', 'Download', 'tarball (home)');"
                          target="_blank"
-                         href="https://github.com/flickr-downloadr/flickr-downloadr/tarball/master">Source
+                         href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/tarball/master">Source
                         as
                         TAR</a>
                     </li>
@@ -101,7 +101,7 @@
                     <li><a href="/documentation">Documentation</a></li>
                     <li>
                       <a onClick="fdScripts.gaTrack('External', 'Click', 'Issues (home)');"
-                         href="https://github.com/flickr-downloadr/flickr-downloadr/issues"
+                         href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/issues"
                          target="_blank">Report Issues</a></li>
                   </ul>
                 </li>
@@ -109,7 +109,7 @@
                   Us</a></li>
                 <li id="fd-forkme-menu">
                   <a onClick="fdScripts.gaTrack('Source', 'Fork', 'mobile banner (home)');"
-                     href="https://github.com/flickr-downloadr/flickr-downloadr"
+                     href="https://github.com/flickr-downloadr/flickr-downloadr-gtk"
                      target="_blank">
                     Fork me on GitHub</a>
                 </li>
@@ -118,7 +118,7 @@
             <!--/.nav-collapse -->
           </div>
           <a id="fd-forkme-ribbon" onClick="fdScripts.gaTrack('Source', 'Fork', 'banner (home)');"
-             href="https://github.com/flickr-downloadr/flickr-downloadr" target="_blank">
+             href="https://github.com/flickr-downloadr/flickr-downloadr-gtk" target="_blank">
               <img src="/images/forkme.png" alt="Fork me on GitHub">
           </a>
         </div>
@@ -138,238 +138,163 @@
                   href="/downloads/latest/flickr%20downloadr.application">Download & Install &raquo;</a>
             </p>
             <blockquote>
-              <small class="fd-version">Version <span class="fd-version-text">0.0.0.0</span>
-                (beta)
+              <small class="fd-version">
+                Version <span class="fd-version-text">0.0.0.0</span> (beta)
               </small>
             </blockquote>
           </div>
         </div>
 
         <div class="container">
-          <!-- Example row of columns -->
-          <div class="row">
-            <div class="col-md-4">
-              <h2>Features</h2>
-              <hr />
+        <!-- Example row of columns -->
+        <div class="row">
+        <div class="col-md-4">
+          <h2>Features</h2>
+          <hr/>
 
-              <ul>
-                <li>Log in securely to your flickr account via
-                  <a onClick="fdScripts.gaTrack('External', 'Click', 'Flickr OAuth');"
-                     href="http://www.flickr.com/services/api/auth.oauth.html"
-                     title="Read about OAuth on flickr.com"
-                     target="_blank">OAuth</a>
-                </li>
-                <li>View all the public photos (or <em>all</em> of them)</li>
-                <li>Select specific photos and download as a batch</li>
-                <li>Or download them all with one click.</li>
-                <li>Set preferences for download size, metadata etc.</li>
-              </ul>
+          <ul>
+            <li>Log in securely to your flickr account via
+              <a onClick="fdScripts.gaTrack('External', 'Click', 'Flickr OAuth');"
+                 href="http://www.flickr.com/services/api/auth.oauth.html"
+                 title="Read about OAuth on flickr.com"
+                 target="_blank">OAuth</a>
+            </li>
+            <li>View all the public photos (or <em>all</em> of them)</li>
+            <li>Select specific photos and download as a batch</li>
+            <li>Or download them all with one click.</li>
+            <li>Set preferences for download size, metadata etc.</li>
+          </ul>
 
-              <p>&nbsp;</p>
+          <p>&nbsp;</p>
 
-              <p><a id="getCommits"
-                    class="btn btn-primary"
-                    role="button"
-                    data-toggle="modal"
-                    href="#commits">
-                View Changelog &raquo;</a></p>
+          <p><a id="getCommits"
+                class="btn btn-primary"
+                role="button"
+                data-toggle="modal"
+                href="#commits">
+            View Changelog &raquo;</a></p>
 
-              <div id="commits" class="modal fade">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h3>Recent Commits on GitHub</h3>
-                    </div>
-                    <div class="modal-body">
-                      <div id="commitsContainer"></div>
-                    </div>
-                    <div class="modal-footer">
-                      <button class="btn btn-info"
-                              data-dismiss="modal"
-                              aria-hidden="true">Close
-                      </button>
-                    </div>
-                  </div>
+          <div id="commits" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h3>Recent Commits on GitHub</h3>
+                </div>
+                <div class="modal-body">
+                  <div id="commitsContainer"></div>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-info"
+                          data-dismiss="modal"
+                          aria-hidden="true">Close
+                  </button>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <h2>Screenshots</h2>
-              <hr />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h2>Screenshots</h2>
+          <hr/>
 
-              <p class="fd-screenshots-thumb">
-                <a href="#fd-slideshow-dialog" data-toggle="modal">
-                  <img src="images/screenshots/screenshots.png" alt="Screenshots" class="img-polaroid" />
-                </a>
-              </p>
+          <p class="fd-screenshots-thumb">
+            <a href="#fd-slideshow-dialog" data-toggle="modal">
+              <img src="images/screenshots/screenshots.png" alt="Screenshots" class="img-polaroid"/>
+            </a>
+          </p>
 
-              <p>
-                <a class="btn btn-primary" href="#fd-slideshow-dialog" role="button" data-toggle="modal">
-                  View all &raquo;
-                </a>
-              </p>
+          <p>
+            <a class="btn btn-primary" href="#fd-slideshow-dialog" role="button" data-toggle="modal">
+              View all &raquo;
+            </a>
+          </p>
 
-              <div id="fd-slideshow-dialog" class="modal fade">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h3>Application Screenshots</h3>
-                    </div>
-                    <div class="modal-body">
-                      <div class="fd-screenshots-carousel">
-                        <div id="myCarousel" class="carousel slide">
-                          <div class="carousel-inner">
-                            <div class="item active">
-                              <img src="images/screenshots/loginScreen01.png"
-                                   alt="Login Window">
+          <div id="fd-slideshow-dialog" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h3>Application Screenshots</h3>
+                </div>
+                <div class="modal-body">
+                  <div class="fd-screenshots-carousel">
+                    <div id="myCarousel" class="carousel slide">
+                      <div class="carousel-inner">
+                        <div class="item active">
+                          <img src="images/screenshots/loginScreen01.png"
+                               alt="Login Window">
 
-                              <div class="carousel-caption">
-                                <h4>Login Window</h4>
+                          <div class="carousel-caption">
+                            <h4>Login Window</h4>
 
-                                <p>The flickr downloadr login screen that first
-                                  greets you.</p>
-                              </div>
-                            </div>
-                            <div class="item">
-                              <img src="images/screenshots/loginScreen02.png"
-                                   alt="Logging In">
-
-                              <div class="carousel-caption">
-                                <h4>Logging In using OAuth</h4>
-
-                                <p>flickr downloadr opening flickr on your web
-                                  browser to authenticate you securely.</p>
-                              </div>
-                            </div>
-                            <div class="item">
-                              <img src="images/screenshots/flickrAuth.png"
-                                   alt="flickr confirming your approval">
-
-                              <div class="carousel-caption">
-                                <h4>flickr confirming your approval</h4>
-
-                                <p>This page would open in your browser if and
-                                  when you're logged in to your flickr
-                                  account.</p>
-                              </div>
-                            </div>
-                            <div class="item">
-                              <img src="images/screenshots/loginScreen03.png"
-                                   alt="Logged In">
-
-                              <div class="carousel-caption">
-                                <h4>Logged In !</h4>
-
-                                <p>User successfully logged in and authorized
-                                  flickr downloadr.</p>
-                              </div>
-                            </div>
-                            <div class="item">
-                              <img src="images/screenshots/preferencesScreen.png"
-                                   alt="Preferences Window">
-
-                              <div class="carousel-caption">
-                                <h4>Preferences window</h4>
-
-                                <p>The screen to set your preferences.</p>
-                              </div>
-                            </div>
-                            <div class="item">
-                              <img src="images/screenshots/photoBrowserScreen.png"
-                                   alt="Photo Browser Window">
-
-                              <div class="carousel-caption">
-                                <h4>Photo Browser window</h4>
-
-                                <p>The main photo browser window that enables
-                                  selecting and downloading the flickr
-                                  photos.</p>
-                              </div>
-                            </div>
+                            <p>The flickr downloadr login screen that first
+                              greets you.</p>
                           </div>
-                          <a class="left carousel-control"
-                             href="#myCarousel"
-                             data-slide="prev">&lsaquo;</a>
-                          <a class="right carousel-control"
-                             href="#myCarousel"
-                             data-slide="next">&rsaquo;</a>
+                        </div>
+                        <div class="item">
+                          <img src="images/screenshots/loginScreen02.png"
+                               alt="Logging In">
+
+                          <div class="carousel-caption">
+                            <h4>Logging In using OAuth</h4>
+
+                            <p>flickr downloadr opening flickr on your web
+                              browser to authenticate you securely.</p>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <img src="images/screenshots/flickrAuth.png"
+                               alt="flickr confirming your approval">
+
+                          <div class="carousel-caption">
+                            <h4>flickr confirming your approval</h4>
+
+                            <p>This page would open in your browser if and
+                              when you're logged in to your flickr
+                              account.</p>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <img src="images/screenshots/loginScreen03.png"
+                               alt="Logged In">
+
+                          <div class="carousel-caption">
+                            <h4>Logged In !</h4>
+
+                            <p>User successfully logged in and authorized
+                              flickr downloadr.</p>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <img src="images/screenshots/preferencesScreen.png"
+                               alt="Preferences Window">
+
+                          <div class="carousel-caption">
+                            <h4>Preferences window</h4>
+
+                            <p>The screen to set your preferences.</p>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <img src="images/screenshots/photoBrowserScreen.png"
+                               alt="Photo Browser Window">
+
+                          <div class="carousel-caption">
+                            <h4>Photo Browser window</h4>
+
+                            <p>The main photo browser window that enables
+                              selecting and downloading the flickr
+                              photos.</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <h2>License</h2>
-              <hr />
-
-              <h5>The MIT License (MIT)</h5>
-
-              <p>Licensed under one of the most popular open source licenses, anyone is free to use, copy, modify flickr downloadr subject to certain conditions.</p>
-
-              <p>If you're into C#/.NET, WPF etc., go crazy forking and submitting pull requests
-                <a onClick="fdScripts.gaTrack('Source', 'Fork', 'License');" target="_blank"
-                   href="https://github.com/flickr-downloadr/flickr-downloadr" title="Fork me on GitHub">here</a></p>
-
-              <p><a class="btn btn-primary" href="#license" role="button" data-toggle="modal">View License &raquo;</a> </p>
-
-              <div id="license" class="modal fade">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h3>The MIT License (MIT)</h3>
-                    </div>
-                    <div class="modal-body">
-                      <h5>Copyright &copy; 2012-2014 Haridas Pachuveetil</h5>
-
-                      <p>
-                        <small>Permission is hereby granted, free of charge, to
-                          any person obtaining a copy of this software and
-                          associated
-                          documentation files (the "Software"), to deal in the
-                          Software without restriction, including without
-                          limitation
-                          the rights to use, copy, modify, merge, publish,
-                          distribute, sublicense, and/or sell copies of the
-                          Software,
-                          and to permit persons to whom the Software is
-                          furnished to do so, subject to the following
-                          conditions:
-                        </small>
-                      </p>
-
-                      <p>
-                        <small>The above copyright notice and this permission
-                          notice shall be included in all copies or substantial
-                          portions of the Software.
-                        </small>
-                      </p>
-
-                      <p>
-                        <small>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT
-                          WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
-                          BUT NOT
-                          LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-                          FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
-                          EVENT
-                          SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR
-                          ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
-                          ACTION
-                          OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF
-                          OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-                          DEALINGS IN THE SOFTWARE.
-                        </small>
-                      </p>
-                    </div>
-                    <div class="modal-footer">
-                      <button class="btn btn-info"
-                              data-dismiss="modal"
-                              aria-hidden="true">Close
-                      </button>
+                      <a class="left carousel-control"
+                         href="#myCarousel"
+                         data-slide="prev">&lsaquo;</a>
+                      <a class="right carousel-control"
+                         href="#myCarousel"
+                         data-slide="next">&rsaquo;</a>
                     </div>
                   </div>
                 </div>
@@ -377,40 +302,116 @@
             </div>
           </div>
         </div>
+        <div class="col-md-4">
+          <h2>License</h2>
+          <hr/>
+
+          <h5>The MIT License (MIT)</h5>
+
+          <p>Licensed under one of the most popular open source licenses, anyone is free to use, copy, modify flickr
+            downloadr subject to certain conditions.</p>
+
+          <p>If you're into C#/.NET, WPF etc., go crazy forking and submitting pull requests
+            <a onClick="fdScripts.gaTrack('Source', 'Fork', 'License');" target="_blank"
+               href="https://github.com/flickr-downloadr/flickr-downloadr-gtk" title="Fork me on GitHub">here</a></p>
+
+          <p><a class="btn btn-primary" href="#license" role="button" data-toggle="modal">View License &raquo;</a></p>
+
+          <div id="license" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h3>The MIT License (MIT)</h3>
+                </div>
+                <div class="modal-body">
+                  <h5>Copyright &copy; 2012-2014 Haridas Pachuveetil</h5>
+
+                  <p>
+                    <small>Permission is hereby granted, free of charge, to
+                      any person obtaining a copy of this software and
+                      associated
+                      documentation files (the "Software"), to deal in the
+                      Software without restriction, including without
+                      limitation
+                      the rights to use, copy, modify, merge, publish,
+                      distribute, sublicense, and/or sell copies of the
+                      Software,
+                      and to permit persons to whom the Software is
+                      furnished to do so, subject to the following
+                      conditions:
+                    </small>
+                  </p>
+
+                  <p>
+                    <small>The above copyright notice and this permission
+                      notice shall be included in all copies or substantial
+                      portions of the Software.
+                    </small>
+                  </p>
+
+                  <p>
+                    <small>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT
+                      WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+                      BUT NOT
+                      LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+                      FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+                      EVENT
+                      SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR
+                      ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+                      ACTION
+                      OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF
+                      OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+                      DEALINGS IN THE SOFTWARE.
+                    </small>
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-info"
+                          data-dismiss="modal"
+                          aria-hidden="true">Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
 
         <hr>
 
         <footer>
           <p>
-           <span id="social-icons">
-               <a class="gmail" href="#"><i class="fa fa-3x fa-envelope-square"></i></a>
-               <a class="github" href="#"><i class="fa fa-3x fa-github-square"></i></a>
-               <a class="facebook" href="#"><i class="fa fa-3x fa-facebook-square"></i></a>
-               <a class="twitter" href="#"><i class="fa fa-3x fa-twitter-square"></i></a>
-               <a class="google+" href="#"><i class="fa fa-3x fa-google-plus-square"></i></a>
-               <a class="flickr" href="#"><i class="fa fa-3x fa-flickr"></i></a>
-               <a class="youtube" href="#"><i class="fa fa-3x fa-youtube-square"></i></a>
-               <a class="pinterest" href="#"><i class="fa fa-3x fa-pinterest-square"></i></a>
-           </span>
+             <span id="social-icons">
+                 <a class="gmail" href="#"><i class="fa fa-3x fa-envelope-square"></i></a>
+                 <a class="github" href="#"><i class="fa fa-3x fa-github-square"></i></a>
+                 <a class="facebook" href="#"><i class="fa fa-3x fa-facebook-square"></i></a>
+                 <a class="twitter" href="#"><i class="fa fa-3x fa-twitter-square"></i></a>
+                 <a class="google+" href="#"><i class="fa fa-3x fa-google-plus-square"></i></a>
+                 <a class="flickr" href="#"><i class="fa fa-3x fa-flickr"></i></a>
+                 <a class="youtube" href="#"><i class="fa fa-3x fa-youtube-square"></i></a>
+                 <a class="pinterest" href="#"><i class="fa fa-3x fa-pinterest-square"></i></a>
+             </span>
           </p>
 
           <p>
-           <span class="fd-footer-credits">
-               <small>Built with
-                 <a onClick="fdScripts.gaTrack('External', 'Click', 'Bootstrap (home)');"
-                    href="http://twitter.github.com/bootstrap/" target="_blank">Bootstrap</a>.
-               </small>
-               <small> |</small>
-               <small>Hosted on
-                 <a onClick="fdScripts.gaTrack('External', 'Click', 'GH Pages (home)');"
-                    href="http://pages.github.com/" target="_blank">GitHub Pages</a>.
-               </small>
-           </span>
-           <span class="fd-footer-copyright">
-                <small>&copy; 2012-2014 <a onClick="fdScripts.gaTrack('External', 'Click', 'harimenon.com (home)');"
-                                           href="http://www.harimenon.com" target="_blank">Haridas Pachuveetil</a>
-                </small>
-           </span>
+             <span class="fd-footer-credits">
+                 <small>Built with
+                   <a onClick="fdScripts.gaTrack('External', 'Click', 'Bootstrap (home)');"
+                      href="http://twitter.github.com/bootstrap/" target="_blank">Bootstrap</a>.
+                 </small>
+                 <small> |</small>
+                 <small>Hosted on
+                   <a onClick="fdScripts.gaTrack('External', 'Click', 'GH Pages (home)');"
+                      href="http://pages.github.com/" target="_blank">GitHub Pages</a>.
+                 </small>
+             </span>
+             <span class="fd-footer-copyright">
+                  <small>&copy; 2012-2014 <a onClick="fdScripts.gaTrack('External', 'Click', 'harimenon.com (home)');"
+                                             href="http://www.harimenon.com" target="_blank">Haridas Pachuveetil</a>
+                  </small>
+             </span>
           </p>
         </footer>
 
@@ -420,6 +421,7 @@
         <!-- bower:js -->
         <script src="../bower_components/jquery/dist/jquery.js"></script>
         <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="../bower_components/detectizr/dist/detectizr.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 

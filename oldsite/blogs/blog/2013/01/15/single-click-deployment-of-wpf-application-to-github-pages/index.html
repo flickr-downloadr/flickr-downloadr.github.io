@@ -74,7 +74,7 @@ how the app is being published (via NAnt and &hellip;">
     <li><a href="/blogs/">Blog</a></li>
     <li><a href="/downloads/latest">Download</a></li>
     <li><a href="/documentation">Documentation</a></li>
-    <li><a href="https://github.com/flickr-downloadr/flickr-downloadr/issues" target="_blank">Report Issues</a></li>
+    <li><a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/issues" target="_blank">Report Issues</a></li>
     <li><a href="mailto:contact.us@flickrdownloadr.com">Contact Us</a></li>
 </ul>
 
@@ -172,7 +172,7 @@ how the app is being published (via NAnt and &hellip;">
 
 <p>The sequence of steps from the single-click deployment process, gets kicked off by the <code>deploy.bat</code> file. Here are the contents of that file:</p>
 
-<figure class='code'><figcaption><span>deploy.bat</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/master/build/deploy.bat'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>deploy.bat</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/master/build/deploy.bat'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='bat'><span class='line'>go deploy Release
 </span><span class='line'><span class="k">pause</span>
@@ -181,7 +181,7 @@ how the app is being published (via NAnt and &hellip;">
 
 <p>Here <code>go</code> is another batch file that is there in the same directory:</p>
 
-<figure class='code'><figcaption><span>go.bat</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/master/build/go.bat'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>go.bat</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/master/build/go.bat'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -202,7 +202,7 @@ how the app is being published (via NAnt and &hellip;">
 
 <p>So, as evident here, this calls NAnt with <code>FlickrDownloadr.build</code> as the build file and <code>deploy</code> as the target to run, with <code>Release</code> as the build configuration.</p>
 
-<figure class='code'><figcaption><span>deploy</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L110'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>deploy</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L110'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -227,7 +227,7 @@ how the app is being published (via NAnt and &hellip;">
 
 <p>This target first waits for its dependant target <code>publish</code> to execute. Let&#8217;s see what that does first and we shall come back to this target to see when it would execute the <code>deploy.sh</code> bash script.</p>
 
-<figure class='code'><figcaption><span>publish</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L121'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>publish</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L121'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -284,7 +284,7 @@ how the app is being published (via NAnt and &hellip;">
 
 <p>The <code>compilesolution</code> task is another straight-forward one like this:</p>
 
-<figure class='code'><figcaption><span>compilesolution</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L40'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>compilesolution</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L40'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -301,7 +301,7 @@ how the app is being published (via NAnt and &hellip;">
 
 <p>As mentioned earlier, this time around MSBuild is being invoked on the Visual Studio solution itself. But the most interesting aspect here is the <code>increment-version</code> target that is a dependency:</p>
 
-<figure class='code'><figcaption><span>increment-version</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L66'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>increment-version</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L66'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -320,7 +320,7 @@ how the app is being published (via NAnt and &hellip;">
 
 <p>Then we get to the <a href="http://nant.sourceforge.net/release/latest/help/tasks/asminfo.html">NAnt asminfo</a> task to generate one, shared <code>CommonAssemblyInfo.cs</code> file, which is linked to by all the projects in the solution as their <code>AssemblyInfo.cs</code> modules.</p>
 
-<figure class='code'><figcaption><span>create-common-assemblyinfo</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L72'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>create-common-assemblyinfo</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L72'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -458,7 +458,7 @@ else
 fi
 
 cd ../source/bin/Release
-REPO=git@github.com:flickr-downloadr/flickr-downloadr.git
+REPO=git@github.com:flickr-downloadr/flickr-downloadr-gtk.git
 MSG=&quot;application (v${BUILDNUMBER})&quot;
 
 #clone repo in a tmp dir
@@ -510,7 +510,7 @@ exit</code></pre></noscript></div>
 
 <p>To fix this, a <code>.gitattributes</code> file was added into the <code>gh-pages</code> branch <code>downloads</code> directory, following <a href="https://help.github.com/articles/dealing-with-line-endings">this helpfile at GitHub</a>, to the effect of asking git to treat everything within the <code>/downloads</code> directory as non-text files:</p>
 
-<figure class='code'><figcaption><span>.gitattributes</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/gh-pages/downloads/.gitattributes'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>.gitattributes</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/gh-pages/downloads/.gitattributes'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>*  -text</span></code></pre></td></tr></table></div></figure>
 
 
