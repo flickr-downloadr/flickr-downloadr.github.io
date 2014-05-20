@@ -1,89 +1,215 @@
 .browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
+  margin     : 0.2em 0;
+  background : #ccc;
+  color      : #000;
+  padding    : 0.2em 0;
 }
 
 /* Space out content a bit */
 body {
-    padding-top: 20px;
-    padding-bottom: 20px;
+  padding-top    : 60px;
+  padding-bottom : 40px;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-    padding-left: 15px;
-    padding-right: 15px;
+body {
+  background-image      : url(../images/furley_bg.png);
+  background-attachment : fixed;
 }
 
-/* Custom page header */
-.header {
-    border-bottom: 1px solid #e5e5e5;
+#fd-forkme-ribbon img {
+  position : absolute;
+  top      : 0;
+  right    : 0;
+  border   : 0;
 }
 
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
+.fd-logo {
+  min-height      : 200px;
+  background      : url('../images/logo.png') no-repeat center;
+  background-size : 100%;
 }
 
-/* Custom page footer */
-.footer {
-    padding-top: 19px;
-    color: #777;
-    border-top: 1px solid #e5e5e5;
+.fd-version {
+  display : none;
 }
 
-.container-narrow > hr {
-    margin: 30px 0;
+.fd-released {
+  font-size : x-small;
 }
 
-/* Main marketing message and sign up button */
+th {
+  text-align : left;
+}
+
+.fd-commitmessage {
+  word-wrap : break-word;
+}
+
+.fd-commitname {
+  width : 20%;
+}
+
+.fd-commitdate {
+  width : 20%;
+}
+
+.fd-commitmessage, .fd-commitname, .fd-commitdate {
+  border-bottom : dotted thin #e1e1e8;
+}
+
+.fd-screenshots-thumb {
+  text-align : center;
+}
+
+/* -- Overrides -- */
 .jumbotron {
-    text-align: center;
-    border-bottom: 1px solid #e5e5e5;
+  padding          : 40px;
+  background-color : #fff;
 }
 
-.jumbotron .btn {
-    font-size: 21px;
-    padding: 14px 24px;
+.jumbotron blockquote {
+  font-size : 14px;
 }
 
-/* Supporting marketing content */
-.marketing {
-    margin: 40px 0;
+.modal.fade.in {
+  top : 5%;
 }
 
-.marketing p + h4 {
-    margin-top: 28px;
+#fd-slideshow-dialog .modal-body {
+  max-height : 800px;
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-    .container {
-        max-width: 730px;
-    }
+#fd-slideshow-dialog #myCarousel {
+  margin-bottom : 0;
+}
 
-    /* Remove the padding we set earlier */
-    .header,
-    .marketing,
-    .footer {
-        padding-left: 0;
-        padding-right: 0;
-    }
+.fd-screenshots-carousel .item {
+  text-align : center;
+}
 
-    /* Space out the masthead */
-    .header {
-        margin-bottom: 30px;
-    }
-    
-    /* Remove the bottom border on the jumbotron for visual effect */
-    .jumbotron {
-        border-bottom: 0;
-    }
+.fd-screenshots-carousel .item > img {
+  display : inline;
+}
+
+.fd-screenshots-carousel .item .carousel-caption {
+  background-color : rgba(0, 0, 0, 0.30);
+}
+
+.fd-empty-documentation {
+  min-height : 25em;
+}
+
+footer p {
+  text-align : center;
+}
+
+.fd-footer-credits {
+  float : left;
+}
+
+.fd-footer-copyright {
+  float : right;
+}
+
+/* Large desktop */
+@media (min-width : 1200px) {
+  #fd-forkme-ribbon {
+    display : inline;
+  }
+
+  #fd-forkme-menu {
+    display : none;
+  }
+}
+
+@media (min-width : 980px) and (max-width : 1199px) {
+  #fd-forkme-ribbon {
+    display : inline;
+  }
+
+  #fd-forkme-menu {
+    display : none;
+  }
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width : 768px) and (max-width : 979px) {
+  #fd-forkme-ribbon {
+    display : inline;
+  }
+
+  #fd-forkme-menu {
+    display : none;
+  }
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width : 767px) {
+  #fd-forkme-ribbon {
+    display : none;
+  }
+
+  #fd-forkme-menu {
+    display : inline;
+  }
+
+  .fd-footer-credits, .fd-footer-copyright {
+    float   : none;
+    display : block;
+  }
+}
+
+/* Landscape phones and down */
+@media (max-width : 480px) {
+  .hero-unit {
+    padding     : 20px;
+    line-height : 25px;
+  }
+
+  .carousel-caption h4 {
+    font-size : 16px;
+  }
+
+  .modal-body {
+    max-height : 250px;
+  }
+
+  .fd-commitmessage, .fd-commitname, .fd-commitdate {
+    font-size : 10px;
+  }
+
+  .fd-commitdate {
+    display : none;
+  }
+}
+
+/* Special for header adjustment */
+@media (max-width : 679px) {
+  .hero-unit h1 {
+    font-size : 40px;
+  }
+
+  .hero-unit img {
+    max-width : 40px;
+  }
+
+  .btn-large {
+    font-size : 14.5px;
+  }
+
+  h1 {
+    font-size : 32px;
+  }
+
+  h2 {
+    font-size : 25px;
+  }
+
+  h3 {
+    font-size : 18px;
+  }
+
+  .fd-commitmessage, .fd-commitname, .fd-commitdate {
+    font-size : 11px;
+  }
 }
