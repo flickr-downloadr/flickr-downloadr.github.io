@@ -80,12 +80,25 @@ th {
   overflow-y: auto;
 }
 
+.modal-header, .modal-footer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 #fd-slideshow-dialog .modal-body {
   max-height: 800px;
 }
 
 #fd-slideshow-dialog #myCarousel {
   margin-bottom: 0;
+}
+
+.fd-screenshots-carousel #myCarousel .carousel-control {
+  display: none;
+}
+
+.fd-screenshots-carousel #myCarousel:hover .carousel-control {
+  display: block;
 }
 
 .fd-screenshots-carousel .item {
