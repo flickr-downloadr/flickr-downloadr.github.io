@@ -69,6 +69,7 @@ th {
 
 .jumbotron blockquote {
   font-size : 14px;
+  line-height: 0.9em;
 }
 
 .modal.fade.in {
@@ -123,6 +124,10 @@ footer p {
 }
 
 @media (min-width : 980px) and (max-width : 1199px) {
+  .fd-logo {
+    min-height: 180px;
+  }
+
   #fd-forkme-ribbon {
     display : inline;
   }
@@ -134,6 +139,10 @@ footer p {
 
 /* Portrait tablet to landscape and desktop */
 @media (min-width : 768px) and (max-width : 979px) {
+  .fd-logo {
+    min-height: 160px;
+  }
+
   #fd-forkme-ribbon {
     display : inline;
   }
@@ -145,6 +154,10 @@ footer p {
 
 /* Landscape phone to portrait tablet */
 @media (max-width : 767px) {
+  .fd-logo {
+    min-height: 120px;
+  }
+
   #fd-forkme-ribbon {
     display : none;
   }
@@ -161,7 +174,11 @@ footer p {
 
 /* Landscape phones and down */
 @media (max-width : 480px) {
-  .hero-unit {
+  .fd-logo {
+    min-height: 100px;
+  }
+
+  .jumbotron {
     padding     : 20px;
     line-height : 25px;
   }
@@ -185,14 +202,6 @@ footer p {
 
 /* Special for header adjustment */
 @media (max-width : 679px) {
-  .hero-unit h1 {
-    font-size : 40px;
-  }
-
-  .hero-unit img {
-    max-width : 40px;
-  }
-
   .btn-large {
     font-size : 14.5px;
   }

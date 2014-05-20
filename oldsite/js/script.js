@@ -19,7 +19,7 @@ $.ajaxSetup({
 });
 
 $(function () {
-  var socialIcons = $('#socialicons');
+  var socialIcons = $('#social-icons');
   socialIcons.find('img').hover(
       function () {
         $(this).attr('src', $(this).attr('src').replace('_c.png', '.png'));
