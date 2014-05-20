@@ -40,10 +40,6 @@ module.exports = function (grunt) {
           livereload : true
         }
       },
-      jstest     : {
-        files : ['test/spec/{,*/}*.js'],
-        tasks : ['test:watch']
-      },
       gruntfile  : {
         files : ['Gruntfile.js']
       },
@@ -77,20 +73,6 @@ module.exports = function (grunt) {
           middleware : function (connect) {
             return [
               connect.static('.tmp'),
-              connect().use('/bower_components', connect.static('./bower_components')),
-              connect.static(config.app)
-            ];
-          }
-        }
-      },
-      test       : {
-        options : {
-          open       : false,
-          port       : 9001,
-          middleware : function (connect) {
-            return [
-              connect.static('.tmp'),
-              connect.static('test'),
               connect().use('/bower_components', connect.static('./bower_components')),
               connect.static(config.app)
             ];
@@ -134,16 +116,6 @@ module.exports = function (grunt) {
         '!<%= config.app %>/scripts/vendor/*',
         'test/spec/{,*/}*.js'
       ]
-    },
-
-    // Mocha testing framework configuration options
-    mocha         : {
-      all : {
-        options : {
-          run  : true,
-          urls : ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html']
-        }
-      }
     },
 
     // Add vendor prefixed styles
@@ -387,21 +359,6 @@ module.exports = function (grunt) {
     grunt.task.run([target ? ('serve:' + target) : 'serve']);
   });
 
-  grunt.registerTask('test', function (target) {
-    if (target !== 'watch') {
-      grunt.task.run([
-        'clean:server',
-        'concurrent:test',
-        'autoprefixer'
-      ]);
-    }
-
-    grunt.task.run([
-      'connect:test',
-      'mocha'
-    ]);
-  });
-
   grunt.registerTask('build', [
     'clean:dist',
     'useminPrepare',
@@ -424,7 +381,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'newer:jshint',
-    'test',
     'build'
   ]);
 };
