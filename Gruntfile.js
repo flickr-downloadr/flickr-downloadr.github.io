@@ -232,7 +232,7 @@ module.exports = function (grunt) {
       }
     },
 
-    htmlmin    : {
+    htmlmin      : {
       dist : {
         options : {
           collapseBooleanAttributes : true,
@@ -282,7 +282,7 @@ module.exports = function (grunt) {
     // },
 
     // Copies remaining files to places other tasks can use
-    copy       : {
+    copy         : {
       dist   : {
         files : [
           {
@@ -322,7 +322,7 @@ module.exports = function (grunt) {
 
     // Generates a custom Modernizr build that includes only the tests you
     // reference in your app
-    modernizr  : {
+    modernizr    : {
       dist : {
         devFile    : 'bower_components/modernizr/modernizr.js',
         outputFile : '<%= config.dist %>/scripts/vendor/modernizr.js',
@@ -338,7 +338,7 @@ module.exports = function (grunt) {
     },
 
     // Run some tasks in parallel to speed up build process
-    concurrent : {
+    concurrent   : {
       server : [
         'copy:styles'
       ],
@@ -350,6 +350,22 @@ module.exports = function (grunt) {
         'imagemin',
         'svgmin'
       ]
+    },
+
+    // Deploy to master branch on GitHub
+    buildcontrol : {
+      options : {
+        dir     : 'dist',
+        commit  : true,
+        push    : true,
+        message : 'Built %sourceName% from commit %sourceCommit% on branch source [ci skip]'
+      },
+      pages   : {
+        options : {
+          remote : 'git@github.com:flickr-downloadr/website-beta.git',
+          branch : 'gh-pages'
+        }
+      }
     }
   });
 
@@ -400,6 +416,11 @@ module.exports = function (grunt) {
     'rev',
     'usemin',
     'htmlmin'
+  ]);
+
+  grunt.registerTask('deploy', [
+    'build',
+    'buildcontrol:pages'
   ]);
 
   grunt.registerTask('default', [
