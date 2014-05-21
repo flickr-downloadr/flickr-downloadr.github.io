@@ -110,11 +110,14 @@ $(function () {
       $('#fd-download-platform-name').text(currentPlatform.name);
       $('#fd-installer').fadeIn();
 
-      // set the screenshots
+      // set the screenshots for current platform
       if (currentPlatform.shortName !== 'win') {
-        $('.fd-screenshots-carousel').find('img').each(function () {
-          $(this).attr('src', $(this).attr('src').replace('_win', '_' + currentPlatform.shortName));
-        });
+        var $fdHiddenSlides = $('#fd-hidden-slides');
+        var $fdScreenshotsCarousel = $('.fd-screenshots-carousel');
+        $fdHiddenSlides.append($fdScreenshotsCarousel.find('.win.item').detach());
+        $fdHiddenSlides.find('.item').removeClass('active');
+        $fdScreenshotsCarousel.find('.carousel-inner').append($fdHiddenSlides.find('.' + currentPlatform.shortName +'.item').detach());
+        $fdScreenshotsCarousel.find('.item').first().addClass('active');
       }
 
       // get the commit sha for this tag

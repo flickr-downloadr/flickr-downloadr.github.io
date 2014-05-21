@@ -131,6 +131,10 @@ th {
   display: block;
 }
 
+#fd-hidden-slides {
+  display: none;
+}
+
 .fd-empty-documentation {
   min-height: 25em;
 }
