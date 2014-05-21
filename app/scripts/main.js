@@ -25,7 +25,7 @@ $(function () {
   Detectizr.detect({detectScreen : false});
 
   var currentOsName = Detectizr.os.name,
-    downloadOnClick = 'fdScripts.gaTrack("Files", "Download", "flickr downloadr %PLATFORM% (home)");',
+      downloadOnClick = 'fdScripts.gaTrack("Files", "Download", "flickr downloadr %PLATFORM% (home)");',
       platforms = {
         'windows'   : {
           name          : 'Windows',
@@ -93,7 +93,7 @@ $(function () {
     }
   });
 
-  if (currentOsName === 'linux'  && Detectizr.os.addressRegisterSize === '64bit') {
+  if (currentOsName === 'linux' && Detectizr.os.addressRegisterSize === '64bit') {
     currentOsName = 'linux-x64';
   }
 
@@ -102,6 +102,7 @@ $(function () {
       var $fdVersion = $('.fd-version');
       $('.fd-version-text').text(latestVersion);
       $('#fd-version').fadeIn();
+
       //set the installer links
       var currentPlatform = platforms[currentOsName];
       var $fdDownloadButton = $('#fd-download-button');
@@ -110,13 +111,34 @@ $(function () {
       $('#fd-download-platform-name').text(currentPlatform.name);
       $('#fd-installer').fadeIn();
 
+      var $fdHiddenSlides = $('#fd-hidden-slides');
+      var $fdScreenshotsCarousel = $('.fd-screenshots-carousel');
+      var $fdScreenshotDialogHeader = $('#fd-screenshot-header-platform');
+      $fdScreenshotDialogHeader.find('span').text(currentPlatform.name);
+      $fdScreenshotDialogHeader.find('a').on('click', function () {
+        $fdScreenshotsCarousel.find('.carousel-inner').append($fdHiddenSlides.find('.item').detach());
+        $fdScreenshotsCarousel.find('.carousel-inner').find('.item').each(function(){
+          var platformName;
+          var item = $(this);
+          if (item.hasClass('win')) {
+            platformName = ' (Windows)';
+          } else if (item.hasClass('osx')) {
+            platformName = ' (Mac OS X)';
+          } else if (item.hasClass('linux')) {
+            platformName = ' (Linux)';
+          }
+          item.find('h4').text(item.find('h4').text() + platformName);
+        });
+        $fdScreenshotDialogHeader.fadeOut();
+        return false;
+      });
+
+
       // set the screenshots for current platform
       if (currentPlatform.shortName !== 'win') {
-        var $fdHiddenSlides = $('#fd-hidden-slides');
-        var $fdScreenshotsCarousel = $('.fd-screenshots-carousel');
         $fdHiddenSlides.append($fdScreenshotsCarousel.find('.win.item').detach());
         $fdHiddenSlides.find('.item').removeClass('active');
-        $fdScreenshotsCarousel.find('.carousel-inner').append($fdHiddenSlides.find('.' + currentPlatform.shortName +'.item').detach());
+        $fdScreenshotsCarousel.find('.carousel-inner').append($fdHiddenSlides.find('.' + currentPlatform.shortName + '.item').detach());
         $fdScreenshotsCarousel.find('.item').first().addClass('active');
       }
 
