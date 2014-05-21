@@ -24,7 +24,8 @@ $(function () {
 
   Detectizr.detect({detectScreen : false});
 
-  var downloadOnClick = 'fdScripts.gaTrack("Files", "Download", "flickr downloadr %PLATFORM% (home)");',
+  var currentOsName = Detectizr.os.name,
+    downloadOnClick = 'fdScripts.gaTrack("Files", "Download", "flickr downloadr %PLATFORM% (home)");',
       platforms = {
         'windows'   : {
           name          : 'Windows',
@@ -92,13 +93,17 @@ $(function () {
     }
   });
 
+  if (currentOsName === 'linux'  && Detectizr.os.addressRegisterSize === '64bit') {
+    currentOsName = 'linux-x64';
+  }
+
   $.get('/build.number',
     function (latestVersion) {
       var $fdVersion = $('.fd-version');
       $('.fd-version-text').text(latestVersion);
-      $fdVersion.fadeIn();
+      $('#fd-version').fadeIn();
       //set the installer links
-      var currentPlatform = platforms[Detectizr.os.name];
+      var currentPlatform = platforms[currentOsName];
       var $fdDownloadButton = $('#fd-download-button');
       $fdDownloadButton.attr('onClick', downloadOnClick.replace('%PLATFORM%', currentPlatform.name));
       $fdDownloadButton.attr('href', currentPlatform.installerPath.replace('%VERSION%', latestVersion));
