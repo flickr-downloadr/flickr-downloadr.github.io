@@ -9,11 +9,7 @@
 body {
   padding-top: 60px;
   padding-bottom: 40px;
-}
-
-body {
-  background-image: url(../images/furley_bg.png);
-  background-attachment: fixed;
+  background: url(../images/furley_bg.png) fixed;
 }
 
 #fd-forkme-ribbon img {
@@ -27,6 +23,24 @@ body {
   min-height: 200px;
   background: url('../images/logo.png') no-repeat center;
   background-size: 100%;
+}
+
+.jumbotron {
+  padding: 40px;
+  background-color: #fff;
+}
+
+.jumbotron blockquote {
+  font-size: 14px;
+  line-height: 0.9em;
+}
+
+#fd-installer {
+  display: none;
+}
+
+.fd-download-subtitle {
+  font-size: 12px;
 }
 
 .fd-version {
@@ -59,17 +73,6 @@ th {
 
 .fd-screenshots-thumb {
   text-align: center;
-}
-
-/* -- Overrides -- */
-.jumbotron {
-  padding: 40px;
-  background-color: #fff;
-}
-
-.jumbotron blockquote {
-  font-size: 14px;
-  line-height: 0.9em;
 }
 
 .modal.fade.in {

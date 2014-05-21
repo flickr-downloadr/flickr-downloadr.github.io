@@ -22,7 +22,31 @@ $.ajaxSetup({
 
 $(function () {
 
-  Detectizr.detect({detectScreen:false});
+  Detectizr.detect({detectScreen : false});
+
+  var downloadOnClick = 'fdScripts.gaTrack("Files", "Download", "flickr downloadr %PLATFORM% (home)");',
+      platforms = {
+        'windows'   : {
+          name          : 'Windows',
+          shortName     : 'win',
+          installerPath : 'installer/windows/flickrdownloadr-%VERSION%-windows-installer.exe'
+        },
+        'osx'       : {
+          name          : 'Mac OS X',
+          shortName     : 'osx',
+          installerPath : 'installer/osx/Install%20flickr%20downloadr.app.dmg'
+        },
+        'linux'     : {
+          name          : 'Linux (32-bit)',
+          shortName     : 'linux',
+          installerPath : 'installer/linux/flickrdownloadr-%VERSION%-linux-installer.run'
+        },
+        'linux-x64' : {
+          name          : 'Linux (64-bit)',
+          shortName     : 'linux',
+          installerPath : 'installer/linux-x64/flickrdownloadr-%VERSION%-linux-x64-installer.run'
+        }
+      };
 
   var socialIcons = $('#social-icons'),
       socialHash = {
@@ -69,18 +93,35 @@ $(function () {
   });
 
   $.get('/build.number',
-    function (data) {
+    function (latestVersion) {
       var $fdVersion = $('.fd-version');
-      $('.fd-version-text').text(data);
+      $('.fd-version-text').text(latestVersion);
       $fdVersion.fadeIn();
-      // get the commit sha for this tag
-      $.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr-gtk/git/refs/tags/v' + data + '?callback=?', function (tagref) {
-        $.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr-gtk/git/tags/' + tagref.data.object.sha + '?callback=?', function (tag) {
-          var dateAbbr = $('<abbr></abbr>').attr('title', tag.data.tagger.date).text(' (' + (new Date(tag.data.tagger.date)).toLocaleDateString() + ')').addClass('timeago');
-          $fdVersion.append($('<span></span>').addClass('fd-released').append($('<span></span>').text(' - ')).append(dateAbbr));
-          $('abbr.timeago').timeago();
+      //set the installer links
+      var currentPlatform = platforms[Detectizr.os.name];
+      var $fdDownloadButton = $('#fd-download-button');
+      $fdDownloadButton.attr('onClick', downloadOnClick.replace('%PLATFORM%', currentPlatform.name));
+      $fdDownloadButton.attr('href', currentPlatform.installerPath.replace('%VERSION%', latestVersion));
+      $('#fd-download-platform-name').text(currentPlatform.name);
+      $('#fd-installer').fadeIn();
+
+      // set the screenshots
+      if (currentPlatform.shortName !== 'win') {
+        $('.fd-screenshots-carousel').find('img').each(function () {
+          $(this).attr('src', $(this).attr('src').replace('_win', '_' + currentPlatform.shortName));
         });
-      });
+      }
+
+      // get the commit sha for this tag
+      /*
+       $.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr-gtk/git/refs/tags/v' + latestVersion + '?callback=?', function (tagref) {
+       $.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr-gtk/git/tags/' + tagref.data.object.sha + '?callback=?', function (tag) {
+       var dateAbbr = $('<abbr></abbr>').attr('title', tag.data.tagger.date).text(' (' + (new Date(tag.data.tagger.date)).toLocaleDateString() + ')').addClass('timeago');
+       $fdVersion.append($('<span></span>').addClass('fd-released').append($('<span></span>').text(' - ')).append(dateAbbr));
+       $('abbr.timeago').timeago();
+       });
+       });
+       */
     });
 
   Handlebars.registerHelper('strip_sign', function (message, length) {
