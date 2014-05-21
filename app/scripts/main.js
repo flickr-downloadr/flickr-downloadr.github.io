@@ -32,7 +32,7 @@ $(function () {
           shortName     : 'win',
           installerPath : 'installer/windows/flickrdownloadr-%VERSION%-windows-installer.exe'
         },
-        'osx'       : {
+        'mac os'    : {
           name          : 'Mac OS X',
           shortName     : 'osx',
           installerPath : 'installer/osx/Install%20flickr%20downloadr.app.dmg'
@@ -117,7 +117,7 @@ $(function () {
       $fdScreenshotDialogHeader.find('span').text(currentPlatform.name);
       $fdScreenshotDialogHeader.find('a').on('click', function () {
         $fdScreenshotsCarousel.find('.carousel-inner').append($fdHiddenSlides.find('.item').detach());
-        $fdScreenshotsCarousel.find('.carousel-inner').find('.item').each(function(){
+        $fdScreenshotsCarousel.find('.carousel-inner').find('.item').each(function () {
           var platformName;
           var item = $(this);
           if (item.hasClass('win')) {
