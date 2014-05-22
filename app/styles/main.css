@@ -276,6 +276,10 @@ footer p {
     margin-top: 10px;
   }
 
+  #fd-share-buttons > * {
+    margin: 3px 0
+  }
+
   .btn-lg {
     font-size: 14.5px;
   }
