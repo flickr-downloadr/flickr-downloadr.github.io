@@ -212,7 +212,7 @@ footer p {
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
   .fd-logo {
-    min-height: 120px;
+    min-height: 110px;
   }
 
   #fd-forkme-ribbon {
@@ -221,6 +221,10 @@ footer p {
 
   #fd-forkme-menu {
     display: inline;
+  }
+
+  #fd-description {
+    font-size: smaller;
   }
 
   .fd-footer-credits, .fd-footer-copyright {
@@ -232,12 +236,16 @@ footer p {
 /* Landscape phones and down */
 @media (max-width: 480px) {
   .fd-logo {
-    min-height: 100px;
+    min-height: 90px;
   }
 
   .jumbotron {
     padding: 10px;
     line-height: 25px;
+  }
+
+  #fd-description {
+    font-size: 15px;
   }
 
   .jumbotron blockquote {
