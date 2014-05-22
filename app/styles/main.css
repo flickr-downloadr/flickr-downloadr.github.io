@@ -10,6 +10,7 @@ body {
   padding-top: 60px;
   padding-bottom: 40px;
   background: url(../images/furley_bg.png) fixed;
+  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
 #fd-forkme-ribbon img {
@@ -40,6 +41,7 @@ body {
 }
 
 .fd-download-subtitle {
+  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 14px;
 }
 
@@ -52,6 +54,7 @@ body {
 }
 
 th {
+  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
   text-align: left;
 }
 
@@ -81,6 +84,7 @@ th {
 
 .modal-body {
   overflow-y: auto;
+  max-height: 400px;
 }
 
 .modal-header, .modal-footer {
