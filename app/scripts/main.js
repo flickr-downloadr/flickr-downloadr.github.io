@@ -2,15 +2,35 @@
 /* jshint unused: false */
 var fdScripts = (function () {
   return {
-    eTags   : {
-      tagRef  : null,
-      tag     : null,
-      commits : null
+    getHeader : function (type, xhr) {
+      debugger;
+      $.cookie('ETag-' + type, xhr.getResponseHeader('ETag'));
     },
-    getJSON : function (url, callback) {
-
+    setHeader : function (type) {
+      return function (xhr) {
+        debugger;
+        var currentETag = $.cookie('ETag-' + type);
+        if (currentETag) {
+          xhr.setRequestHeader('If-None-Match', currentETag);
+        }
+      };
     },
-    gaTrack : function (category, action, label, value, nonInteraction) {
+    getJSON   : function (url, callback, type) {
+      $.ajax({
+        url        : url,
+        type       : 'GET',
+        dataType   : 'json',
+        success    : function (data, textStatus, xhr) {
+          fdScripts.getHeader(type, xhr);
+          callback(data);
+        },
+        error      : function (err) {
+          console.log('Ajax Error: %s', err);
+        },
+        beforeSend : fdScripts.setHeader(type)
+      });
+    },
+    gaTrack   : function (category, action, label, value, nonInteraction) {
       if (window.ga) {
         if (nonInteraction !== undefined) {
           window.ga('send', 'event', category, action, label, value, nonInteraction);
@@ -166,8 +186,8 @@ $(function () {
           var dateAbbr = $('<abbr></abbr>').attr('title', tag.data.tagger.date).text(' (' + (new Date(tag.data.tagger.date)).toLocaleDateString() + ')').addClass('timeago');
           $fdVersion.append($('<span></span>').addClass('fd-released').append($('<span></span>').text(' - ')).append(dateAbbr));
           $('abbr.timeago').timeago();
-        });
-      });
+        }, 'tag');
+      }, 'tagRef');
     });
 
   Handlebars.registerHelper('strip_sign', function (message, length) {
@@ -228,7 +248,7 @@ $(function () {
             output = Handlebars.compile(commitsView)(commits);
         $('#commitsContainer').empty().append(output);
         $('abbr.timeago').timeago();
-      });
+      }, 'commits');
   });
 
   $('#fd-slideshow-dialog').find('img').wrap(function () {
