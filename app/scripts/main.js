@@ -38,12 +38,12 @@ $(function () {
           installerPath : 'installer/osx/Install%20flickr%20downloadr.app.dmg'
         },
         'linux'     : {
-          name          : 'Linux (32-bit)',
+          name          : '32-bit Linux',
           shortName     : 'linux',
           installerPath : 'installer/linux/flickrdownloadr-%VERSION%-linux-installer.run'
         },
         'linux-x64' : {
-          name          : 'Linux (64-bit)',
+          name          : '64-bit Linux',
           shortName     : 'linux',
           installerPath : 'installer/linux-x64/flickrdownloadr-%VERSION%-linux-x64-installer.run'
         }
