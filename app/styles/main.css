@@ -11,6 +11,7 @@ body {
   padding-bottom: 40px;
   background: url(../images/furley_bg.png) fixed;
   font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
 }
 
 #fd-forkme-ribbon img {
@@ -88,8 +89,8 @@ th {
 }
 
 .modal-header, .modal-footer {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 #fd-screenshot-header-platform a {
