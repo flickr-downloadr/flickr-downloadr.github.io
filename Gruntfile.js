@@ -270,7 +270,8 @@ module.exports = function (grunt) {
               'styles/fonts/{,*/}*.*',
               'build.number',
               'sitemap.xml',
-              'keybase.txt'
+              'keybase.txt',
+              'installer/*'
             ]
           },
           {
