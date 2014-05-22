@@ -28,6 +28,13 @@
               to download (all or selected) photos from your photostream in their original size along with their description, title and tags.">
       <meta name="twitter:image" content="http://flickrdownloadr.com/img/screenshots/screenshots.png">
       <!-- end twitter card summary -->
+      <!-- facebook open graph tags -->
+      <meta property="og:url" content="http://flickrdownloadr.com"/>
+      <meta property="og:title" content="flickr downloadr"/>
+      <meta property="og:image" content="http://flickrdownloadr.com/website-beta/images/screenshots/screenshots_win.png" />
+      <meta property="og:site_name" content="flickrdownloadr"/>
+      <meta property="og:description" content="A cross-platform desktop application for Windows, Mac and Linux to download photos from flickr along with the metadata."/>
+
       <meta name="alexaVerifyID" content="4z0Ir-Mh2ilfzA1bos0KYDqV3sY"/>
       <meta name="msvalidate.01" content="09CA63FA87D1D25673E09F580DDBA74D"/>
       <meta name="p:domain_verify" content="aaa2d2ddeccc9f2cd4a6d10b52321e47"/>
@@ -51,6 +58,17 @@
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+
+        <!-- Start Facebook Share Button -->
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        <!-- End   Facebook Share Button -->
 
         <!-- Fixed navbar -->
         <div class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
@@ -132,12 +150,19 @@
             <p id="fd-installer">
               <a id="fd-download-button" class="btn btn-success btn-lg" target="_blank" href="#">Download & Install &raquo;</a>
               <span class="fd-download-subtitle"><strong>( for <span id="fd-download-platform-name"></span> )</strong> <a href="downloads">More &raquo;</a></span>
+              <!-- Social Share Buttons -->
             </p>
 
             <blockquote id="fd-version">
               <small class="fd-version">
                 Version <span class="fd-version-text">0.0.0.0</span> (beta)
               </small>
+              <div id="fd-share-buttons">
+                <iframe src="http://ghbtns.com/github-btn.html?user=flickr-downloadr&repo=flickr-downloadr-gtk&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
+                <div class="fb-share-button" data-href="http://flickrdownloadr.com/" data-width="77" data-type="button_count"></div>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://flickrdownloadr.com/" data-text="Batch download flickr photos on Windows, Mac or Linux" data-via="FlickrDownloadr" data-related="FlickrDownloadr" data-hashtags="flickrdownloadr">Tweet</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+              </div>
             </blockquote>
           </div>
         </div>

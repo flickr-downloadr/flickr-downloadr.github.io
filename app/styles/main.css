@@ -9,9 +9,8 @@
 body {
   padding-top: 60px;
   padding-bottom: 40px;
-  background: url(../images/furley_bg.png) fixed;
-  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-  -webkit-font-smoothing:antialiased;
+  background: url('../images/furley_bg.png') fixed;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 #fd-forkme-ribbon img {
@@ -37,12 +36,21 @@ body {
   line-height: 0.9em;
 }
 
+#fd-share-buttons {
+  float: right;
+  margin-top: -20px;
+}
+
+.fb-share-button > span {
+  vertical-align: inherit !important;
+}
+
 #fd-installer {
   display: none;
 }
 
 .fd-download-subtitle {
-  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 14px;
   white-space: nowrap;
 }
@@ -56,7 +64,7 @@ body {
 }
 
 th {
-  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-align: left;
 }
 
@@ -228,8 +236,12 @@ footer p {
   }
 
   .jumbotron {
-    padding: 20px;
+    padding: 10px;
     line-height: 25px;
+  }
+
+  .jumbotron blockquote {
+    padding: 10px 8px;
   }
 
   .carousel-caption h4 {
@@ -251,7 +263,12 @@ footer p {
 
 /* Special for header adjustment */
 @media (max-width: 679px) {
-  .btn-large {
+  #fd-share-buttons {
+    float: none;
+    margin-top: 10px;
+  }
+
+  .btn-lg {
     font-size: 14.5px;
   }
 
