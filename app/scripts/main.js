@@ -152,10 +152,10 @@ $(function () {
     currentOsName = 'mac os';
   }
 
-  $.get('build.number', function (latestVersion) {
+  $.get('/build.number', function (latestVersion) {
     var $fdVersion = $('.fd-version');
     $('.fd-version-text').text(latestVersion);
-    $('#fd-version').fadeIn();
+    $('.fd-version-quote').fadeIn();
 
     //set the installer links
     var currentPlatform = platforms[currentOsName];

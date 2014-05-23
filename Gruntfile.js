@@ -271,6 +271,8 @@ module.exports = function (grunt) {
               'build.number',
               'sitemap.xml',
               'keybase.txt',
+              'blogs/**',
+              'downloads/**',
               'installer/**'
             ]
           },
