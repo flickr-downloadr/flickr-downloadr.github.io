@@ -5,7 +5,7 @@ var fdScripts = (function () {
     store           : null,
     isStoreReady    : false,
     eTags           : {},
-    setupStore      : function () {
+    setupStore      : function (callback) {
       fdScripts.store = new IDBStore({
         dbVersion     : 1,
         storeName     : 'flickr-downloadr-idb',
@@ -16,10 +16,11 @@ var fdScripts = (function () {
           $.each(['tag', 'tagRef', 'commits'], function (id, val) {
             fdScripts.fetchData(val, function (record) {
               if (record) {
-                fdScripts.eTags[type] = record;
+                fdScripts.eTags[val] = record;
               }
             });
           });
+          callback();
         }
       });
     },
@@ -91,18 +92,38 @@ var fdScripts = (function () {
   };
 })();
 
-$.ajaxSetup({
-  cache : true
-});
-
 $(function () {
 
   Detectizr.detect({detectScreen : false});
 
-  fdScripts.setupStore();
+  Handlebars.registerHelper('strip_sign', function (message, length) {
+    var signOffStart = message.indexOf('Signed-off-by:');
+    var returnMessage = signOffStart !== -1 ? message.slice(0, signOffStart) : message;
+    return returnMessage.length > length - 1 ? returnMessage.slice(0, length) + '...' : returnMessage;
+  });
+
+  Handlebars.registerHelper('format_date', function (date) {
+    var dateToFormat = (new Date(date));
+    return dateToFormat.toLocaleDateString();
+  });
+
+  Handlebars.registerHelper('format_date_time', function (date) {
+    var dateToFormat = (new Date(date));
+    return dateToFormat.toLocaleDateString() + ' ' + dateToFormat.toLocaleTimeString();
+  });
+
+  Handlebars.registerHelper('fix_github_url', function (url) {
+    if (!url) {
+      return url;
+    }
+    var returnUrl = url.replace('https://api.github.com/users/', 'https://github.com/');
+    returnUrl = returnUrl.replace('https://api.github.com/repos/', 'https://github.com/');
+    return returnUrl.replace('/commits/', '/commit/');
+  });
 
   var currentOsName = Detectizr.os.name,
       downloadOnClick = 'fdScripts.gaTrack("Files", "Download", "flickr downloadr %PLATFORM% (home)");',
+      socialIcons = $('#social-icons'),
       platforms = {
         'windows'   : {
           name          : 'Windows',
@@ -128,9 +149,7 @@ $(function () {
           shortName     : 'linux',
           installerPath : 'installer/linux-x64/flickrdownloadr-%VERSION%-linux-x64-installer.run'
         }
-      };
-
-  var socialIcons = $('#social-icons'),
+      },
       socialHash = {
         'facebook'  : {
           title : 'Like us on Facebook',
@@ -165,6 +184,7 @@ $(function () {
           href  : 'https://github.com/flickr-downloadr'
         }
       };
+  // setup the social icons
   socialIcons.find('a').each(function () {
     var button = $(this).attr('class');
     $(this).attr('target', '_blank').attr('onclick', 'fdScripts.gaTrack(\'External\', \'Click\', \'Social (' + button + ')\');');
@@ -173,7 +193,7 @@ $(function () {
       $(this).attr('target', '_self');
     }
   });
-
+  // detect platform and do the mobile-os mappings
   if (currentOsName === 'linux' && Detectizr.os.addressRegisterSize === '64bit') {
     currentOsName = 'linux-x64';
   } else if (currentOsName === 'android' || currentOsName === 'blackberry') {
@@ -182,85 +202,62 @@ $(function () {
     currentOsName = 'mac os';
   }
 
-  $.get('build.number', function (latestVersion) {
-    var $fdVersion = $('.fd-version');
-    $('.fd-version-text').text(latestVersion);
-    $('#fd-version').fadeIn();
+  fdScripts.setupStore(function () {  // set up the store and once that is done, do all the version dependant things
+    $.get('build.number', function (latestVersion) {
+      var $fdVersion = $('.fd-version');
+      $('.fd-version-text').text(latestVersion);
+      $('#fd-version').fadeIn();
 
-    //set the installer links
-    var currentPlatform = platforms[currentOsName];
-    if (!currentPlatform) {
-      currentPlatform = platforms.windows;
-    }
-    var $fdDownloadButton = $('#fd-download-button');
-    $fdDownloadButton.attr('onClick', downloadOnClick.replace('%PLATFORM%', currentPlatform.name));
-    $fdDownloadButton.attr('href', currentPlatform.installerPath.replace('%VERSION%', latestVersion));
-    $('#fd-download-platform-name').text(currentPlatform.name);
-    $('#fd-installer').fadeIn();
+      //set the installer links
+      var currentPlatform = platforms[currentOsName];
+      if (!currentPlatform) {
+        currentPlatform = platforms.windows;
+      }
+      var $fdDownloadButton = $('#fd-download-button');
+      $fdDownloadButton.attr('onClick', downloadOnClick.replace('%PLATFORM%', currentPlatform.name));
+      $fdDownloadButton.attr('href', currentPlatform.installerPath.replace('%VERSION%', latestVersion));
+      $('#fd-download-platform-name').text(currentPlatform.name);
+      $('#fd-installer').fadeIn();
 
-    var $fdHiddenSlides = $('#fd-hidden-slides');
-    var $fdScreenshotsCarousel = $('.fd-screenshots-carousel');
-    var $fdScreenshotDialogHeader = $('#fd-screenshot-header-platform');
-    $fdScreenshotDialogHeader.find('span').text(currentPlatform.commonName);
-    $fdScreenshotDialogHeader.find('a').on('click', function () {
-      $fdScreenshotsCarousel.find('.carousel-inner').append($fdHiddenSlides.find('.item').detach());
-      $fdScreenshotsCarousel.find('.carousel-inner').find('.item').each(function () {
-        var platformName;
-        var item = $(this);
-        if (item.hasClass('win')) {
-          platformName = ' (Windows)';
-        } else if (item.hasClass('osx')) {
-          platformName = ' (Mac OS X)';
-        } else if (item.hasClass('linux')) {
-          platformName = ' (Linux)';
-        }
-        item.find('h4').text(item.find('h4').text() + platformName);
+      var $fdHiddenSlides = $('#fd-hidden-slides');
+      var $fdScreenshotsCarousel = $('.fd-screenshots-carousel');
+      var $fdScreenshotDialogHeader = $('#fd-screenshot-header-platform');
+      $fdScreenshotDialogHeader.find('span').text(currentPlatform.commonName);
+      $fdScreenshotDialogHeader.find('a').on('click', function () {
+        $fdScreenshotsCarousel.find('.carousel-inner').append($fdHiddenSlides.find('.item').detach());
+        $fdScreenshotsCarousel.find('.carousel-inner').find('.item').each(function () {
+          var platformName;
+          var item = $(this);
+          if (item.hasClass('win')) {
+            platformName = ' (Windows)';
+          } else if (item.hasClass('osx')) {
+            platformName = ' (Mac OS X)';
+          } else if (item.hasClass('linux')) {
+            platformName = ' (Linux)';
+          }
+          item.find('h4').text(item.find('h4').text() + platformName);
+        });
+        $fdScreenshotDialogHeader.fadeOut();
+        return false;
       });
-      $fdScreenshotDialogHeader.fadeOut();
-      return false;
+
+      // set the screenshots for current platform
+      if (currentPlatform.shortName !== 'win') {
+        $fdHiddenSlides.append($fdScreenshotsCarousel.find('.win.item').detach());
+        $fdHiddenSlides.find('.item').removeClass('active');
+        $fdScreenshotsCarousel.find('.carousel-inner').append($fdHiddenSlides.find('.' + currentPlatform.shortName + '.item').detach());
+        $fdScreenshotsCarousel.find('.item').first().addClass('active');
+      }
+
+      // get the commit sha for this tag
+      fdScripts.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr-gtk/git/refs/tags/v' + latestVersion, function (tagref) {
+        fdScripts.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr-gtk/git/tags/' + tagref.object.sha, function (tag) {
+          var dateAbbr = $('<abbr></abbr>').attr('title', tag.tagger.date).text(' (' + (new Date(tag.tagger.date)).toLocaleDateString() + ')').addClass('timeago');
+          $fdVersion.append($('<span></span>').addClass('fd-released').append($('<span></span>').text(' - ')).append(dateAbbr));
+          $('abbr.timeago').timeago();
+        }, 'tag');
+      }, 'tagRef');
     });
-
-    // set the screenshots for current platform
-    if (currentPlatform.shortName !== 'win') {
-      $fdHiddenSlides.append($fdScreenshotsCarousel.find('.win.item').detach());
-      $fdHiddenSlides.find('.item').removeClass('active');
-      $fdScreenshotsCarousel.find('.carousel-inner').append($fdHiddenSlides.find('.' + currentPlatform.shortName + '.item').detach());
-      $fdScreenshotsCarousel.find('.item').first().addClass('active');
-    }
-
-    // get the commit sha for this tag
-    fdScripts.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr-gtk/git/refs/tags/v' + latestVersion, function (tagref) {
-      fdScripts.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr-gtk/git/tags/' + tagref.object.sha, function (tag) {
-        var dateAbbr = $('<abbr></abbr>').attr('title', tag.tagger.date).text(' (' + (new Date(tag.tagger.date)).toLocaleDateString() + ')').addClass('timeago');
-        $fdVersion.append($('<span></span>').addClass('fd-released').append($('<span></span>').text(' - ')).append(dateAbbr));
-        $('abbr.timeago').timeago();
-      }, 'tag');
-    }, 'tagRef');
-  });
-
-  Handlebars.registerHelper('strip_sign', function (message, length) {
-    var signOffStart = message.indexOf('Signed-off-by:');
-    var returnMessage = signOffStart !== -1 ? message.slice(0, signOffStart) : message;
-    return returnMessage.length > length - 1 ? returnMessage.slice(0, length) + '...' : returnMessage;
-  });
-
-  Handlebars.registerHelper('format_date', function (date) {
-    var dateToFormat = (new Date(date));
-    return dateToFormat.toLocaleDateString();
-  });
-
-  Handlebars.registerHelper('format_date_time', function (date) {
-    var dateToFormat = (new Date(date));
-    return dateToFormat.toLocaleDateString() + ' ' + dateToFormat.toLocaleTimeString();
-  });
-
-  Handlebars.registerHelper('fix_github_url', function (url) {
-    if (!url) {
-      return url;
-    }
-    var returnUrl = url.replace('https://api.github.com/users/', 'https://github.com/');
-    returnUrl = returnUrl.replace('https://api.github.com/repos/', 'https://github.com/');
-    return returnUrl.replace('/commits/', '/commit/');
   });
 
   $(document).on('click', '#getCommits', function () {
@@ -299,6 +296,7 @@ $(function () {
       }, 'commits');
   });
 
+  // add links to full-size images from screenshots
   $('#fd-slideshow-dialog').find('img').wrap(function () {
     return '<a href="' + $(this).attr('src') + '" target="_blank" title="Click to see actual size" />';
   });
