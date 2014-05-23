@@ -13,37 +13,40 @@ var fdScripts = (function () {
         autoIncrement : true,
         onStoreReady  : function () {
           fdScripts.isStoreReady = true;
+          $.each(['tag', 'tagRef', 'commits'], function (id, val) {
+            fdScripts.fetchData(val, function (record) {
+              if (record) {
+                fdScripts.eTags[type] = record;
+              }
+            });
+          });
         }
       });
     },
-    saveData        : function (type, data) {
+    saveData        : function (type, data, xhr) {
       if (fdScripts.isStoreReady) {
-        var dataToWrite = {
+        var record = {
           eTagType : type,
+          eTag     : xhr.getResponseHeader('ETag'),
           data     : data
         };
-        fdScripts.store.put(dataToWrite, function () {
+        fdScripts.eTags[type] = record;
+        fdScripts.store.put(record, function () {
         });
       }
     },
     fetchData       : function (type, callback) {
       if (fdScripts.isStoreReady) {
         fdScripts.store.get(type, function (result) {
-          callback(result.data);
+          callback(result);
         });
       }
     },
-    getAndSaveETag  : function (type, xhr) {
-      var updatedETag = xhr.getResponseHeader('ETag');
-      fdScripts.eTags[type] = updatedETag;
-      $.cookie('ETag-' + type, updatedETag);
-    },
     fetchAndSetETag : function (type) {
       return function (xhr) {
-        var currentETag = $.cookie('ETag-' + type);
-        if (currentETag && fdScripts.isStoreReady) {  // if store is not ready, don't set the If-None-Match header
-          fdScripts.eTags[type] = currentETag;
-          xhr.setRequestHeader('If-None-Match', currentETag);
+        var existingRecord = fdScripts.eTags[type];
+        if (existingRecord) {  // if store is not ready, don't set the If-None-Match header
+          xhr.setRequestHeader('If-None-Match', existingRecord.eTag);
         }
       };
     },
@@ -54,11 +57,16 @@ var fdScripts = (function () {
         dataType   : 'json',
         success    : function (data, textStatus, xhr) {
           if (xhr.status === 200) { // new or updated response
-            fdScripts.getAndSaveETag(type, xhr);
-            fdScripts.saveData(type, data);
+            fdScripts.saveData(type, data, xhr);
             callback(data);
-          } else if (xhr.status === 304 && !data) { // no updated data
-            fdScripts.fetchData(type, callback);  // get data from local db and call the callback
+          } else if (xhr.status === 304) { // no updated data
+            if (!data) {
+              callback(fdScripts.eTags[type].data);  // get data from local db and call the callback
+            } else {
+              // Interesting we have data coming from cache??
+              console.log('Interesting situation here...');
+              callback(data);
+            }
           } else {
             throw new Error('Something seriously wrong!');
           }
@@ -258,37 +266,37 @@ $(function () {
   $(document).on('click', '#getCommits', function () {
     $('#commitsContainer').empty().append($('<div><span class="muted">Loading...</span></div>'));
     fdScripts.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr-gtk/commits',
-        function (data) {
-          var commitsView = '<table>' +
-                  ' <thead>' +
-                  '   <th class=\'fd-commitmessage\'>Message</th>' +
-                  '   <th class=\'fd-commitname\'>Author</th>' +
-                  '   <th class=\'fd-commitdate\'>Date</th>' +
-                  ' </thead>' +
-                  ' <tbody>' +
-                  ' {{#commitsarray}}' +
-                  '   <tr>' +
-                  '     <td class=\'fd-commitmessage\'>' +
-                  '       <span>{{strip_sign commit.message 40}}</span>' +
-                  '       <span>' +
-                  '         <a href=\'{{fix_github_url url}}\' title=\'{{format_date_time commit.author.date}}\' target=\'_blank\'> &raquo;</a>' +
-                  '       </span>' +
-                  '     </td>' +
-                  '     <td class=\'fd-commitname\'>' +
-                  '       <a href=\'{{fix_github_url author.url}}\' target=\'_blank\'>{{strip_sign commit.author.name 15}}</a>' +
-                  '     </td>' +
-                  '     <td class=\'fd-commitdate\'>' +
-                  '       <abbr class=\'timeago\' title=\'{{commit.author.date}}\'>{{format_date commit.author.date}}</abbr>' +
-                  '     </td>' +
-                  '   </tr>' +
-                  ' {{/commitsarray}}' +
-                  ' </tbody>' +
-                  '</table>',
-              commits = { commitsarray : data },
-              output = Handlebars.compile(commitsView)(commits);
-          $('#commitsContainer').empty().append(output);
-          $('abbr.timeago').timeago();
-        }, 'commits');
+      function (data) {
+        var commitsView = '<table>' +
+              ' <thead>' +
+              '   <th class=\'fd-commitmessage\'>Message</th>' +
+              '   <th class=\'fd-commitname\'>Author</th>' +
+              '   <th class=\'fd-commitdate\'>Date</th>' +
+              ' </thead>' +
+              ' <tbody>' +
+              ' {{#commitsarray}}' +
+              '   <tr>' +
+              '     <td class=\'fd-commitmessage\'>' +
+              '       <span>{{strip_sign commit.message 40}}</span>' +
+              '       <span>' +
+              '         <a href=\'{{fix_github_url url}}\' title=\'{{format_date_time commit.author.date}}\' target=\'_blank\'> &raquo;</a>' +
+              '       </span>' +
+              '     </td>' +
+              '     <td class=\'fd-commitname\'>' +
+              '       <a href=\'{{fix_github_url author.url}}\' target=\'_blank\'>{{strip_sign commit.author.name 15}}</a>' +
+              '     </td>' +
+              '     <td class=\'fd-commitdate\'>' +
+              '       <abbr class=\'timeago\' title=\'{{commit.author.date}}\'>{{format_date commit.author.date}}</abbr>' +
+              '     </td>' +
+              '   </tr>' +
+              ' {{/commitsarray}}' +
+              ' </tbody>' +
+              '</table>',
+            commits = { commitsarray : data },
+            output = Handlebars.compile(commitsView)(commits);
+        $('#commitsContainer').empty().append(output);
+        $('abbr.timeago').timeago();
+      }, 'commits');
   });
 
   $('#fd-slideshow-dialog').find('img').wrap(function () {
