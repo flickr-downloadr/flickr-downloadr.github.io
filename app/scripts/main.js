@@ -56,12 +56,12 @@ var fdScripts = (function () {
           if (xhr.status === 200) { // new or updated response
             fdScripts.getAndSaveETag(type, xhr);
             fdScripts.saveData(type, data);
+            callback(data);
           } else if (xhr.status === 304 && !data) { // no updated data
             fdScripts.fetchData(type, callback);  // get data from local db and call the callback
           } else {
             throw new Error('Something seriously wrong!');
           }
-          callback(data);
         },
         error      : function (err) {
           console.log('Ajax Error: %s', err);
