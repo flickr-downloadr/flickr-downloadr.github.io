@@ -2,80 +2,15 @@
 /* jshint unused: false */
 var fdScripts = (function () {
   return {
-    store           : null,
-    isStoreReady    : false,
-    eTags           : {},
-    setupStore      : function (callback) {
-      fdScripts.store = new IDBStore({
-        dbVersion     : 1,
-        storeName     : 'flickr-downloadr-idb',
-        keyPath       : 'eTagType',
-        autoIncrement : true,
-        onStoreReady  : function () {
-          fdScripts.isStoreReady = true;
-          $.each(['tag', 'tagRef', 'commits'], function (id, val) {
-            fdScripts.fetchData(val, function (record) {
-              if (record) {
-                fdScripts.eTags[val] = record;
-              }
-            });
-          });
-          callback();
-        }
-      });
-    },
-    saveData        : function (type, data, xhr) {
-      if (fdScripts.isStoreReady) {
-        var record = {
-          eTagType : type,
-          eTag     : xhr.getResponseHeader('ETag'),
-          data     : data
-        };
-        fdScripts.eTags[type] = record;
-        fdScripts.store.put(record, function () {
-        });
-      }
-    },
-    fetchData       : function (type, callback) {
-      if (fdScripts.isStoreReady) {
-        fdScripts.store.get(type, function (result) {
-          callback(result);
-        });
-      }
-    },
-    fetchAndSetETag : function (type) {
-      return function (xhr) {
-        var existingRecord = fdScripts.eTags[type];
-        if (existingRecord) {  // if store is not ready, don't set the If-None-Match header
-          xhr.setRequestHeader('If-None-Match', existingRecord.eTag);
-        }
-      };
-    },
-    getJSON         : function (url, callback, type) {
+    getJSON         : function (url, callback) {
       $.ajax({
         url        : url,
         type       : 'GET',
         dataType   : 'json',
-        success    : function (data, textStatus, xhr) {
-          if (xhr.status === 200) { // new or updated response
-            fdScripts.saveData(type, data, xhr);
-            callback(data);
-          } else if (xhr.status === 304) { // no updated data
-            if (!data) {
-              callback(fdScripts.eTags[type].data);  // get data from local db and call the callback
-            } else {
-              // Interesting we have data coming from cache??
-              console.log('Interesting situation here...');
-              callback(data);
-            }
-          } else {
-            throw new Error('Something seriously wrong!');
-          }
-        },
+        success    : callback,
         error      : function (err) {
           console.log('Ajax Error: %s', err);
-        },
-        beforeSend : fdScripts.fetchAndSetETag(type)
+        }
       });
     },
     gaTrack         : function (category, action, label, value, nonInteraction) {
@@ -202,8 +137,7 @@ $(function () {
     currentOsName = 'mac os';
   }
 
-  fdScripts.setupStore(function () {  // set up the store and once that is done, do all the version dependant things
-    $.get('build.number', function (latestVersion) {
+  $.get('build.number', function (latestVersion) {
       var $fdVersion = $('.fd-version');
       $('.fd-version-text').text(latestVersion);
       $('#fd-version').fadeIn();
@@ -255,10 +189,9 @@ $(function () {
           var dateAbbr = $('<abbr></abbr>').attr('title', tag.tagger.date).text(' (' + (new Date(tag.tagger.date)).toLocaleDateString() + ')').addClass('timeago');
           $fdVersion.append($('<span></span>').addClass('fd-released').append($('<span></span>').text(' - ')).append(dateAbbr));
           $('abbr.timeago').timeago();
-        }, 'tag');
-      }, 'tagRef');
+        });
+      });
     });
-  });
 
   $(document).on('click', '#getCommits', function () {
     $('#commitsContainer').empty().append($('<div><span class="muted">Loading...</span></div>'));
@@ -293,7 +226,7 @@ $(function () {
             output = Handlebars.compile(commitsView)(commits);
         $('#commitsContainer').empty().append(output);
         $('abbr.timeago').timeago();
-      }, 'commits');
+      });
   });
 
   // add links to full-size images from screenshots
