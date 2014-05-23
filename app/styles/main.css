@@ -68,6 +68,11 @@ th {
   text-align: left;
 }
 
+.fd-release-commit {
+  font-weight: bold;
+  background-color: #eeeeee;
+}
+
 .fd-commitmessage {
   word-wrap: break-word;
 }

@@ -2,18 +2,26 @@
 /* jshint unused: false */
 var fdScripts = (function () {
   return {
-    getJSON         : function (url, callback) {
+    stripString    : function (input, textToStrip) {
+      var textToStripStart = input.indexOf(textToStrip);
+      return textToStripStart !== -1 ? input.slice(0, textToStripStart) + input.substr(textToStripStart + textToStrip.length) : input;
+    },
+    truncateString : function (input, truncateAt) {
+      var truncationAt = input.indexOf(truncateAt);
+      return truncationAt !== -1 ? input.slice(0, truncationAt) : input;
+    },
+    getJSON        : function (url, callback) {
       $.ajax({
-        url        : url,
-        type       : 'GET',
-        dataType   : 'json',
-        success    : callback,
-        error      : function (err) {
+        url      : url,
+        type     : 'GET',
+        dataType : 'json',
+        success  : callback,
+        error    : function (err) {
           console.log('Ajax Error: %s', err);
         }
       });
     },
-    gaTrack         : function (category, action, label, value, nonInteraction) {
+    gaTrack        : function (category, action, label, value, nonInteraction) {
       if (window.ga) {
         if (nonInteraction !== undefined) {
           window.ga('send', 'event', category, action, label, value, nonInteraction);
@@ -31,10 +39,17 @@ $(function () {
 
   Detectizr.detect({detectScreen : false});
 
+  Handlebars.registerHelper('is_release', function (message, author) {
+    return  (message.indexOf('Released ') === 0 && author === 'The CI Bot') ? ' fd-release-commit' : 'fd-commit';
+  });
+
   Handlebars.registerHelper('strip_sign', function (message, length) {
-    var signOffStart = message.indexOf('Signed-off-by:');
-    var returnMessage = signOffStart !== -1 ? message.slice(0, signOffStart) : message;
-    return returnMessage.length > length - 1 ? returnMessage.slice(0, length) + '...' : returnMessage;
+    var returnMessage = fdScripts.truncateString(message, 'Signed-off-by:');
+    returnMessage = fdScripts.stripString(returnMessage, '[skip ci]');
+    returnMessage = fdScripts.stripString(returnMessage, '[ci skip]');
+    returnMessage = fdScripts.stripString(returnMessage, '[deploy]');
+    returnMessage = returnMessage.length > length - 1 ? returnMessage.slice(0, length) + '...' : returnMessage;
+    return  returnMessage;
   });
 
   Handlebars.registerHelper('format_date', function (date) {
@@ -138,60 +153,60 @@ $(function () {
   }
 
   $.get('build.number', function (latestVersion) {
-      var $fdVersion = $('.fd-version');
-      $('.fd-version-text').text(latestVersion);
-      $('#fd-version').fadeIn();
+    var $fdVersion = $('.fd-version');
+    $('.fd-version-text').text(latestVersion);
+    $('#fd-version').fadeIn();
 
-      //set the installer links
-      var currentPlatform = platforms[currentOsName];
-      if (!currentPlatform) {
-        currentPlatform = platforms.windows;
-      }
-      var $fdDownloadButton = $('#fd-download-button');
-      $fdDownloadButton.attr('onClick', downloadOnClick.replace('%PLATFORM%', currentPlatform.name));
-      $fdDownloadButton.attr('href', currentPlatform.installerPath.replace('%VERSION%', latestVersion));
-      $('#fd-download-platform-name').text(currentPlatform.name);
-      $('#fd-installer').fadeIn();
+    //set the installer links
+    var currentPlatform = platforms[currentOsName];
+    if (!currentPlatform) {
+      currentPlatform = platforms.windows;
+    }
+    var $fdDownloadButton = $('#fd-download-button');
+    $fdDownloadButton.attr('onClick', downloadOnClick.replace('%PLATFORM%', currentPlatform.name));
+    $fdDownloadButton.attr('href', currentPlatform.installerPath.replace('%VERSION%', latestVersion));
+    $('#fd-download-platform-name').text(currentPlatform.name);
+    $('#fd-installer').fadeIn();
 
-      var $fdHiddenSlides = $('#fd-hidden-slides');
-      var $fdScreenshotsCarousel = $('.fd-screenshots-carousel');
-      var $fdScreenshotDialogHeader = $('#fd-screenshot-header-platform');
-      $fdScreenshotDialogHeader.find('span').text(currentPlatform.commonName);
-      $fdScreenshotDialogHeader.find('a').on('click', function () {
-        $fdScreenshotsCarousel.find('.carousel-inner').append($fdHiddenSlides.find('.item').detach());
-        $fdScreenshotsCarousel.find('.carousel-inner').find('.item').each(function () {
-          var platformName;
-          var item = $(this);
-          if (item.hasClass('win')) {
-            platformName = ' (Windows)';
-          } else if (item.hasClass('osx')) {
-            platformName = ' (Mac OS X)';
-          } else if (item.hasClass('linux')) {
-            platformName = ' (Linux)';
-          }
-          item.find('h4').text(item.find('h4').text() + platformName);
-        });
-        $fdScreenshotDialogHeader.fadeOut();
-        return false;
+    var $fdHiddenSlides = $('#fd-hidden-slides');
+    var $fdScreenshotsCarousel = $('.fd-screenshots-carousel');
+    var $fdScreenshotDialogHeader = $('#fd-screenshot-header-platform');
+    $fdScreenshotDialogHeader.find('span').text(currentPlatform.commonName);
+    $fdScreenshotDialogHeader.find('a').on('click', function () {
+      $fdScreenshotsCarousel.find('.carousel-inner').append($fdHiddenSlides.find('.item').detach());
+      $fdScreenshotsCarousel.find('.carousel-inner').find('.item').each(function () {
+        var platformName;
+        var item = $(this);
+        if (item.hasClass('win')) {
+          platformName = ' (Windows)';
+        } else if (item.hasClass('osx')) {
+          platformName = ' (Mac OS X)';
+        } else if (item.hasClass('linux')) {
+          platformName = ' (Linux)';
+        }
+        item.find('h4').text(item.find('h4').text() + platformName);
       });
+      $fdScreenshotDialogHeader.fadeOut();
+      return false;
+    });
 
-      // set the screenshots for current platform
-      if (currentPlatform.shortName !== 'win') {
-        $fdHiddenSlides.append($fdScreenshotsCarousel.find('.win.item').detach());
-        $fdHiddenSlides.find('.item').removeClass('active');
-        $fdScreenshotsCarousel.find('.carousel-inner').append($fdHiddenSlides.find('.' + currentPlatform.shortName + '.item').detach());
-        $fdScreenshotsCarousel.find('.item').first().addClass('active');
-      }
+    // set the screenshots for current platform
+    if (currentPlatform.shortName !== 'win') {
+      $fdHiddenSlides.append($fdScreenshotsCarousel.find('.win.item').detach());
+      $fdHiddenSlides.find('.item').removeClass('active');
+      $fdScreenshotsCarousel.find('.carousel-inner').append($fdHiddenSlides.find('.' + currentPlatform.shortName + '.item').detach());
+      $fdScreenshotsCarousel.find('.item').first().addClass('active');
+    }
 
-      // get the commit sha for this tag
-      fdScripts.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr-gtk/git/refs/tags/v' + latestVersion, function (tagref) {
-        fdScripts.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr-gtk/git/tags/' + tagref.object.sha, function (tag) {
-          var dateAbbr = $('<abbr></abbr>').attr('title', tag.tagger.date).text(' (' + (new Date(tag.tagger.date)).toLocaleDateString() + ')').addClass('timeago');
-          $fdVersion.append($('<span></span>').addClass('fd-released').append($('<span></span>').text(' - ')).append(dateAbbr));
-          $('abbr.timeago').timeago();
-        });
+    // get the commit sha for this tag
+    fdScripts.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr-gtk/git/refs/tags/v' + latestVersion, function (tagref) {
+      fdScripts.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr-gtk/git/tags/' + tagref.object.sha, function (tag) {
+        var dateAbbr = $('<abbr></abbr>').attr('title', tag.tagger.date).text(' (' + (new Date(tag.tagger.date)).toLocaleDateString() + ')').addClass('timeago');
+        $fdVersion.append($('<span></span>').addClass('fd-released').append($('<span></span>').text(' - ')).append(dateAbbr));
+        $('abbr.timeago').timeago();
       });
     });
+  });
 
   $(document).on('click', '#getCommits', function () {
     $('#commitsContainer').empty().append($('<div><span class="muted">Loading...</span></div>'));
@@ -205,7 +220,7 @@ $(function () {
               ' </thead>' +
               ' <tbody>' +
               ' {{#commitsarray}}' +
-              '   <tr>' +
+              '   <tr class=\'{{is_release commit.message commit.author.name}}\'>' +
               '     <td class=\'fd-commitmessage\'>' +
               '       <span>{{strip_sign commit.message 40}}</span>' +
               '       <span>' +
