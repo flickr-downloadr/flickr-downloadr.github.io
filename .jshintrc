@@ -19,6 +19,7 @@
   "jquery"    : true,
   "predef"    : [
     "Handlebars",
-    "Detectizr"
+    "Detectizr",
+    "IDBStore"
   ]
 }
