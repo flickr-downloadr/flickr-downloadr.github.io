@@ -3,7 +3,7 @@
 var fdScripts = (function () {
   return {
     store           : null,
-    storeReady      : false,
+    isStoreReady    : false,
     eTags           : {},
     setupStore      : function () {
       fdScripts.store = new IDBStore({
@@ -12,12 +12,12 @@ var fdScripts = (function () {
         keyPath       : 'eTagType',
         autoIncrement : true,
         onStoreReady  : function () {
-          fdScripts.storeReady = true;
+          fdScripts.isStoreReady = true;
         }
       });
     },
-    storeData       : function (type, data) {
-      if (fdScripts.storeReady) {
+    saveData        : function (type, data) {
+      if (fdScripts.isStoreReady) {
         var dataToWrite = {
           eTagType : type,
           data     : data
@@ -27,13 +27,13 @@ var fdScripts = (function () {
       }
     },
     fetchData       : function (type, callback) {
-      if (fdScripts.storeReady) {
+      if (fdScripts.isStoreReady) {
         fdScripts.store.get(type, function (result) {
           callback(result.data);
         });
       }
     },
-    getAndStoreETag : function (type, xhr) {
+    getAndSaveETag  : function (type, xhr) {
       var updatedETag = xhr.getResponseHeader('ETag');
       fdScripts.eTags[type] = updatedETag;
       $.cookie('ETag-' + type, updatedETag);
@@ -41,7 +41,7 @@ var fdScripts = (function () {
     fetchAndSetETag : function (type) {
       return function (xhr) {
         var currentETag = $.cookie('ETag-' + type);
-        if (currentETag && fdScripts.storeReady) {  // if store is not ready, don't set the If-None-Match header
+        if (currentETag && fdScripts.isStoreReady) {  // if store is not ready, don't set the If-None-Match header
           fdScripts.eTags[type] = currentETag;
           xhr.setRequestHeader('If-None-Match', currentETag);
         }
@@ -54,8 +54,8 @@ var fdScripts = (function () {
         dataType   : 'json',
         success    : function (data, textStatus, xhr) {
           if (xhr.status === 200) { // new or updated response
-            fdScripts.getAndStoreETag(type, xhr);
-            fdScripts.storeData(type, data);
+            fdScripts.getAndSaveETag(type, xhr);
+            fdScripts.saveData(type, data);
           } else if (xhr.status === 304 && !data) { // no updated data
             fdScripts.fetchData(type, callback);  // get data from local db and call the callback
           } else {
