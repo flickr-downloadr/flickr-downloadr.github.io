@@ -72,32 +72,49 @@ $(function () {
   });
 
   var currentOsName = Detectizr.os.name,
-      downloadOnClick = 'fdScripts.gaTrack("Files", "Download", "flickr downloadr %PLATFORM% (home)");',
+      homeInstallOnClick = 'fdScripts.gaTrack("Files", "Download", "flickr downloadr %PLATFORM% (home)");',
+      downloadsInstallOnClick = 'fdScripts.gaTrack("Files", "Download", "flickr downloadr %PLATFORM% (downloads)");',
       socialIcons = $('#social-icons'),
+      deb = {
+        installerPath : '/installer/linux-x64/flickrdownloadr_%VERSION%-0_amd64.deb',
+        installerFile : 'flickrdownloadr_%VERSION%-0_amd64.deb'
+      },
+      rpm = {
+        installerPath : '/installer/linux-x64/flickrdownloadr-%VERSION%-0.x86_64.rpm',
+        installerFile : 'flickrdownloadr-%VERSION%-0.x86_64.rpm'
+      },
       platforms = {
         'windows'   : {
           name          : 'Windows',
           commonName    : 'Windows',
           shortName     : 'win',
-          installerPath : 'installer/windows/flickrdownloadr-%VERSION%-windows-installer.exe'
+          iconName      : 'fa-windows',
+          installerPath : '/installer/windows/flickrdownloadr-%VERSION%-windows-installer.exe',
+          installerFile : 'flickrdownloadr-%VERSION%-windows-installer.exe'
         },
-        'mac os'    : {
+        'osx'       : {
           name          : 'Mac OS X',
           commonName    : 'Mac OS X',
           shortName     : 'osx',
-          installerPath : 'installer/osx/Install%20flickr%20downloadr.app.dmg'
+          iconName      : 'fa-apple',
+          installerPath : '/installer/osx/Install%20flickr%20downloadr.app.dmg',
+          installerFile : 'Install%20flickr%20downloadr.app.dmg'
         },
         'linux'     : {
           name          : 'Linux',
           commonName    : 'Linux',
           shortName     : 'linux',
-          installerPath : 'installer/linux/flickrdownloadr-%VERSION%-linux-installer.run'
+          iconName      : 'fa-linux',
+          installerPath : '/installer/linux/flickrdownloadr-%VERSION%-linux-installer.run',
+          installerFile : 'flickrdownloadr-%VERSION%-linux-installer.run'
         },
         'linux-x64' : {
           name          : '64-bit Linux',
           commonName    : 'Linux',
           shortName     : 'linux',
-          installerPath : 'installer/linux-x64/flickrdownloadr-%VERSION%-linux-x64-installer.run'
+          iconName      : 'fa-linux',
+          installerPath : '/installer/linux-x64/flickrdownloadr-%VERSION%-linux-x64-installer.run',
+          installerFile : 'flickrdownloadr-%VERSION%-linux-x64-installer.run'
         }
       },
       socialHash = {
@@ -148,8 +165,8 @@ $(function () {
     currentOsName = 'linux-x64';
   } else if (currentOsName === 'android' || currentOsName === 'blackberry') {
     currentOsName = 'linux';
-  } else if (currentOsName === 'ios') {
-    currentOsName = 'mac os';
+  } else if (currentOsName === 'mac os' || currentOsName === 'ios') {
+    currentOsName = 'osx';
   }
 
   $.get('/build.number', function (latestVersion) {
@@ -161,12 +178,38 @@ $(function () {
     var currentPlatform = platforms[currentOsName];
     if (!currentPlatform) {
       currentPlatform = platforms.windows;
+      currentOsName = 'windows';
     }
     var $fdDownloadButton = $('#fd-download-button');
-    $fdDownloadButton.attr('onClick', downloadOnClick.replace('%PLATFORM%', currentPlatform.name));
+    $fdDownloadButton.attr('onClick', homeInstallOnClick.replace('%PLATFORM%', currentPlatform.name));
     $fdDownloadButton.attr('href', currentPlatform.installerPath.replace('%VERSION%', latestVersion));
     $('#fd-download-platform-name').text(currentPlatform.name);
+    $('#fd-download-platform-icon').addClass(currentPlatform.iconName);
     $('#fd-installer').fadeIn();
+
+    // installer links and filenames on downloads page
+    $.each(['windows', 'osx', 'linux', 'linux-x64'], function (id, val) {
+      var platform = platforms[val];
+      $('#fd-installer-' + val + '-file').text(decodeURIComponent(platform.installerFile.replace('%VERSION%', latestVersion)));
+      var $fdInstallerButton = $('#fd-installer-download-' + val + '-button');
+      $fdInstallerButton.attr('onClick', downloadsInstallOnClick.replace('%PLATFORM%', platform.name));
+      $fdInstallerButton.attr('href', platform.installerPath.replace('%VERSION%', latestVersion));
+    });
+    // deb
+    $('#fd-installer-deb-file').text(deb.installerFile.replace('%VERSION%', latestVersion));
+    var $fdDebDownloadLink = $('#fd-installer-deb');
+    $fdDebDownloadLink.attr('onClick', downloadsInstallOnClick.replace('%PLATFORM%', 'linux-deb'));
+    $fdDebDownloadLink.attr('href', deb.installerPath.replace('%VERSION%', latestVersion));
+    // rpm
+    $('#fd-installer-rpm-file').text(rpm.installerFile.replace('%VERSION%', latestVersion));
+    var $fdRpmDownloadLink = $('#fd-installer-rpm');
+    $fdRpmDownloadLink.attr('onClick', downloadsInstallOnClick.replace('%PLATFORM%', 'linux-rpm'));
+    $fdRpmDownloadLink.attr('href', rpm.installerPath.replace('%VERSION%', latestVersion));
+
+    // set the current platform as active tab on downloads page
+    $('#fd-installer-download-' + currentOsName + '-button').removeClass('btn-warning').addClass('btn-success');
+    $('a[href="#fd-installer-' + currentOsName + '"]').tab('show');
+    $('#fd-installer-section-column').fadeIn();
 
     var $fdHiddenSlides = $('#fd-hidden-slides');
     var $fdScreenshotsCarousel = $('.fd-screenshots-carousel');
@@ -211,37 +254,37 @@ $(function () {
   $(document).on('click', '#getCommits', function () {
     $('#commitsContainer').empty().append($('<div><span class="muted">Loading...</span></div>'));
     fdScripts.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr-gtk/commits',
-      function (data) {
-        var commitsView = '<table>' +
-              ' <thead>' +
-              '   <th class=\'fd-commitmessage\'>Message</th>' +
-              '   <th class=\'fd-commitname\'>Author</th>' +
-              '   <th class=\'fd-commitdate\'>Date</th>' +
-              ' </thead>' +
-              ' <tbody>' +
-              ' {{#commitsarray}}' +
-              '   <tr class=\'{{is_release commit.message commit.author.name}}\'>' +
-              '     <td class=\'fd-commitmessage\'>' +
-              '       <span>{{strip_sign commit.message 40}}</span>' +
-              '       <span>' +
-              '         <a href=\'{{fix_github_url url}}\' title=\'{{format_date_time commit.author.date}}\' target=\'_blank\'> &raquo;</a>' +
-              '       </span>' +
-              '     </td>' +
-              '     <td class=\'fd-commitname\'>' +
-              '       <a href=\'{{fix_github_url author.url}}\' target=\'_blank\'>{{strip_sign commit.author.name 15}}</a>' +
-              '     </td>' +
-              '     <td class=\'fd-commitdate\'>' +
-              '       <abbr class=\'timeago\' title=\'{{commit.author.date}}\'>{{format_date commit.author.date}}</abbr>' +
-              '     </td>' +
-              '   </tr>' +
-              ' {{/commitsarray}}' +
-              ' </tbody>' +
-              '</table>',
-            commits = { commitsarray : data },
-            output = Handlebars.compile(commitsView)(commits);
-        $('#commitsContainer').empty().append(output);
-        $('abbr.timeago').timeago();
-      });
+        function (data) {
+          var commitsView = '<table>' +
+                  ' <thead>' +
+                  '   <th class=\'fd-commitmessage\'>Message</th>' +
+                  '   <th class=\'fd-commitname\'>Author</th>' +
+                  '   <th class=\'fd-commitdate\'>Date</th>' +
+                  ' </thead>' +
+                  ' <tbody>' +
+                  ' {{#commitsarray}}' +
+                  '   <tr class=\'{{is_release commit.message commit.author.name}}\'>' +
+                  '     <td class=\'fd-commitmessage\'>' +
+                  '       <span>{{strip_sign commit.message 40}}</span>' +
+                  '       <span>' +
+                  '         <a href=\'{{fix_github_url url}}\' title=\'{{format_date_time commit.author.date}}\' target=\'_blank\'> &raquo;</a>' +
+                  '       </span>' +
+                  '     </td>' +
+                  '     <td class=\'fd-commitname\'>' +
+                  '       <a href=\'{{fix_github_url author.url}}\' target=\'_blank\'>{{strip_sign commit.author.name 15}}</a>' +
+                  '     </td>' +
+                  '     <td class=\'fd-commitdate\'>' +
+                  '       <abbr class=\'timeago\' title=\'{{commit.author.date}}\'>{{format_date commit.author.date}}</abbr>' +
+                  '     </td>' +
+                  '   </tr>' +
+                  ' {{/commitsarray}}' +
+                  ' </tbody>' +
+                  '</table>',
+              commits = { commitsarray : data },
+              output = Handlebars.compile(commitsView)(commits);
+          $('#commitsContainer').empty().append(output);
+          $('abbr.timeago').timeago();
+        });
   });
 
   // add links to full-size images from screenshots

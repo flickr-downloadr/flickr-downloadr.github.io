@@ -78,7 +78,7 @@
                     <li><a href="/blogs">Blog</a></li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Downloads <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/downloads">All Platforms</a></li>
+                            <li class="active"><a href="/downloads">All Platforms</a></li>
                             <li class="divider"></li>
                             <li class="dropdown-header">On GitHub</li>
                             <li><a onClick="fdScripts.gaTrack('Files', 'Download', 'zipball (home)');" target="_blank"
@@ -89,7 +89,7 @@
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li class="active"><a href="/documentation">Documentation</a></li>
+                            <li><a href="/documentation">Documentation</a></li>
                             <li><a onClick="fdScripts.gaTrack('External', 'Click', 'Issues (home)');"
                                    href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/issues" target="_blank">Report Issues</a></li>
                         </ul>
@@ -109,21 +109,20 @@
     <div class="container">
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="container">
-            <div class="fd-logo non-main"></div>
+            <a href="/"><div title="flickr downloadr" class="fd-logo non-main"></div></a>
             <p id="fd-description">A cross-platform desktop application for Windows, Mac and Linux to download (all or selected) photos from your
                 photostream in their original size along with their description, title and tags.</p>
             <div class="fd-header-bottom"></div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
+        <div id="fd-installer-section-row" class="row">
+            <div id="fd-installer-section-column" class="col-md-12">
                 <h2>All Platforms - <i class="fa fa-windows"></i> <i class="fa fa-apple"></i> <i class="fa fa-linux"></i></h2>
                 <p></p>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs nav-justified">
-                    <li class="active"><a href="#fd-installer-windows" data-toggle="tab">Windows</a></li>
+                    <li><a href="#fd-installer-windows" data-toggle="tab">Windows</a></li>
                     <li><a href="#fd-installer-osx" data-toggle="tab">Mac OS X</a></li>
-                    <li><a href="#fd-installer-linux" data-toggle="tab">Linux (32-bit)</a></li>
-                    <li><a href="#fd-installer-linux-64" data-toggle="tab">Linux (64-bit)</a></li>
+                    <li><a href="#fd-installer-linux" data-toggle="tab">Linux</a></li>
                 </ul>
 
                 <!-- Tab panes -->
@@ -132,17 +131,25 @@
                         <div class="fd-installer-content">
                             <div class="row">
                                 <div class="col-md-2"></div>
-                                <div class="col-md-10">
+                                <div class="col-md-8">
                                     <p><i class="fa fa-4x fa-windows"></i>
                                         <span class="fd-installer-name">Windows</span>
-                                        <span id="fd-installer-windows-file" class="text-muted">flickrdownloadr-0.9.5.48-windows-installer.exe</span>
+                                        <span class="fd-installer-file-name text-muted" id="fd-installer-windows-file"></span>
                                     </p>
-                                    <p>Supports Windows Vista, Windows 7, Windows 8/8.1</p>
-                                    <p>Requires .NET 4.5/Mono 3.2+ and GTK# (bundled with the installer)</p>
-                                    <p><a id="fd-download-installer-windows-button" class="btn btn-success btn-lg" target="_blank" href="#">Download & Install &raquo;</a></p>
+                                    <p><a id="fd-installer-download-windows-button" class="btn btn-warning btn-lg" target="_blank" href="#">Download &raquo;</a></p>
                                     <blockquote class="fd-version-quote">
                                         <small class="fd-version"> Version <span class="fd-version-text">0.0.0.0</span> (beta)</small>
                                     </blockquote>
+                                    <p>Supports Windows Vista, Windows 7, Windows 8/8.1</p>
+                                    <p>Requires .NET 4.5/Mono 3.2+ and GTK# (bundled with the installer)</p>
+                                    <p>&#160;</p>
+                                    <h4>Build from Source</h4>
+                                    <p>
+                                        You could also download and build from
+                                        <a onClick="fdScripts.gaTrack('Source', 'Fork', 'Downloads - Win');" target="_blank"
+                                           href="https://github.com/flickr-downloadr/flickr-downloadr-gtk" title="Fork me on GitHub">
+                                            the source</a>.
+                                    </p>
                                 </div>
                                 <div class="col-md-2"></div>
                             </div>
@@ -152,17 +159,25 @@
                         <div class="fd-installer-content">
                             <div class="row">
                                 <div class="col-md-2"></div>
-                                <div class="col-md-10">
+                                <div class="col-md-8">
                                     <p><i class="fa fa-4x fa-apple"></i>
                                         <span class="fd-installer-name">Mac OS X</span>
-                                        <span id="fd-installer-osx-file" class="text-muted">flickrdownloadr-0.9.5.48-windows-installer.exe</span>
+                                        <span class="fd-installer-file-name text-muted" id="fd-installer-osx-file"></span>
                                     </p>
-                                    <p>Supports Mac OS X 10.8 (Snow Leopard) and above</p>
-                                    <p>Requires Mono 3.2+ and GTK# (bundled with the installer)</p>
-                                    <p><a id="fd-download-installer-osx-button" class="btn btn-success btn-lg" target="_blank" href="#">Download & Install &raquo;</a></p>
+                                    <p><a id="fd-installer-download-osx-button" class="btn btn-warning btn-lg" target="_blank" href="#">Download &raquo;</a></p>
                                     <blockquote class="fd-version-quote">
                                         <small class="fd-version"> Version <span class="fd-version-text">0.0.0.0</span> (beta)</small>
                                     </blockquote>
+                                    <p>Supports Mac OS X 10.6 (Snow Leopard) and above</p>
+                                    <p>Requires Mono 3.2.0+ and GTK# (bundled with the installer)</p>
+                                    <p>&#160;</p>
+                                    <h4>Build from Source</h4>
+                                    <p>
+                                        You could also download and build from
+                                        <a onClick="fdScripts.gaTrack('Source', 'Fork', 'Downloads - Mac');" target="_blank"
+                                           href="https://github.com/flickr-downloadr/flickr-downloadr-gtk" title="Fork me on GitHub">
+                                            the source</a>.
+                                    </p>
                                 </div>
                                 <div class="col-md-2"></div>
                             </div>
@@ -171,47 +186,54 @@
                     <div class="tab-pane" id="fd-installer-linux">
                         <div class="fd-installer-content">
                             <div class="row">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-10">
-                                    <p><i class="fa fa-4x fa-linux"></i>
-                                        <span class="fd-installer-name">Linux (32-bit)</span>
-                                        <span id="fd-installer-linux-file" class="text-muted">flickrdownloadr-0.9.5.48-windows-installer.exe</span>
+                                <div class="col-sm-6">
+                                    <p><i class="fa fa-3x fa-linux"></i>
+                                        <span class="fd-installer-name">Linux</span>
+                                        <span class="fd-installer-file-name text-muted" id="fd-installer-linux-file"></span>
                                     </p>
-                                    <p>Installer supports Ubuntu</p>
-                                    <p>Requires Mono 3.2+ and GTK# 2.12+ (bundled with the installer for Ubuntu)</p>
-                                    <p><a id="fd-download-installer-linux-button" class="btn btn-success btn-lg" target="_blank" href="#">Download & Install &raquo;</a></p>
+                                    <p><a id="fd-installer-download-linux-button" class="btn btn-warning" target="_blank" href="#">Download &raquo;</a></p>
                                     <blockquote class="fd-version-quote">
                                         <small class="fd-version"> Version <span class="fd-version-text">0.0.0.0</span> (beta)</small>
                                     </blockquote>
                                 </div>
-                                <div class="col-md-2"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="fd-installer-linux-64">
-                        <div class="fd-installer-content">
-                            <div class="row">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-10">
-                                    <p><i class="fa fa-4x fa-linux"></i>
+                                <div class="col-sm-6">
+                                    <p><i class="fa fa-3x fa-linux"></i>
                                         <span class="fd-installer-name">Linux (64-bit)</span>
-                                        <span id="fd-installer-linux-x64-file" class="text-muted">flickrdownloadr-0.9.5.48-windows-installer.exe</span>
+                                        <span class="fd-installer-file-name text-muted" id="fd-installer-linux-x64-file"></span>
                                     </p>
-                                    <p>Installer supports Ubuntu</p>
-                                    <p>Requires Mono 3.2+ and GTK# 2.12+ (bundled with the installer for Ubuntu)</p>
-                                    <p><a id="fd-download-installer-linux-x64-button" class="btn btn-success btn-lg" target="_blank" href="#">Download & Install &raquo;</a></p>
+                                    <p><a id="fd-installer-download-linux-x64-button" class="btn btn-warning" target="_blank" href="#">Download &raquo;</a></p>
                                     <blockquote class="fd-version-quote">
                                         <small class="fd-version"> Version <span class="fd-version-text">0.0.0.0</span> (beta)</small>
                                     </blockquote>
                                 </div>
-                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p>Requires Mono 3.2+ and GTK# 2.12+ (bundled with the installer)</p>
+                                    <p>Installer has been tested only on Ubuntu (13.10 and 14.04)</p>
+                                    <p>&#160;</p>
+                                    <h4><code>deb</code> and <code>rpm</code> Packages</h4>
+                                    <p>If you'd rather install from a native package, download an <code>deb</code> or <code>rpm</code> file here:</p>
+                                    <p><code>deb</code>: <a id="fd-installer-deb" href="#"><span id="fd-installer-deb-file"></span></a></p>
+                                    <p><code>rpm</code>: <a id="fd-installer-rpm" href="#"><span id="fd-installer-rpm-file"></span></a></p>
+                                    <p>(Please ensure that Mono 3.2.0+ and GTK# 2.12+ are also installed)</p>
+                                    <p>&#160;</p>
+                                    <h4>Build from Source</h4>
+                                    <p>
+                                        You could also download and build from
+                                        <a onClick="fdScripts.gaTrack('Source', 'Fork', 'Downloads - Linux');" target="_blank"
+                                           href="https://github.com/flickr-downloadr/flickr-downloadr-gtk" title="Fork me on GitHub">
+                                            the source</a>.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <h2>Previous Versions</h2>
-                <p>Click <a href="https://sourceforge.net/projects/flickr-downloadr/files">here</a> to install any of the previously released versions from
-                    SourceForge.</p>
+                <h2>Older Releases</h2>
+                <p>Click the link below to install any of the previously released versions from SourceForge.</p>
+                <p><a onClick="fdScripts.gaTrack('External', 'Click', 'Source Forge');" href="https://sourceforge.net/projects/flickr-downloadr/files"
+                      target="_blank" title="Older releases archived at SourceForge">Previous Versions</a></p>
             </div>
         </div>
 
