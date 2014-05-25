@@ -4,7 +4,7 @@
   <title><![CDATA[flickr downloadr]]></title>
   <link href="http://flickrdownloadr.com/blogs/atom.xml" rel="self"/>
   <link href="http://flickrdownloadr.com/blogs/"/>
-  <updated>2014-03-04T18:09:33-05:00</updated>
+  <updated>2014-05-24T22:33:07-04:00</updated>
   <id>http://flickrdownloadr.com/blogs/</id>
   <author>
     <name><![CDATA[flickr downloadr]]></name>
@@ -18,7 +18,7 @@
     <link href="http://flickrdownloadr.com/blogs/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr/"/>
     <updated>2014-01-20T14:06:00-05:00</updated>
     <id>http://flickrdownloadr.com/blogs/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr</id>
-    <content type="html"><![CDATA[<p>It&#8217;s been a long time since something has been posted on this blog! And really, it&#8217;s been quite a while since something has been done with the app at all.</p>
+    <content type="html"><![CDATA[<p>It&rsquo;s been a long time since something has been posted on this blog! And really, it&rsquo;s been quite a while since something has been done with the app at all.</p>
 
 <p>And the main reason for that is that I have been focussing more on mobile apps and web apps lately. Combine this with the fact that a Macbook Pro is the primary machine these days and there you have the reason for why this Windows/Visual Studio application has not been getting any attention at all.</p>
 
@@ -46,13 +46,13 @@
 
 <h2>Introduction</h2>
 
-<p>The <a href="http://flickrdownloadr.com/blogs/../downloads/latest">downloads</a> page on flickrdownloadr.com has a link to the latest published version of the application listed there along with the current version number. For the first few times, this page was being updated manually. But because it&#8217;s still very early phases of development, where we are going to be releasing quite a few times and also because <a href="http://en.wikipedia.org/wiki/Release_early,_release_often">release early, release often</a> is a good philosophy to try and practice, the need to automate this app-deployment-process soon arose.</p>
+<p>The <a href="http://flickrdownloadr.com/blogs/../downloads/latest">downloads</a> page on flickrdownloadr.com has a link to the latest published version of the application listed there along with the current version number. For the first few times, this page was being updated manually. But because it&rsquo;s still very early phases of development, where we are going to be releasing quite a few times and also because <a href="http://en.wikipedia.org/wiki/Release_early,_release_often">release early, release often</a> is a good philosophy to try and practice, the need to automate this app-deployment-process soon arose.</p>
 
 <p>Ideally, the publish process detailed here would be run from a CI environment, but that is not happening right now for a couple of reasons:</p>
 
 <ol>
 <li>There are no free and hosted CI services <em>that</em> runs the .NET version (v4.5) that flickrdownloadr is built on. Even though <a href="http://teamcity.codebetter.com">Codebetter CI</a> has kindly agreed to use their service for <a href="http://teamcity.codebetter.com/project.html?projectId=project228&amp;tab=projectOverview">this project</a> and there were quite a few successful builds earlier, they do not support v4.5 yet.</li>
-<li>The deploy shell script (that is explained below) relies on the SSH identity to authenticate to GitHub to be already established when it runs. I haven&#8217;t figured out how else to handle the GitHub authentication (with write access) from a CI environment, without publicly storing the credentials in the repository.</li>
+<li>The deploy shell script (that is explained below) relies on the SSH identity to authenticate to GitHub to be already established when it runs. I haven&rsquo;t figured out how else to handle the GitHub authentication (with write access) from a CI environment, without publicly storing the credentials in the repository.</li>
 </ol>
 
 
@@ -61,7 +61,7 @@
 <!-- more -->
 
 
-<p><a href="http://nant.sourceforge.net/">NAnt</a> has been working quite well for me, with all the build automation, unit testing and CI needs, I was inclined to trying to use it for this deployment automation as well. And even though there are a few relevant hits involving NAnt, MSBuild and ClickOnce when you google for &#8220;ClickOnce NAnt&#8221;, there are a few gotchas in those articles, that are only just being stated and not really solved, especially with my specific environment and such. These include:</p>
+<p><a href="http://nant.sourceforge.net/">NAnt</a> has been working quite well for me, with all the build automation, unit testing and CI needs, I was inclined to trying to use it for this deployment automation as well. And even though there are a few relevant hits involving NAnt, MSBuild and ClickOnce when you google for &ldquo;ClickOnce NAnt&rdquo;, there are a few gotchas in those articles, that are only just being stated and not really solved, especially with my specific environment and such. These include:</p>
 
 <ul>
 <li>The auto increment of the version number would happen only when published from within Visual Studio and not from MSBuild</li>
@@ -70,7 +70,7 @@
 </ul>
 
 
-<p>So I started piecing together the below process, standing on the shoulders of many of those nice articles/tutorials. And the below detailed process is what&#8217;s been working for me right now for the automation of the ClickOnce deployment into the flickr downloadr website hosted at  GitHub Pages. The <code>deploy.bat</code> command is run from within <code>/build</code> directory of the <code>master</code> branch, which essentially runs NAnt with a build file that has a few targets to:</p>
+<p>So I started piecing together the below process, standing on the shoulders of many of those nice articles/tutorials. And the below detailed process is what&rsquo;s been working for me right now for the automation of the ClickOnce deployment into the flickr downloadr website hosted at  GitHub Pages. The <code>deploy.bat</code> command is run from within <code>/build</code> directory of the <code>master</code> branch, which essentially runs NAnt with a build file that has a few targets to:</p>
 
 <ul>
 <li>increment the app version</li>
@@ -79,7 +79,7 @@
 <li>call the shell script to
 
 <blockquote><ul>
-<li><small>clone the <code>gh-pages</code> branch from the GitHub repo to which we&#8217;re publishing</small></li>
+<li><small>clone the <code>gh-pages</code> branch from the GitHub repo to which we&rsquo;re publishing</small></li>
 <li><small>commit and push the published ClickOnce application files</small></li>
 <li><small>checkout the <code>master</code> branch, where the app itself is</small></li>
 <li><small>commit and push the updated <code>version number</code> and <code>AssemblyInfo.cs</code> files</small></li>
@@ -88,7 +88,7 @@
 </ul>
 
 
-<p>After that brief intro, let&#8217;s get into the details. And some code snippets.</p>
+<p>After that brief intro, let&rsquo;s get into the details. And some code snippets.</p>
 
 <h2><em>As the <code>code</code> flies !</em></h2>
 
@@ -96,7 +96,7 @@
 
 <p>The sequence of steps from the single-click deployment process, gets kicked off by the <code>deploy.bat</code> file. Here are the contents of that file:</p>
 
-<figure class='code'><figcaption><span>deploy.bat</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/master/build/deploy.bat'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>deploy.bat</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/master/build/deploy.bat'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='bat'><span class='line'>go deploy Release
 </span><span class='line'><span class="k">pause</span>
@@ -105,7 +105,7 @@
 
 <p>Here <code>go</code> is another batch file that is there in the same directory:</p>
 
-<figure class='code'><figcaption><span>go.bat</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/master/build/go.bat'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>go.bat</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/master/build/go.bat'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -126,7 +126,7 @@
 
 <p>So, as evident here, this calls NAnt with <code>FlickrDownloadr.build</code> as the build file and <code>deploy</code> as the target to run, with <code>Release</code> as the build configuration.</p>
 
-<figure class='code'><figcaption><span>deploy</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L110'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>deploy</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L110'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -149,9 +149,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>This target first waits for its dependant target <code>publish</code> to execute. Let&#8217;s see what that does first and we shall come back to this target to see when it would execute the <code>deploy.sh</code> bash script.</p>
+<p>This target first waits for its dependant target <code>publish</code> to execute. Let&rsquo;s see what that does first and we shall come back to this target to see when it would execute the <code>deploy.sh</code> bash script.</p>
 
-<figure class='code'><figcaption><span>publish</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L121'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>publish</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L121'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -202,13 +202,13 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>This target again has another dependant target which is the compilation of the solution. Before we go there though, let&#8217;s take one more closer look at this <code>publish</code> target.</p>
+<p>This target again has another dependant target which is the compilation of the solution. Before we go there though, let&rsquo;s take one more closer look at this <code>publish</code> target.</p>
 
-<p>It&#8217;s simple invocation of the <code>msbuild</code> task (from NAntContrib) to invoke the <code>publish</code> build configuration (the line with <code>&lt;arg value="/t:publish" /&gt;</code> towards the end) on the WPF application <em>project</em> (and not the whole VS solution, which is what, as you&#8217;d see in a bit, the compilation invokes). A few of the properties being specified in there are moot though, for example, the install web page does not get created even with the really, positively asserting property in there!</p>
+<p>It&rsquo;s simple invocation of the <code>msbuild</code> task (from NAntContrib) to invoke the <code>publish</code> build configuration (the line with <code>&lt;arg value="/t:publish" /&gt;</code> towards the end) on the WPF application <em>project</em> (and not the whole VS solution, which is what, as you&rsquo;d see in a bit, the compilation invokes). A few of the properties being specified in there are moot though, for example, the install web page does not get created even with the really, positively asserting property in there!</p>
 
 <p>The <code>compilesolution</code> task is another straight-forward one like this:</p>
 
-<figure class='code'><figcaption><span>compilesolution</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L40'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>compilesolution</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L40'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -225,7 +225,7 @@
 
 <p>As mentioned earlier, this time around MSBuild is being invoked on the Visual Studio solution itself. But the most interesting aspect here is the <code>increment-version</code> target that is a dependency:</p>
 
-<figure class='code'><figcaption><span>increment-version</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L66'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>increment-version</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L66'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -244,7 +244,7 @@
 
 <p>Then we get to the <a href="http://nant.sourceforge.net/release/latest/help/tasks/asminfo.html">NAnt asminfo</a> task to generate one, shared <code>CommonAssemblyInfo.cs</code> file, which is linked to by all the projects in the solution as their <code>AssemblyInfo.cs</code> modules.</p>
 
-<figure class='code'><figcaption><span>create-common-assemblyinfo</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L72'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>create-common-assemblyinfo</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L72'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -327,11 +327,11 @@
 
 <p>Coming back to the <code>publish</code> target now, it creates the ClickOnce deployable application files into the directory specified (<code>&lt;arg value="/p:PublishDir=${bin.dir}\Deploy\"/&gt;</code>) also with the dynamic version number as the publish version (<code>&lt;arg value="/p:ApplicationVersion=${buildnumber.version}"/&gt;</code>).</p>
 
-<p>Also, this version string would be included in the product name as well (<code>&lt;arg value="/p:ProductName=flickr downloadr (beta v${buildnumber.version})"/&gt;</code>), so everytime there is a release, the name of the app itself (only the name, it will still be treated as the same app as the older version by Windows, the ClickOnce updater service etc.) will have the current deployed version number in it; a la <strong>flickr downloadr (beta v0.3.4.26)</strong>. Ain&#8217;t that nice?</p>
+<p>Also, this version string would be included in the product name as well (<code>&lt;arg value="/p:ProductName=flickr downloadr (beta v${buildnumber.version})"/&gt;</code>), so everytime there is a release, the name of the app itself (only the name, it will still be treated as the same app as the older version by Windows, the ClickOnce updater service etc.) will have the current deployed version number in it; a la <strong>flickr downloadr (beta v0.3.4.26)</strong>. Ain&rsquo;t that nice?</p>
 
-<p>Moving onto the not-so-short bash script we are running as part of the <code>deploy</code> target that invoked the <code>publish</code>. Before we get into the script itself if you scroll back up to the snippet that invokes it, there are a couple of environment variables being added from NAnt to be made available in the bash. That maneuver took sometime to discover, but I thought it&#8217;s a nice little way to pass stuff in to the bash script from within the build environment. And most importantly for us, this includes the <code>BUILDNUMBER</code> variable as well which has the current app version.</p>
+<p>Moving onto the not-so-short bash script we are running as part of the <code>deploy</code> target that invoked the <code>publish</code>. Before we get into the script itself if you scroll back up to the snippet that invokes it, there are a couple of environment variables being added from NAnt to be made available in the bash. That maneuver took sometime to discover, but I thought it&rsquo;s a nice little way to pass stuff in to the bash script from within the build environment. And most importantly for us, this includes the <code>BUILDNUMBER</code> variable as well which has the current app version.</p>
 
-<p>The first 50 lines within the <code>deploy.sh</code> script is to ensure that the currently logged in SSH identity is being reused (probably there is a better way to do this, or a few lines could be shaved off from this version itself as there is no way one would expect the deploy script to interactively ask to login afresh, if no one is already logged in. Anyways&#8230;). I thought the rest of the bash script is also pretty self explanatory, so I am just linking it all here:</p>
+<p>The first 50 lines within the <code>deploy.sh</code> script is to ensure that the currently logged in SSH identity is being reused (probably there is a better way to do this, or a few lines could be shaved off from this version itself as there is no way one would expect the deploy script to interactively ask to login afresh, if no one is already logged in. Anyways&hellip;). I thought the rest of the bash script is also pretty self explanatory, so I am just linking it all here:</p>
 
 <div><script src='https://gist.github.com/4536562.js?file=deploy.sh'></script>
 <noscript><pre><code>PATH=$HOME/bin:$ADDPATH:$PATH
@@ -382,7 +382,7 @@ else
 fi
 
 cd ../source/bin/Release
-REPO=git@github.com:flickr-downloadr/flickr-downloadr-gtk.git
+REPO=git@github.com:flickr-downloadr/flickr-downloadr.git
 MSG=&quot;application (v${BUILDNUMBER})&quot;
 
 #clone repo in a tmp dir
@@ -430,15 +430,15 @@ exit</code></pre></noscript></div>
 
 <p>Even though this is a very minor piece in the whole scheme of things, to have the site show the version number of the latest available release (that too, let me do this one more time, with a deployment effort of a single-click), I thought was a really cool thing.</p>
 
-<p>One really nagging thing after everything started (seemingly) working as expected, was that the ClickOnce updater/installer started complaining about some signing or manifest or something (I can&#8217;t find the exact error now, shall recreate it and update here soon) and would not install/upgrade the app at all. After some googling  found out that it had to do with how the cr-lf differences between Windows and *NIX are being handled by the Git clients and/or GitHub etc.</p>
+<p>One really nagging thing after everything started (seemingly) working as expected, was that the ClickOnce updater/installer started complaining about some signing or manifest or something (I can&rsquo;t find the exact error now, shall recreate it and update here soon) and would not install/upgrade the app at all. After some googling  found out that it had to do with how the cr-lf differences between Windows and *NIX are being handled by the Git clients and/or GitHub etc.</p>
 
 <p>To fix this, a <code>.gitattributes</code> file was added into the <code>gh-pages</code> branch <code>downloads</code> directory, following <a href="https://help.github.com/articles/dealing-with-line-endings">this helpfile at GitHub</a>, to the effect of asking git to treat everything within the <code>/downloads</code> directory as non-text files:</p>
 
-<figure class='code'><figcaption><span>.gitattributes</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/gh-pages/downloads/.gitattributes'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>.gitattributes</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/gh-pages/downloads/.gitattributes'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>*  -text</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>That&#8217;s it!</h2>
+<h2>That&rsquo;s it!</h2>
 
 <p>All of that put together, the latest version could now be deployed to the <a href="http://flickrdownloadr.com/blogs/../downloads/latest">flickrdownloadr.com</a> web site just by running a batch file.</p>
 
@@ -466,11 +466,11 @@ exit</code></pre></noscript></div>
 <!-- more -->
 
 
-<p>There are quite a few rough edges and a few known issues, but when signed in with a flickr <a href="http://www.flickr.com/help/limits/#28">Pro</a> (read <em>paid</em>) account, the app would show all of the photos from the logged in user&#8217;s photostream. All of the photos, or a selection could then be downloaded and again, as of the version of this writing (v0.6.3.1), the location where photos are downloaded, the size, and the associated metadata are all hard-coded.</p>
+<p>There are quite a few rough edges and a few known issues, but when signed in with a flickr <a href="http://www.flickr.com/help/limits/#28">Pro</a> (read <em>paid</em>) account, the app would show all of the photos from the logged in user&rsquo;s photostream. All of the photos, or a selection could then be downloaded and again, as of the version of this writing (v0.6.3.1), the location where photos are downloaded, the size, and the associated metadata are all hard-coded.</p>
 
 <p>In the coming months, the plan is to add a way to capture user preferences for some of the things mentioned above and also to fix the few known bugs/defects.</p>
 
-<p>If you are windows user who has a Pro account on flickr, please <a href="http://flickrdownloadr.com/blogs/../downloads/latest">download and install</a> the app and let me know your comments/suggestions. If you are .NET/WPF developer and/or an open source enthusiast, please checkout the <a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk">source over at GitHub</a> and leave your comments/suggestions/criticisms on the code.</p>
+<p>If you are windows user who has a Pro account on flickr, please <a href="http://flickrdownloadr.com/blogs/../downloads/latest">download and install</a> the app and let me know your comments/suggestions. If you are .NET/WPF developer and/or an open source enthusiast, please checkout the <a href="https://github.com/flickr-downloadr/flickr-downloadr">source over at GitHub</a> and leave your comments/suggestions/criticisms on the code.</p>
 
 <p>Thanks. And have a beautiful day !</p>
 ]]></content>

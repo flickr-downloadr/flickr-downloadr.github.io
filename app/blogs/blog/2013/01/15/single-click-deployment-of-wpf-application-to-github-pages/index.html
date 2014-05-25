@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
 <!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
@@ -9,7 +8,6 @@
   <meta name="author" content="flickr downloadr">
 
   
-  <meta name="description" content="Summary This post will try to detail: how the NAntContrib Version task is automating the version increment; and then building the flickr downloadr &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,78 +16,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://flickrdownloadr.com/blogs/blog/2013/01/15/single-click-deployment-of-wpf-application-to-github-pages/">
-  <link href="/blogs/favicon.png" rel="icon">
-  <link href="/blogs/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/blogs/javascripts/modernizr-2.0.js"></script>
-  <script src="/blogs/javascripts/ender.js"></script>
-  <script src="/blogs/javascripts/octopress.js" type="text/javascript"></script>
+  <link rel="canonical" href="http://flickrdownloadr.com/blogs/blog/2013/01/15/single-click-deployment-of-wpf-application-to-github-pages">
+  <link href="/blogs/favicon.png" type="image/png" rel="icon">
   <link href="/blogs/atom.xml" rel="alternate" title="flickr downloadr" type="application/atom+xml">
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
-    <meta property="twitter:card" content="summary">
-    <meta property="twitter:site" content="FlickrDownloadr">
-    <meta property="twitter:url" content="http://flickrdownloadr.com/blogs/blog/2013/01/15/single-click-deployment-of-wpf-application-to-github-pages/">
-    <meta property="twitter:title" content="Single-click deployment of WPF application to GitHub Pages">
-    <meta property="twitter:description" content="Summary This post will try to detail: how the NAntContrib Version task is automating the version increment; and then building the flickr downloadr WPF app
-how the app is being published (via NAnt and &hellip;">
-    <meta property="twitter:image" content="http://flickrdownloadr.com/img/screenshots/screenshots.png">
+  <link href="/blogs/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/blogs/assets/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+<link href="/blogs/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 
 
+  <script src="/blogs/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
   
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4869398-5']);
+    _gaq.push(['_trackPageview']);
 
-        ga('create', 'UA-4869398-5', 'flickrdownloadr.com');
-        ga('send', 'pageview');
-
-    </script>
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
 
 
 </head>
 
-<body   >
-  <header role="banner">
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/blogs/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:flickrdownloadr.com/blogs" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-    <li class="brand"><a href="/"><strong>flickr downloadr</strong></a></li>
-    <li><a href="/">Home</a></li>
-    <li><a href="/blogs/">Blog</a></li>
-    <li><a href="/downloads/latest">Download</a></li>
-    <li><a href="/documentation">Documentation</a></li>
-    <li><a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/issues" target="_blank">Report Issues</a></li>
-    <li><a href="mailto:contact.us@flickrdownloadr.com">Contact Us</a></li>
-</ul>
+  <body   >
+    <div id="wrap">
+      <header role="banner">
+        <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/blogs/">flickr downloadr</a>
+        </div>
 
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="/blogs/">Blog</a>
+                </li>
+                <li >
+                    <a href="/blogs/blog/archives">Archives</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="subscribe-rss" href="/blogs/atom.xml" title="subscribe via RSS">
+                        <span class="visible-xs">RSS</span>
+                        <img class="hidden-xs" src="/blogs/images/rss.png" alt="RSS">
+                    </a>
+                </li>
+                
+            </ul>
+            
+                <form class="search navbar-form navbar-right" action="http://google.com/search" method="GET">
+                    <input type="hidden" name="q" value="site:flickrdownloadr.com/blogs">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="q" placeholder="Search">
+                    </div>
+                </form>
+            
+        </div>
+    </div>
 </nav>
-  <div id="main">
-    <div id="content">
-      <div>
-<article class="hentry" role="article">
-  
-  <header>
+
+
+      </header>
+      <div id="main" class="container">
+        <div id="content">
+          <div class="row">
+  <div class="page-content col-md-9">
+    <article class="hentry" role="article">
+      
+  <header class="page-header">
     
-      <h1 class="entry-title">Single-click Deployment of WPF Application to GitHub Pages</h1>
-    
-    
-      <p class="meta">
+      <p class="meta text-muted text-uppercase">
         
 
 
@@ -99,17 +106,24 @@ how the app is being published (via NAnt and &hellip;">
 
 
 
-  
 
 
-<time datetime="2013-01-15T02:03:00-05:00" pubdate data-updated="true">Jan 15<span>th</span>, 2013</time>
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-01-15T02:03:00-05:00" pubdate data-updated="true">Jan 15<span>th</span>, 2013</time>
         
       </p>
+    
+    
+    <h1 class="entry-title">
+        Single-click Deployment of WPF Application to GitHub Pages
+        
+    </h1>
     
   </header>
 
 
-<div class="entry-content"><h2>Summary</h2>
+<div class="entry-content clearfix"><h2>Summary</h2>
 
 <p>This post will try to detail:</p>
 
@@ -122,13 +136,13 @@ how the app is being published (via NAnt and &hellip;">
 
 <h2>Introduction</h2>
 
-<p>The <a href="/blogs/../downloads/latest">downloads</a> page on flickrdownloadr.com has a link to the latest published version of the application listed there along with the current version number. For the first few times, this page was being updated manually. But because it&#8217;s still very early phases of development, where we are going to be releasing quite a few times and also because <a href="http://en.wikipedia.org/wiki/Release_early,_release_often">release early, release often</a> is a good philosophy to try and practice, the need to automate this app-deployment-process soon arose.</p>
+<p>The <a href="/blogs/../downloads/latest">downloads</a> page on flickrdownloadr.com has a link to the latest published version of the application listed there along with the current version number. For the first few times, this page was being updated manually. But because it&rsquo;s still very early phases of development, where we are going to be releasing quite a few times and also because <a href="http://en.wikipedia.org/wiki/Release_early,_release_often">release early, release often</a> is a good philosophy to try and practice, the need to automate this app-deployment-process soon arose.</p>
 
 <p>Ideally, the publish process detailed here would be run from a CI environment, but that is not happening right now for a couple of reasons:</p>
 
 <ol>
 <li>There are no free and hosted CI services <em>that</em> runs the .NET version (v4.5) that flickrdownloadr is built on. Even though <a href="http://teamcity.codebetter.com">Codebetter CI</a> has kindly agreed to use their service for <a href="http://teamcity.codebetter.com/project.html?projectId=project228&amp;tab=projectOverview">this project</a> and there were quite a few successful builds earlier, they do not support v4.5 yet.</li>
-<li>The deploy shell script (that is explained below) relies on the SSH identity to authenticate to GitHub to be already established when it runs. I haven&#8217;t figured out how else to handle the GitHub authentication (with write access) from a CI environment, without publicly storing the credentials in the repository.</li>
+<li>The deploy shell script (that is explained below) relies on the SSH identity to authenticate to GitHub to be already established when it runs. I haven&rsquo;t figured out how else to handle the GitHub authentication (with write access) from a CI environment, without publicly storing the credentials in the repository.</li>
 </ol>
 
 
@@ -137,7 +151,7 @@ how the app is being published (via NAnt and &hellip;">
 <!-- more -->
 
 
-<p><a href="http://nant.sourceforge.net/">NAnt</a> has been working quite well for me, with all the build automation, unit testing and CI needs, I was inclined to trying to use it for this deployment automation as well. And even though there are a few relevant hits involving NAnt, MSBuild and ClickOnce when you google for &#8220;ClickOnce NAnt&#8221;, there are a few gotchas in those articles, that are only just being stated and not really solved, especially with my specific environment and such. These include:</p>
+<p><a href="http://nant.sourceforge.net/">NAnt</a> has been working quite well for me, with all the build automation, unit testing and CI needs, I was inclined to trying to use it for this deployment automation as well. And even though there are a few relevant hits involving NAnt, MSBuild and ClickOnce when you google for &ldquo;ClickOnce NAnt&rdquo;, there are a few gotchas in those articles, that are only just being stated and not really solved, especially with my specific environment and such. These include:</p>
 
 <ul>
 <li>The auto increment of the version number would happen only when published from within Visual Studio and not from MSBuild</li>
@@ -146,7 +160,7 @@ how the app is being published (via NAnt and &hellip;">
 </ul>
 
 
-<p>So I started piecing together the below process, standing on the shoulders of many of those nice articles/tutorials. And the below detailed process is what&#8217;s been working for me right now for the automation of the ClickOnce deployment into the flickr downloadr website hosted at  GitHub Pages. The <code>deploy.bat</code> command is run from within <code>/build</code> directory of the <code>master</code> branch, which essentially runs NAnt with a build file that has a few targets to:</p>
+<p>So I started piecing together the below process, standing on the shoulders of many of those nice articles/tutorials. And the below detailed process is what&rsquo;s been working for me right now for the automation of the ClickOnce deployment into the flickr downloadr website hosted at  GitHub Pages. The <code>deploy.bat</code> command is run from within <code>/build</code> directory of the <code>master</code> branch, which essentially runs NAnt with a build file that has a few targets to:</p>
 
 <ul>
 <li>increment the app version</li>
@@ -155,7 +169,7 @@ how the app is being published (via NAnt and &hellip;">
 <li>call the shell script to
 
 <blockquote><ul>
-<li><small>clone the <code>gh-pages</code> branch from the GitHub repo to which we&#8217;re publishing</small></li>
+<li><small>clone the <code>gh-pages</code> branch from the GitHub repo to which we&rsquo;re publishing</small></li>
 <li><small>commit and push the published ClickOnce application files</small></li>
 <li><small>checkout the <code>master</code> branch, where the app itself is</small></li>
 <li><small>commit and push the updated <code>version number</code> and <code>AssemblyInfo.cs</code> files</small></li>
@@ -164,7 +178,7 @@ how the app is being published (via NAnt and &hellip;">
 </ul>
 
 
-<p>After that brief intro, let&#8217;s get into the details. And some code snippets.</p>
+<p>After that brief intro, let&rsquo;s get into the details. And some code snippets.</p>
 
 <h2><em>As the <code>code</code> flies !</em></h2>
 
@@ -172,7 +186,7 @@ how the app is being published (via NAnt and &hellip;">
 
 <p>The sequence of steps from the single-click deployment process, gets kicked off by the <code>deploy.bat</code> file. Here are the contents of that file:</p>
 
-<figure class='code'><figcaption><span>deploy.bat</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/master/build/deploy.bat'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>deploy.bat</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/master/build/deploy.bat'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='bat'><span class='line'>go deploy Release
 </span><span class='line'><span class="k">pause</span>
@@ -181,7 +195,7 @@ how the app is being published (via NAnt and &hellip;">
 
 <p>Here <code>go</code> is another batch file that is there in the same directory:</p>
 
-<figure class='code'><figcaption><span>go.bat</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/master/build/go.bat'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>go.bat</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/master/build/go.bat'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -202,7 +216,7 @@ how the app is being published (via NAnt and &hellip;">
 
 <p>So, as evident here, this calls NAnt with <code>FlickrDownloadr.build</code> as the build file and <code>deploy</code> as the target to run, with <code>Release</code> as the build configuration.</p>
 
-<figure class='code'><figcaption><span>deploy</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L110'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>deploy</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L110'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -225,9 +239,9 @@ how the app is being published (via NAnt and &hellip;">
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>This target first waits for its dependant target <code>publish</code> to execute. Let&#8217;s see what that does first and we shall come back to this target to see when it would execute the <code>deploy.sh</code> bash script.</p>
+<p>This target first waits for its dependant target <code>publish</code> to execute. Let&rsquo;s see what that does first and we shall come back to this target to see when it would execute the <code>deploy.sh</code> bash script.</p>
 
-<figure class='code'><figcaption><span>publish</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L121'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>publish</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L121'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -278,13 +292,13 @@ how the app is being published (via NAnt and &hellip;">
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>This target again has another dependant target which is the compilation of the solution. Before we go there though, let&#8217;s take one more closer look at this <code>publish</code> target.</p>
+<p>This target again has another dependant target which is the compilation of the solution. Before we go there though, let&rsquo;s take one more closer look at this <code>publish</code> target.</p>
 
-<p>It&#8217;s simple invocation of the <code>msbuild</code> task (from NAntContrib) to invoke the <code>publish</code> build configuration (the line with <code>&lt;arg value="/t:publish" /&gt;</code> towards the end) on the WPF application <em>project</em> (and not the whole VS solution, which is what, as you&#8217;d see in a bit, the compilation invokes). A few of the properties being specified in there are moot though, for example, the install web page does not get created even with the really, positively asserting property in there!</p>
+<p>It&rsquo;s simple invocation of the <code>msbuild</code> task (from NAntContrib) to invoke the <code>publish</code> build configuration (the line with <code>&lt;arg value="/t:publish" /&gt;</code> towards the end) on the WPF application <em>project</em> (and not the whole VS solution, which is what, as you&rsquo;d see in a bit, the compilation invokes). A few of the properties being specified in there are moot though, for example, the install web page does not get created even with the really, positively asserting property in there!</p>
 
 <p>The <code>compilesolution</code> task is another straight-forward one like this:</p>
 
-<figure class='code'><figcaption><span>compilesolution</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L40'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>compilesolution</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L40'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -301,7 +315,7 @@ how the app is being published (via NAnt and &hellip;">
 
 <p>As mentioned earlier, this time around MSBuild is being invoked on the Visual Studio solution itself. But the most interesting aspect here is the <code>increment-version</code> target that is a dependency:</p>
 
-<figure class='code'><figcaption><span>increment-version</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L66'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>increment-version</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L66'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -320,7 +334,7 @@ how the app is being published (via NAnt and &hellip;">
 
 <p>Then we get to the <a href="http://nant.sourceforge.net/release/latest/help/tasks/asminfo.html">NAnt asminfo</a> task to generate one, shared <code>CommonAssemblyInfo.cs</code> file, which is linked to by all the projects in the solution as their <code>AssemblyInfo.cs</code> modules.</p>
 
-<figure class='code'><figcaption><span>create-common-assemblyinfo</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L72'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>create-common-assemblyinfo</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L72'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -403,11 +417,11 @@ how the app is being published (via NAnt and &hellip;">
 
 <p>Coming back to the <code>publish</code> target now, it creates the ClickOnce deployable application files into the directory specified (<code>&lt;arg value="/p:PublishDir=${bin.dir}\Deploy\"/&gt;</code>) also with the dynamic version number as the publish version (<code>&lt;arg value="/p:ApplicationVersion=${buildnumber.version}"/&gt;</code>).</p>
 
-<p>Also, this version string would be included in the product name as well (<code>&lt;arg value="/p:ProductName=flickr downloadr (beta v${buildnumber.version})"/&gt;</code>), so everytime there is a release, the name of the app itself (only the name, it will still be treated as the same app as the older version by Windows, the ClickOnce updater service etc.) will have the current deployed version number in it; a la <strong>flickr downloadr (beta v0.3.4.26)</strong>. Ain&#8217;t that nice?</p>
+<p>Also, this version string would be included in the product name as well (<code>&lt;arg value="/p:ProductName=flickr downloadr (beta v${buildnumber.version})"/&gt;</code>), so everytime there is a release, the name of the app itself (only the name, it will still be treated as the same app as the older version by Windows, the ClickOnce updater service etc.) will have the current deployed version number in it; a la <strong>flickr downloadr (beta v0.3.4.26)</strong>. Ain&rsquo;t that nice?</p>
 
-<p>Moving onto the not-so-short bash script we are running as part of the <code>deploy</code> target that invoked the <code>publish</code>. Before we get into the script itself if you scroll back up to the snippet that invokes it, there are a couple of environment variables being added from NAnt to be made available in the bash. That maneuver took sometime to discover, but I thought it&#8217;s a nice little way to pass stuff in to the bash script from within the build environment. And most importantly for us, this includes the <code>BUILDNUMBER</code> variable as well which has the current app version.</p>
+<p>Moving onto the not-so-short bash script we are running as part of the <code>deploy</code> target that invoked the <code>publish</code>. Before we get into the script itself if you scroll back up to the snippet that invokes it, there are a couple of environment variables being added from NAnt to be made available in the bash. That maneuver took sometime to discover, but I thought it&rsquo;s a nice little way to pass stuff in to the bash script from within the build environment. And most importantly for us, this includes the <code>BUILDNUMBER</code> variable as well which has the current app version.</p>
 
-<p>The first 50 lines within the <code>deploy.sh</code> script is to ensure that the currently logged in SSH identity is being reused (probably there is a better way to do this, or a few lines could be shaved off from this version itself as there is no way one would expect the deploy script to interactively ask to login afresh, if no one is already logged in. Anyways&#8230;). I thought the rest of the bash script is also pretty self explanatory, so I am just linking it all here:</p>
+<p>The first 50 lines within the <code>deploy.sh</code> script is to ensure that the currently logged in SSH identity is being reused (probably there is a better way to do this, or a few lines could be shaved off from this version itself as there is no way one would expect the deploy script to interactively ask to login afresh, if no one is already logged in. Anyways&hellip;). I thought the rest of the bash script is also pretty self explanatory, so I am just linking it all here:</p>
 
 <div><script src='https://gist.github.com/4536562.js?file=deploy.sh'></script>
 <noscript><pre><code>PATH=$HOME/bin:$ADDPATH:$PATH
@@ -458,7 +472,7 @@ else
 fi
 
 cd ../source/bin/Release
-REPO=git@github.com:flickr-downloadr/flickr-downloadr-gtk.git
+REPO=git@github.com:flickr-downloadr/flickr-downloadr.git
 MSG=&quot;application (v${BUILDNUMBER})&quot;
 
 #clone repo in a tmp dir
@@ -506,15 +520,15 @@ exit</code></pre></noscript></div>
 
 <p>Even though this is a very minor piece in the whole scheme of things, to have the site show the version number of the latest available release (that too, let me do this one more time, with a deployment effort of a single-click), I thought was a really cool thing.</p>
 
-<p>One really nagging thing after everything started (seemingly) working as expected, was that the ClickOnce updater/installer started complaining about some signing or manifest or something (I can&#8217;t find the exact error now, shall recreate it and update here soon) and would not install/upgrade the app at all. After some googling  found out that it had to do with how the cr-lf differences between Windows and *NIX are being handled by the Git clients and/or GitHub etc.</p>
+<p>One really nagging thing after everything started (seemingly) working as expected, was that the ClickOnce updater/installer started complaining about some signing or manifest or something (I can&rsquo;t find the exact error now, shall recreate it and update here soon) and would not install/upgrade the app at all. After some googling  found out that it had to do with how the cr-lf differences between Windows and *NIX are being handled by the Git clients and/or GitHub etc.</p>
 
 <p>To fix this, a <code>.gitattributes</code> file was added into the <code>gh-pages</code> branch <code>downloads</code> directory, following <a href="https://help.github.com/articles/dealing-with-line-endings">this helpfile at GitHub</a>, to the effect of asking git to treat everything within the <code>/downloads</code> directory as non-text files:</p>
 
-<figure class='code'><figcaption><span>.gitattributes</span><a href='https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/gh-pages/downloads/.gitattributes'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>.gitattributes</span><a href='https://github.com/flickr-downloadr/flickr-downloadr/blob/gh-pages/downloads/.gitattributes'>on GitHub</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>*  -text</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>That&#8217;s it!</h2>
+<h2>That&rsquo;s it!</h2>
 
 <p>All of that put together, the latest version could now be deployed to the <a href="/blogs/../downloads/latest">flickrdownloadr.com</a> web site just by running a batch file.</p>
 
@@ -528,40 +542,42 @@ exit</code></pre></noscript></div>
 </div>
 
 
-  <footer>
-    <p class="meta">
-      
+      <footer>
+        <p class="meta text-muted">
+          
   
 
-<span class="byline author vcard">Posted by <span class="fn">Floyd Pink</span></span>
+<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">Floyd Pink</span></span>
 
-      
-
-
+          
 
 
 
 
 
 
-  
 
 
-<time datetime="2013-01-15T02:03:00-05:00" pubdate data-updated="true">Jan 15<span>th</span>, 2013</time>
-      
 
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-01-15T02:03:00-05:00" pubdate data-updated="true">Jan 15<span>th</span>, 2013</time>
+          
+
+<span class="glyphicon glyphicon-tags"></span>&nbsp;
 <span class="categories">
   
-    <a class='category' href='/blogs/blog/categories/-net/'>.NET</a>, <a class='category' href='/blogs/blog/categories/clickonce-deployment/'>ClickOnce Deployment</a>, <a class='category' href='/blogs/blog/categories/github-pages/'>GitHub Pages</a>, <a class='category' href='/blogs/blog/categories/msbuild/'>MSBuild</a>, <a class='category' href='/blogs/blog/categories/nant/'>NAnt</a>, <a class='category' href='/blogs/blog/categories/technical/'>Technical</a>, <a class='category' href='/blogs/blog/categories/wpf-application/'>WPF Application</a>, <a class='category' href='/blogs/blog/categories/automation/'>automation</a>, <a class='category' href='/blogs/blog/categories/bash/'>bash</a>, <a class='category' href='/blogs/blog/categories/deployment/'>deployment</a>, <a class='category' href='/blogs/blog/categories/flickr-downloadr/'>flickr downloadr</a>, <a class='category' href='/blogs/blog/categories/git/'>git</a>
+    <a class='category label label-primary' href='/blogs/blog/categories/dot-net/'>.NET</a> <a class='category label label-primary' href='/blogs/blog/categories/clickonce-deployment/'>ClickOnce Deployment</a> <a class='category label label-primary' href='/blogs/blog/categories/github-pages/'>GitHub Pages</a> <a class='category label label-primary' href='/blogs/blog/categories/msbuild/'>MSBuild</a> <a class='category label label-primary' href='/blogs/blog/categories/nant/'>NAnt</a> <a class='category label label-primary' href='/blogs/blog/categories/technical/'>Technical</a> <a class='category label label-primary' href='/blogs/blog/categories/wpf-application/'>WPF Application</a> <a class='category label label-primary' href='/blogs/blog/categories/automation/'>automation</a> <a class='category label label-primary' href='/blogs/blog/categories/bash/'>bash</a> <a class='category label label-primary' href='/blogs/blog/categories/deployment/'>deployment</a> <a class='category label label-primary' href='/blogs/blog/categories/flickr-downloadr/'>flickr downloadr</a> <a class='category label label-primary' href='/blogs/blog/categories/git/'>git</a>
   
 </span>
 
 
-    </p>
-    
-      <div class="sharing">
+        </p>
+        
+          <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://flickrdownloadr.com/blogs/blog/2013/01/15/single-click-deployment-of-wpf-application-to-github-pages/" data-via="FlickrDownloadr" data-counturl="http://flickrdownloadr.com/blogs/blog/2013/01/15/single-click-deployment-of-wpf-application-to-github-pages/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://flickrdownloadr.com/blogs/blog/2013/01/15/single-click-deployment-of-wpf-application-to-github-pages/" data-via="FlickrDownloadr" data-counturl="http://flickrdownloadr.com/blogs/blog/2013/01/15/single-click-deployment-of-wpf-application-to-github-pages/" >Tweet</a>
   
   
   
@@ -569,57 +585,61 @@ exit</code></pre></noscript></div>
   
 </div>
 
+        
+        
+          <ul class="meta text-muted pager">
+            
+            <li class="previous"><a href="/blogs/blog/2013/01/07/hello-world/" title="Previous Post: Hello, World!">&laquo; Hello, World!</a></li>
+            
+            
+            <li class="next"><a href="/blogs/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr/" title="Next Post: Contemplating a Mac port of flickr-downloadr">Contemplating a Mac port of flickr-downloadr &raquo;</a></li>
+            
+          </ul>
+        
+      </footer>
+    </article>
     
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blogs/blog/2013/01/07/hello-world/" title="Previous Post: Hello, World!">&laquo; Hello, World!</a>
-      
-      
-        <a class="basic-alignment right" href="/blogs/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr/" title="Next Post: Contemplating a Mac port of flickr-downloadr">Contemplating a Mac port of flickr-downloadr &raquo;</a>
-      
-    </p>
-  </footer>
-</article>
-
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <section>
+        <h1>Comments</h1>
+        <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  </section>
+      </section>
+    
+  </div>
 
-</div>
-
-<aside class="sidebar">
   
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
+  <aside class="sidebar col-md-3">
     
-      <li class="post">
-        <a href="/blogs/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr/">Contemplating a Mac port of flickr-downloadr</a>
-      </li>
+      <section class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Recent Posts</h3>
+  </div>
+  
+  <div id="recent_posts" class="list-group">
     
-      <li class="post">
-        <a href="/blogs/blog/2013/01/15/single-click-deployment-of-wpf-application-to-github-pages/">Single-click deployment of WPF application to GitHub Pages</a>
-      </li>
+    <a class="list-group-item " href="/blogs/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr/">Contemplating a Mac Port of Flickr-downloadr</a>
     
-      <li class="post">
-        <a href="/blogs/blog/2013/01/07/hello-world/">Hello, World!</a>
-      </li>
+    <a class="list-group-item active" href="/blogs/blog/2013/01/15/single-click-deployment-of-wpf-application-to-github-pages/">Single-click Deployment of WPF Application to GitHub Pages</a>
     
-  </ul>
+    <a class="list-group-item " href="/blogs/blog/2013/01/07/hello-world/">Hello, World!</a>
+    
+  </div>
 </section>
 
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
-  </ul>
+<section class="panel panel-default clearfix">
+  <div class="panel-heading">
+      <h3 class="panel-title">GitHub Repos</h3>
+  </div>
+  <div class="list-group" id="gh_repos">
+    <p class="loading">Status updating...</p>
+  </div>
   
-  <a href="https://github.com/flickr-downloadr">@flickr-downloadr</a> on GitHub
+    <div class="gh-profile-link pull-right text-muted">
+      <a href="https://github.com/flickr-downloadr">@flickr-downloadr</a> on GitHub
+    </div>
   
   <script type="text/javascript">
-    $.domReady(function(){
+    $(document).ready(function(){
         if (!window.jXHR){
             var jxhr = document.createElement('script');
             jxhr.type = 'text/javascript';
@@ -640,66 +660,43 @@ exit</code></pre></noscript></div>
 </section>
 
 
-<section>
-  <h1>Latest Tweets</h1>
-  <ul id="tweets">
-    <li class="loading">Status updating...</li>
-  </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("FlickrDownloadr", 4, false);
-    });
-  </script>
-  <script src="/blogs/javascripts/twitter.js" type="text/javascript"> </script>
-  
-    <a href="http://twitter.com/FlickrDownloadr" class="twitter-follow-button" data-show-count="false">Follow @FlickrDownloadr</a>
-  
-</section>
 
 
-
-<section class="googleplus googleplus-hidden">
-  <h1>
-    <a href="https://plus.google.com/112082983921398252462?rel=author">
-      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
-      Google+
-    </a>
-  </h1>
-</section>
-
-
-
-  
-</aside>
-
-
-    </div>
+<section class="googleplus googleplus-hidden panel panel-default">
+  <div class="panel-body">
+    <h1>
+      <a href="https://plus.google.com/112082983921398252462?rel=author">
+        <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+        Google+
+      </a>
+    </h1>
   </div>
-  <footer role="contentinfo">    <p>
-        <span id="socialicons">
-            <a href="https://www.facebook.com/flickr.downloadr" target="_blank" title="Like us on Facebook"><img src="/blogs/../img/social/facebook_c.png" alt="facebook"></a>
-            <a href="http://www.flickr.com/photos/_floydpink_" target="_blank" title="Follow us on flickr"><img src="/blogs/../img/social/flickr_c.png" alt="flickr"></a>
-            <a href="mailto:flickr.downloadr@gmail.com" target="_self" title="Send us a gmail"><img src="/blogs/../img/social/gmail_c.png" alt="gmail"></a>
-            <a href="https://plus.google.com/u/0/112082983921398252462/about" target="_blank" title="Follow us on Google+"><img src="/blogs/../img/social/google+_c.png" alt="google+"></a>
-            <a href="http://pinterest.com/flickrdownloadr/" target="_blank" title="Follow us on Pinterest"><img src="/blogs/../img/social/pinterest_c.png" alt="pinterest"></a>
-            <a href="https://twitter.com/FlickrDownloadr" target="_blank" title="Follow us on Twitter"><img src="/blogs/../img/social/twitter_c.png" alt="twitter"></a>
-            <a href="http://www.youtube.com/user/flickrdownloadr" target="_blank" title="Follow us on YouTube"><img src="/blogs/../img/social/youtube_c.png" alt="youtube"></a>
-        </span>
-    </p>
+</section>
 
-    <p>
-        <span class="fd-footer-credits">
-            <span class="credit">Powered by <a href="http://octopress.org" target="_blank">Octopress</a></span>.
-            <span class="credit"> |</span>
-            <span class="credit">Hosted on <a href="http://pages.github.com/" target="_blank">GitHub Pages</a>.</span>
-        </span>
-        <span class="fd-footer-copyright">
-            <span class="credit">© 2012 - 2014 <a href="http://www.harimenon.com">Haridas Pachuveetil</a></span>
-        </span>
-    </p>
 
-</footer>
+
+    
+  </aside>
   
+</div>
+
+        </div>
+      </div>
+    </div>
+    <footer role="contentinfo"><div class="container">
+    <p class="text-muted credits">
+  Copyright &copy; 2014 - flickr downloadr<br>
+  <small>
+      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
+      <span class="credit">customized with <a href="https://github.com/kAworu/octostrap3">octostrap3</a></span>.
+  </small>
+</p>
+
+</div>
+</footer>
+    <script src="/blogs/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/blogs/javascripts/modernizr-2.0.js"></script>
+
 
 <script type="text/javascript">
       var disqus_shortname = 'flickrdownloadr';
@@ -712,7 +709,7 @@ exit</code></pre></noscript></div>
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      dsq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>
@@ -723,7 +720,7 @@ exit</code></pre></noscript></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
+  js = d.createElement(s); js.id = id; js.async = true;
   js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
@@ -737,22 +734,14 @@ exit</code></pre></noscript></div>
       var twitterWidgets = document.createElement('script');
       twitterWidgets.type = 'text/javascript';
       twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
       document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
     })();
   </script>
 
 
 
-<script type="text/javascript">
-    $('#social-icons').find('img').hover(
-            function () {
-                $(this).attr('src', $(this).attr('src').replace('_c.png', '.png'));
-            },
-            function () {
-                $(this).attr('src', $(this).attr('src').replace('.png', '_c.png'));
-            });
-</script>
 
-</body>
+
+  </body>
 </html>

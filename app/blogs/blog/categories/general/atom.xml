@@ -4,7 +4,7 @@
   <title><![CDATA[Category: General | flickr downloadr]]></title>
   <link href="http://flickrdownloadr.com/blogs/blog/categories/general/atom.xml" rel="self"/>
   <link href="http://flickrdownloadr.com/blogs/"/>
-  <updated>2014-03-04T18:09:33-05:00</updated>
+  <updated>2014-05-24T22:33:07-04:00</updated>
   <id>http://flickrdownloadr.com/blogs/</id>
   <author>
     <name><![CDATA[flickr downloadr]]></name>
@@ -27,11 +27,11 @@
 <!-- more -->
 
 
-<p>There are quite a few rough edges and a few known issues, but when signed in with a flickr <a href="http://www.flickr.com/help/limits/#28">Pro</a> (read <em>paid</em>) account, the app would show all of the photos from the logged in user's photostream. All of the photos, or a selection could then be downloaded and again, as of the version of this writing (v0.6.3.1), the location where photos are downloaded, the size, and the associated metadata are all hard-coded.</p>
+<p>There are quite a few rough edges and a few known issues, but when signed in with a flickr <a href="http://www.flickr.com/help/limits/#28">Pro</a> (read <em>paid</em>) account, the app would show all of the photos from the logged in user&rsquo;s photostream. All of the photos, or a selection could then be downloaded and again, as of the version of this writing (v0.6.3.1), the location where photos are downloaded, the size, and the associated metadata are all hard-coded.</p>
 
 <p>In the coming months, the plan is to add a way to capture user preferences for some of the things mentioned above and also to fix the few known bugs/defects.</p>
 
-<p>If you are windows user who has a Pro account on flickr, please <a href="/../downloads/latest">download and install</a> the app and let me know your comments/suggestions. If you are .NET/WPF developer and/or an open source enthusiast, please checkout the <a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk">source over at GitHub</a> and leave your comments/suggestions/criticisms on the code.</p>
+<p>If you are windows user who has a Pro account on flickr, please <a href="/../downloads/latest">download and install</a> the app and let me know your comments/suggestions. If you are .NET/WPF developer and/or an open source enthusiast, please checkout the <a href="https://github.com/flickr-downloadr/flickr-downloadr">source over at GitHub</a> and leave your comments/suggestions/criticisms on the code.</p>
 
 <p>Thanks. And have a beautiful day !</p>
 ]]></content>
