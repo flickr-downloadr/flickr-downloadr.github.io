@@ -329,10 +329,10 @@ module.exports = function (grunt) {
     // Deploy to master branch on GitHub
     buildcontrol : {
       options : {
-        dir     : 'dist',
+        dir     : '<%= config.dist %>',
         commit  : true,
         push    : true,
-        message : 'Built %sourceName% from commit %sourceCommit% on branch cross-platform [ci skip]'
+        message : 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch% [ci skip]'
       },
       pages   : {
         options : {
