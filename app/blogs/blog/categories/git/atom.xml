@@ -4,7 +4,7 @@
   <title><![CDATA[Category: git | flickr downloadr]]></title>
   <link href="http://flickrdownloadr.com/blogs/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://flickrdownloadr.com/blogs/"/>
-  <updated>2014-05-27T12:51:01-04:00</updated>
+  <updated>2014-05-27T13:33:36-04:00</updated>
   <id>http://flickrdownloadr.com/blogs/</id>
   <author>
     <name><![CDATA[flickr downloadr]]></name>
@@ -241,7 +241,98 @@ pause
 
 <p>The first 50 lines within the <code>deploy.sh</code> script is to ensure that the currently logged in SSH identity is being reused (probably there is a better way to do this, or a few lines could be shaved off from this version itself as there is no way one would expect the deploy script to interactively ask to login afresh, if no one is already logged in. Anyways&hellip;). I thought the rest of the bash script is also pretty self explanatory, so I am just linking it all here:</p>
 
-<p>{% gist 4536562 deploy.sh %}</p>
+<p><div><script src='https://gist.github.com/4536562.js?file=deploy.sh'></script>
+<noscript><pre><code>PATH=$HOME/bin:$ADDPATH:$PATH
+SSH_ENV=&quot;$HOME/.ssh/environment&quot;
+
+# start the ssh-agent
+function start_agent {
+    echo &quot;Initializing new SSH agent...&quot;
+    # spawn ssh-agent
+    ssh-agent | sed 's/^echo/#echo/' &gt; &quot;$SSH_ENV&quot;
+    echo succeeded
+    chmod 600 &quot;$SSH_ENV&quot;
+    . &quot;$SSH_ENV&quot; &gt; /dev/null
+    ssh-add
+}
+
+# test for identities
+function test_identities {
+    # test whether standard identities have been added to the agent already
+    ssh-add -l | grep &quot;The agent has no identities&quot; &gt; /dev/null
+    if [ $? -eq 0 ]; then
+        ssh-add
+        # $SSH_AUTH_SOCK broken so we start a new proper agent
+        if [ $? -eq 2 ];then
+            start_agent
+        fi
+    fi
+}
+
+# check for running ssh-agent with proper $SSH_AGENT_PID
+if [ -n &quot;$SSH_AGENT_PID&quot; ]; then
+    ps -ef | grep &quot;$SSH_AGENT_PID&quot; | grep ssh-agent &gt; /dev/null
+    if [ $? -eq 0 ]; then
+  test_identities
+    fi
+# if $SSH_AGENT_PID is not properly set, we might be able to load one from
+# $SSH_ENV
+else
+    if [ -f &quot;$SSH_ENV&quot; ]; then
+  . &quot;$SSH_ENV&quot; &gt; /dev/null
+    fi
+    ps -ef | grep &quot;$SSH_AGENT_PID&quot; | grep ssh-agent &gt; /dev/null
+    if [ $? -eq 0 ]; then
+        test_identities
+    else
+        start_agent
+    fi
+fi
+
+cd ../source/bin/Release
+REPO=git@github.com:flickr-downloadr/flickr-downloadr.git
+MSG=&quot;application (v${BUILDNUMBER})&quot;
+
+#clone repo in a tmp dir
+mkdir tmp-gh-pages
+cd tmp-gh-pages
+git clone -b gh-pages $REPO
+cd flickr-downloadr
+git config push.default tracking
+
+#remove all files except index.html in downloads/latest
+mv downloads/latest/index.html .
+cd downloads/latest/
+git rm -r .
+cd ../..
+mv index.html downloads/latest
+
+#add published files &amp; build.number to gh-pages; commit; push
+cp -r ../../Deploy/* ./downloads/latest
+cp ../../../../../build/build.number .
+git add .
+git commit -m &quot;deploying $MSG&quot; -s
+git push
+
+#checkout master to add the modified build.number and CommonAssemblyInfo; commit; push
+git checkout master
+cp ../../../../../build/build.number ./build
+cp ../../../../CommonAssemblyInfo.cs ./source
+git commit -a -m &quot;deploying $MSG&quot; -s
+git push
+
+#remove the tmp dir
+cd ../..
+rm -rf tmp-gh-pages
+
+#reset the modified build.number and CommonAssemblyInfo in the main (outer) repo
+cd ../../..
+git checkout -- build/build.number source/CommonAssemblyInfo.cs
+
+# done
+echo &quot;deployed $MSG successfully&quot;
+exit</code></pre></noscript></div>
+</p>
 
 <p>If you notice, the <code>build.number</code> file (which is what gets updated by the <code>version</code> task and therefore holds the current version of the app), is being copied over to the <code>gh-pages</code> branch and being committed everytime. This text file is then dynamically queried via jQuery ajax from the home page and the downloads page, to fetch and display the current version of the deployed application.</p>
 
