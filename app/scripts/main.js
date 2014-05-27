@@ -208,7 +208,7 @@ $(function () {
 
     // set the current platform as active tab on downloads page
     $('#fd-installer-download-' + currentOsName + '-button').removeClass('btn-warning').addClass('btn-success');
-    $('a[href="#fd-installer-' + currentOsName + '"]').tab('show');
+    $('a[href="#fd-installer-' + currentPlatform.shortName + '"]').tab('show');
     $('#fd-installer-section-column').fadeIn();
 
     var $fdHiddenSlides = $('#fd-hidden-slides');
