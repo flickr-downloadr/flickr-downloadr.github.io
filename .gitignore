@@ -1,5 +1,6 @@
 node_modules
 deploy
+app/blogs/assets/bootstrap
 .tmp
 .sass-cache
 bower_components
