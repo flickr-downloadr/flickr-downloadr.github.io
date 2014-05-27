@@ -224,6 +224,11 @@ footer p {
   float : right;
 }
 
+#twitter-widget-0 {
+  width: 100% !important;
+  max-width: none !important;
+}
+
 /* Large desktop */
 @media (min-width : 1200px) {
   #fd-forkme-ribbon {
