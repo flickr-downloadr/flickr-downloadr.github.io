@@ -23,6 +23,19 @@
   <link href="/blogs/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="/blogs/assets/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
 <link href="/blogs/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<!-- build:css styles/vendor.css -->
+<!-- bower:css -->
+<link rel="stylesheet" href="/blogs/../../bower_components/bootstrap/dist/css/bootstrap.css"/>
+<!-- endbower -->
+<!-- endbuild -->
+<!-- build:css(.tmp) /blogs/../styles/main.css -->
+<link rel="stylesheet" href="/blogs/../styles/main.css">
+<!-- endbuild -->
+<!-- build:js /blogs/../scripts/vendor/modernizr.js -->
+<script src="/blogs/../../bower_components/modernizr/modernizr.js"></script>
+<!-- endbuild -->
 
 
   <script src="/blogs/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
@@ -45,7 +58,7 @@
   <body   >
     <div id="wrap">
       <header role="banner">
-        <nav class="navbar navbar-default" role="navigation">
+        <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -53,17 +66,41 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/blogs/">flickr downloadr</a>
+            <a class="navbar-brand" href="/">flickr downloadr</a>
         </div>
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
                 <li >
                     <a href="/blogs/">Blog</a>
                 </li>
+                <!--
                 <li >
                     <a href="/blogs/blog/archives">Archives</a>
                 </li>
+                -->
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Downloads <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/downloads">All Platforms</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">On GitHub</li>
+                        <li><a onClick="fdScripts.gaTrack('Files', 'Download', 'zipball (blog)');" target="_blank"
+                               href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/zipball/master"> Source as ZIP </a></li>
+                        <li><a onClick="fdScripts.gaTrack('Files', 'Download', 'tarball (blog)');" target="_blank"
+                               href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/tarball/master"> Source as TAR </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/documentation">Documentation</a></li>
+                        <li><a onClick="fdScripts.gaTrack('External', 'Click', 'Issues (blog)');"
+                               href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/issues" target="_blank">Report Issues</a></li>
+                    </ul>
+                </li>
+                <li><a href="mailto:contact.us@flickrdownloadr.com">Contact Us</a></li>
+                <li id="fd-forkme-menu"><a onClick="fdScripts.gaTrack('Source', 'Fork', 'mobile banner (blog)');"
+                                           href="https://github.com/flickr-downloadr/flickr-downloadr-gtk" target="_blank"> Fork me on GitHub </a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
@@ -82,6 +119,8 @@
                     </div>
                 </form>
             
+            <a id="fd-forkme-ribbon" onClick="fdScripts.gaTrack('Source', 'Fork', 'banner (blog)');" href="https://github.com/flickr-downloadr/flickr-downloadr-gtk"
+               target="_blank"> <img src="/images/forkme.png" alt="Fork me on GitHub"> </a>
         </div>
     </div>
 </nav>
@@ -444,12 +483,17 @@
       </div>
     </div>
     <footer role="contentinfo"><div class="container">
-    <p class="text-muted credits">
-  Copyright &copy; 2014 - flickr downloadr<br>
-  <small>
-      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
-      <span class="credit">customized with <a href="https://github.com/kAworu/octostrap3">octostrap3</a></span>.
-  </small>
+    <p><span id="social-icons"><a class="gmail" href="mailto:contact.us@flickrdownloadr.com" target="_self" onclick="fdScripts.gaTrack('External', 'Click', 'Social (gmail)');" title="Send us an email"><i class="fa fa-3x fa-envelope-square"></i></a> <a class="github" href="https://github.com/flickr-downloadr" target="_blank" onclick="fdScripts.gaTrack('External', 'Click', 'Social (github)');" title="Fork us on GitHub"><i class="fa fa-3x fa-github-square"></i></a> <a class="facebook" href="https://www.facebook.com/flickrdownloadr" target="_blank" onclick="fdScripts.gaTrack('External', 'Click', 'Social (facebook)');" title="Like us on Facebook"><i class="fa fa-3x fa-facebook-square"></i></a> <a class="twitter" href="https://twitter.com/FlickrDownloadr" target="_blank" onclick="fdScripts.gaTrack('External', 'Click', 'Social (twitter)');" title="Follow us on Twitter"><i class="fa fa-3x fa-twitter-square"></i></a> <a class="google+" href="https://plus.google.com/u/0/112082983921398252462/about" target="_blank" onclick="fdScripts.gaTrack('External', 'Click', 'Social (google+)');" title="Follow us on Google+"><i class="fa fa-3x fa-google-plus-square"></i></a> <a class="flickr" href="http://www.flickr.com/photos/_floydpink_" target="_blank" onclick="fdScripts.gaTrack('External', 'Click', 'Social (flickr)');" title="Follow us on flickr"><i class="fa fa-3x fa-flickr"></i></a> <a class="youtube" href="http://www.youtube.com/user/flickrdownloadr" target="_blank" onclick="fdScripts.gaTrack('External', 'Click', 'Social (youtube)');" title="Follow us on YouTube"><i class="fa fa-3x fa-youtube-square"></i></a> <a class="pinterest" href="http://pinterest.com/flickrdownloadr/" target="_blank" onclick="fdScripts.gaTrack('External', 'Click', 'Social (pinterest)');" title="Follow us on Pinterest"><i class="fa fa-3x fa-pinterest-square"></i></a></span></p>
+
+<p>
+    <span class="fd-footer-credits">
+        <span class="credit">Powered by <a href="http://octopress.org" target="_blank">Octopress</a> customized with <a href="https://github.com/kAworu/octostrap3">octostrap3</a></span>.
+        <span class="credit"> |</span>
+        <span class="credit">Hosted on <a href="http://pages.github.com/" target="_blank">GitHub Pages</a>.</span>
+    </span>
+    <span class="fd-footer-copyright">
+        <span class="credit">© 2012 - 2014 <a href="http://www.harimenon.com">Haridas Pachuveetil</a></span>
+    </span>
 </p>
 
 </div>
