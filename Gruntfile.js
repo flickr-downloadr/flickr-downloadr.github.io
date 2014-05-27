@@ -173,7 +173,7 @@ module.exports = function (grunt) {
       options : {
         assetsDirs : ['<%= config.dist %>', '<%= config.dist %>/images']
       },
-      html    : ['<%= config.dist %>/**/*.html'],
+      html    : ['<%= config.dist %>/{,*/**/}*.html'],
       css     : ['<%= config.dist %>/styles/{,*/}*.css']
     },
 

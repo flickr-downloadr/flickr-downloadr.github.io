@@ -228,7 +228,7 @@ footer p {
   line-height: 1.9;
 }
 
-#twitter-widget-0 {
+.sidebar #twitter-widget-0 {
   width: 100% !important;
   max-width: none !important;
 }
