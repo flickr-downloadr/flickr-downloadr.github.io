@@ -254,37 +254,37 @@ $(function () {
   $(document).on('click', '#getCommits', function () {
     $('#commitsContainer').empty().append($('<div><span class="muted">Loading...</span></div>'));
     fdScripts.getJSON('https://api.github.com/repos/flickr-downloadr/flickr-downloadr-gtk/commits',
-        function (data) {
-          var commitsView = '<table>' +
-                  ' <thead>' +
-                  '   <th class=\'fd-commitmessage\'>Message</th>' +
-                  '   <th class=\'fd-commitname\'>Author</th>' +
-                  '   <th class=\'fd-commitdate\'>Date</th>' +
-                  ' </thead>' +
-                  ' <tbody>' +
-                  ' {{#commitsarray}}' +
-                  '   <tr class=\'{{is_release commit.message commit.author.name}}\'>' +
-                  '     <td class=\'fd-commitmessage\'>' +
-                  '       <span>{{strip_sign commit.message 40}}</span>' +
-                  '       <span>' +
-                  '         <a href=\'{{fix_github_url url}}\' title=\'{{format_date_time commit.author.date}}\' target=\'_blank\'> &raquo;</a>' +
-                  '       </span>' +
-                  '     </td>' +
-                  '     <td class=\'fd-commitname\'>' +
-                  '       <a href=\'{{fix_github_url author.url}}\' target=\'_blank\'>{{strip_sign commit.author.name 15}}</a>' +
-                  '     </td>' +
-                  '     <td class=\'fd-commitdate\'>' +
-                  '       <abbr class=\'timeago\' title=\'{{commit.author.date}}\'>{{format_date commit.author.date}}</abbr>' +
-                  '     </td>' +
-                  '   </tr>' +
-                  ' {{/commitsarray}}' +
-                  ' </tbody>' +
-                  '</table>',
-              commits = { commitsarray : data },
-              output = Handlebars.compile(commitsView)(commits);
-          $('#commitsContainer').empty().append(output);
-          $('abbr.timeago').timeago();
-        });
+      function (data) {
+        var commitsView = '<table>' +
+              ' <thead>' +
+              '   <th class=\'fd-commitmessage\'>Message</th>' +
+              '   <th class=\'fd-commitname\'>Author</th>' +
+              '   <th class=\'fd-commitdate\'>Date</th>' +
+              ' </thead>' +
+              ' <tbody>' +
+              ' {{#commitsarray}}' +
+              '   <tr class=\'{{is_release commit.message commit.author.name}}\'>' +
+              '     <td class=\'fd-commitmessage\'>' +
+              '       <span>{{strip_sign commit.message 40}}</span>' +
+              '       <span>' +
+              '         <a href=\'{{fix_github_url url}}\' title=\'{{format_date_time commit.author.date}}\' target=\'_blank\'> &raquo;</a>' +
+              '       </span>' +
+              '     </td>' +
+              '     <td class=\'fd-commitname\'>' +
+              '       <a href=\'{{fix_github_url author.url}}\' target=\'_blank\'>{{strip_sign commit.author.name 15}}</a>' +
+              '     </td>' +
+              '     <td class=\'fd-commitdate\'>' +
+              '       <abbr class=\'timeago\' title=\'{{commit.author.date}}\'>{{format_date commit.author.date}}</abbr>' +
+              '     </td>' +
+              '   </tr>' +
+              ' {{/commitsarray}}' +
+              ' </tbody>' +
+              '</table>',
+            commits = { commitsarray : data },
+            output = Handlebars.compile(commitsView)(commits);
+        $('#commitsContainer').empty().append(output);
+        $('abbr.timeago').timeago();
+      });
   });
 
   // add links to full-size images from screenshots

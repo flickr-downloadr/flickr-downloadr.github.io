@@ -66,8 +66,8 @@ body {
 }
 
 #fd-download-platform-icon {
-  margin: 10px 5px;
-  color: #999999;
+  margin : 10px 5px;
+  color  : #999999;
 }
 
 .fd-version-quote {
@@ -182,11 +182,11 @@ th {
 }
 
 #fd-installer-section-column h2 > .fa {
-  color: #999999;
+  color : #999999;
 }
 
 .fd-installer-content {
-  padding    : 45px 10px 35px;
+  padding : 45px 10px 35px;
 }
 
 .fd-installer-name {
@@ -199,7 +199,7 @@ th {
 }
 
 .fd-installer-file-name {
-  white-space: nowrap;
+  white-space : nowrap;
 }
 
 .fd-empty-filler {
@@ -225,12 +225,12 @@ footer p {
 }
 
 .categories {
-  line-height: 1.9;
+  line-height : 1.9;
 }
 
 .sidebar #twitter-widget-0 {
-  width: 100% !important;
-  max-width: none !important;
+  width     : 100% !important;
+  max-width : none !important;
 }
 
 /* Large desktop */
@@ -292,7 +292,7 @@ footer p {
   }
 
   .fd-installer-file-name {
-    font-size: smaller;
+    font-size : smaller;
   }
 
   .fd-footer-credits, .fd-footer-copyright {

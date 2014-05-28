@@ -69,7 +69,7 @@
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span> <span
-                    class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+                        class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
                 <a class="navbar-brand" href="/">flickr downloadr</a></div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -107,7 +107,9 @@
     </div>
 
     <div class="container">
-        <a href="/"><div title="flickr downloadr" class="fd-logo non-main"></div></a>
+        <a href="/">
+            <div title="flickr downloadr" class="fd-logo non-main"></div>
+        </a>
         <p id="fd-description">A cross-platform desktop application for Windows, Mac and Linux to download (all or selected) photos from your
             photostream in their original size along with their description, title and tags.</p>
         <div class="fd-header-bottom"></div>
@@ -135,7 +137,10 @@
                                         <span class="fd-installer-name">Windows</span>
                                         <span class="fd-installer-file-name text-muted" id="fd-installer-windows-file"></span>
                                     </p>
-                                    <p><a id="fd-installer-download-windows-button" class="btn btn-warning btn-lg" target="_blank" href="#">Download &raquo;</a></p>
+                                    <p>
+                                        <a id="fd-installer-download-windows-button" class="btn btn-warning btn-lg" target="_blank"
+                                           href="#">Download &raquo;</a>
+                                    </p>
                                     <blockquote class="fd-version-quote">
                                         <small class="fd-version"> Version <span class="fd-version-text">0.0.0.0</span> (beta)</small>
                                     </blockquote>
@@ -232,12 +237,16 @@
                 <h2>Cross Platform Installers</h2>
                 <p>These cross platform installers are built with the Enterprise Edition of
                     <a onClick="fdScripts.gaTrack('External', 'Click', 'BitRock (text)');" href="http://installbuilder.bitrock.com/" target="_blank"
-                       title="Cross Platform Installers by BitRock">BitRock InstallBuilder 9</a> by BitRock, provided for free to Open Source projects like flickr
-                    downloadr.</p>
-                <p><a onClick="fdScripts.gaTrack('External', 'Click', 'BitRock (image)');" href="http://installbuilder.bitrock.com/"
-                      target="_blank" title="Cross Platform Installers by BitRock"><img alt="Installers by BitRock"
-                                                                                          src="/images/installersby_tiny.png" class="img-thumbnail"></a></p>
+                       title="Cross Platform Installers by BitRock">BitRock InstallBuilder 9</a>
+                    by BitRock, provided for free to Open Source projects like flickr downloadr.</p>
+                <p>
+                    <a onClick="fdScripts.gaTrack('External', 'Click', 'BitRock (image)');" href="http://installbuilder.bitrock.com/" target="_blank"
+                       title="Cross Platform Installers by BitRock">
+                        <img alt="Installers by BitRock" src="/images/installersby_tiny.png" class="img-thumbnail">
+                    </a>
+                </p>
                 <p>Thank you very much, BitRock! You guys Rock!</p>
+
                 <h2>Older Releases</h2>
                 <p>Click the link below to install any of the previously released versions from SourceForge.</p>
                 <p><a onClick="fdScripts.gaTrack('External', 'Click', 'Source Forge');" href="https://sourceforge.net/projects/flickr-downloadr/files"
