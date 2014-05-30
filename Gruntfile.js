@@ -337,6 +337,7 @@ module.exports = function (grunt) {
       },
       pages   : {
         options : {
+          remote : 'git@github.com:flickr-downloadr/flickr-downloadr.github.io.git',
           branch : 'master'
         }
       }
