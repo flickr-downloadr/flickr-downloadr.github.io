@@ -268,6 +268,7 @@ module.exports = function (grunt) {
               'images/{,*/}*.webp',
               '{,*/}*.html',
               'styles/fonts/{,*/}*.*',
+              'CNAME',
               'build.number',
               'sitemap.xml',
               'keybase.txt',
@@ -336,8 +337,7 @@ module.exports = function (grunt) {
       },
       pages   : {
         options : {
-          remote : 'git@github.com:flickr-downloadr/website-beta.git',
-          branch : 'gh-pages'
+          branch : 'master'
         }
       }
     }
