@@ -51,6 +51,14 @@ body {
   margin-top : -20px;
 }
 
+#fd-share-buttons > * {
+  margin-right : 10px !important;
+}
+
+#fd-share-buttons > *:first-child {
+  margin-right : 0 !important;
+}
+
 .fb-share-button > span {
   vertical-align : inherit !important;
 }
@@ -273,6 +281,17 @@ footer p {
   }
 }
 
+@media (max-width : 991px) {
+  #fd-share-buttons {
+    float      : none;
+    margin-top : 10px;
+  }
+
+  #fd-share-buttons > * {
+    margin : 3px 0
+  }
+}
+
 /* Landscape phone to portrait tablet */
 @media (max-width : 767px) {
   .fd-logo {
@@ -339,15 +358,6 @@ footer p {
 
 /* Special for header adjustment */
 @media (max-width : 679px) {
-  #fd-share-buttons {
-    float      : none;
-    margin-top : 10px;
-  }
-
-  #fd-share-buttons > * {
-    margin : 3px 0
-  }
-
   .btn-lg {
     font-size : 14.5px;
   }
