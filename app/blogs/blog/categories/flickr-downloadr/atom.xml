@@ -4,7 +4,7 @@
   <title><![CDATA[Category: flickr downloadr | flickr downloadr]]></title>
   <link href="http://flickrdownloadr.com/blogs/blog/categories/flickr-downloadr/atom.xml" rel="self"/>
   <link href="http://flickrdownloadr.com/blogs/"/>
-  <updated>2014-06-12T01:09:01-04:00</updated>
+  <updated>2014-06-12T01:17:06-04:00</updated>
   <id>http://flickrdownloadr.com/blogs/</id>
   <author>
     <name><![CDATA[flickr downloadr]]></name>
@@ -18,11 +18,11 @@
     <link href="http://flickrdownloadr.com/blogs/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux/"/>
     <updated>2014-06-12T00:34:00-04:00</updated>
     <id>http://flickrdownloadr.com/blogs/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux</id>
-    <content type="html"><![CDATA[<p>The <a href="/blogs/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr/">previous entry</a> on this blog discussed the idea of probably creating a native, Cocoa, Mac OS X port for the then, Windows-only, WPF version of the app.</p>
+    <content type="html"><![CDATA[<p>The <a href="/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr/">previous entry</a> on this blog discussed the idea of probably creating a native, Cocoa, Mac OS X port for the then, Windows-only, WPF version of the app.</p>
 
 <p>Any action started much later from the date of the post; to be precise, more than two months later with the creation of a new repository with <a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/commit/3f94a6bc13c87f905e3f5be5e9872accb6930f05">this commit</a>. The research that happened in-between helped decide on a third alternative &ndash; that of completely porting over the .NET C#/WPF into a Mono, C#/GTK# app that could work on all of Windows, Mac and Linux.</p>
 
-<p>And exactly after two months and one day <a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/commit/de399a3526344ea96d1847eff2836e15674a7553">the v1.0</a> of the new GTKSharp enabled flickr downloadr was published on <a href="/">this website</a>.</p>
+<p>And exactly after two months and one day <a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/commit/de399a3526344ea96d1847eff2836e15674a7553">the v1.0</a> of the new GTKSharp enabled flickr downloadr was published on <a href="/../">this website</a>.</p>
 
 <p>It really was an exhilarating journey of many frustrations, joy, learnings and moments of bliss &ndash; and there are a few things that I would like to follow up in separate entries here. Like:</p>
 
