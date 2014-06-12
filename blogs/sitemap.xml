@@ -2,62 +2,68 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://flickrdownloadr.com/blogs/blog/2013/01/07/hello-world/</loc>
-        <lastmod>2014-05-27T12:10:27-04:00</lastmod>
+        <lastmod>2014-05-26T23:47:03-04:00</lastmod>
     </url>
     <url>
         <loc>
             http://flickrdownloadr.com/blogs/blog/2013/01/15/single-click-deployment-of-wpf-application-to-github-pages/
         </loc>
-        <lastmod>2014-05-27T12:10:27-04:00</lastmod>
+        <lastmod>2014-05-26T23:47:03-04:00</lastmod>
     </url>
     <url>
         <loc>
             http://flickrdownloadr.com/blogs/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr/
         </loc>
-        <lastmod>2014-05-27T12:10:27-04:00</lastmod>
+        <lastmod>2014-05-26T23:47:03-04:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://flickrdownloadr.com/blogs/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux/
+        </loc>
+        <lastmod>2014-06-12T01:15:37-04:00</lastmod>
     </url>
     <url>
         <loc>http://flickrdownloadr.com/blogs/assets/bootstrap/docs/about.html</loc>
-        <lastmod>2014-05-27T12:10:28-04:00</lastmod>
+        <lastmod>2014-05-26T23:47:03-04:00</lastmod>
     </url>
     <url>
         <loc>http://flickrdownloadr.com/blogs/assets/bootstrap/docs/components.html</loc>
-        <lastmod>2014-05-27T12:10:28-04:00</lastmod>
+        <lastmod>2014-05-26T23:47:03-04:00</lastmod>
     </url>
     <url>
         <loc>http://flickrdownloadr.com/blogs/assets/bootstrap/docs/css.html</loc>
-        <lastmod>2014-05-27T12:10:28-04:00</lastmod>
+        <lastmod>2014-05-26T23:47:03-04:00</lastmod>
     </url>
     <url>
         <loc>http://flickrdownloadr.com/blogs/assets/bootstrap/docs/customize.html</loc>
-        <lastmod>2014-05-27T12:10:28-04:00</lastmod>
+        <lastmod>2014-05-26T23:47:03-04:00</lastmod>
     </url>
     <url>
         <loc>http://flickrdownloadr.com/blogs/assets/bootstrap/docs/getting-started.html</loc>
-        <lastmod>2014-05-27T12:10:28-04:00</lastmod>
+        <lastmod>2014-05-26T23:47:03-04:00</lastmod>
     </url>
     <url>
         <loc>http://flickrdownloadr.com/blogs/assets/bootstrap/docs/</loc>
-        <lastmod>2014-05-27T12:10:28-04:00</lastmod>
+        <lastmod>2014-06-12T01:15:37-04:00</lastmod>
     </url>
     <url>
         <loc>http://flickrdownloadr.com/blogs/assets/bootstrap/docs/javascript.html</loc>
-        <lastmod>2014-05-27T12:10:28-04:00</lastmod>
+        <lastmod>2014-05-26T23:47:03-04:00</lastmod>
     </url>
     <url>
         <loc>http://flickrdownloadr.com/blogs/assets/bootstrap/docs/migration.html</loc>
-        <lastmod>2014-05-27T12:10:28-04:00</lastmod>
+        <lastmod>2014-05-26T23:47:03-04:00</lastmod>
     </url>
     <url>
         <loc>http://flickrdownloadr.com/blogs/blog/archives/</loc>
-        <lastmod>2014-05-27T12:10:29-04:00</lastmod>
+        <lastmod>2014-06-12T01:15:37-04:00</lastmod>
     </url>
     <url>
         <loc>http://flickrdownloadr.com/blogs/</loc>
-        <lastmod>2014-05-27T12:10:29-04:00</lastmod>
+        <lastmod>2014-06-12T01:15:37-04:00</lastmod>
     </url>
     <url>
         <loc>http://flickrdownloadr.com/blogs/robots.txt</loc>
-        <lastmod>2014-05-27T12:10:29-04:00</lastmod>
+        <lastmod>2014-05-26T21:34:12-04:00</lastmod>
     </url>
 </urlset>

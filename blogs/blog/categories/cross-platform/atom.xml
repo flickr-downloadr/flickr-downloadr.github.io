@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Mac | flickr downloadr]]></title>
-  <link href="http://flickrdownloadr.com/blogs/blog/categories/mac/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Cross Platform | flickr downloadr]]></title>
+  <link href="http://flickrdownloadr.com/blogs/blog/categories/cross-platform/atom.xml" rel="self"/>
   <link href="http://flickrdownloadr.com/blogs/"/>
   <updated>2014-06-12T01:17:06-04:00</updated>
   <id>http://flickrdownloadr.com/blogs/</id>
@@ -36,21 +36,6 @@
 <p>&hellip;and many other such learnings and experiences.</p>
 
 <p>So, please spread the word of this new, free, open-source utility for batch downloading photos from flickr that is available on Windows, Mac OS X and Linux (Ubuntu &amp; Mint have been tested).</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Contemplating a Mac port of flickr-downloadr]]></title>
-    <link href="http://flickrdownloadr.com/blogs/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr/"/>
-    <updated>2014-01-20T14:06:00-05:00</updated>
-    <id>http://flickrdownloadr.com/blogs/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr</id>
-    <content type="html"><![CDATA[<p>It&rsquo;s been a long time since something has been posted on this blog! And really, it&rsquo;s been quite a while since something has been done with the app at all.</p>
-
-<p>And the main reason for that is that I have been focussing more on mobile apps and web apps lately. Combine this with the fact that a Macbook Pro is the primary machine these days and there you have the reason for why this Windows/Visual Studio application has not been getting any attention at all.</p>
-
-<p>But because there is the Mac and there is an increasing desire to learn Cocoa and Objective-C, I have been toying with the idea of porting over the current WPF-based Windows desktop application into a Mac app.</p>
-
-<p>Stay tuned for updates!</p>
 ]]></content>
   </entry>
   
