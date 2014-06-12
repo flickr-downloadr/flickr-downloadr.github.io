@@ -4,7 +4,7 @@
   <title><![CDATA[flickr downloadr]]></title>
   <link href="http://flickrdownloadr.com/blogs/atom.xml" rel="self"/>
   <link href="http://flickrdownloadr.com/blogs/"/>
-  <updated>2014-05-27T14:33:48-04:00</updated>
+  <updated>2014-06-12T01:09:01-04:00</updated>
   <id>http://flickrdownloadr.com/blogs/</id>
   <author>
     <name><![CDATA[flickr downloadr]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Batch download flickr photos from Windows, Mac or Linux!]]></title>
+    <link href="http://flickrdownloadr.com/blogs/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux/"/>
+    <updated>2014-06-12T00:34:00-04:00</updated>
+    <id>http://flickrdownloadr.com/blogs/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux</id>
+    <content type="html"><![CDATA[<p>The <a href="http://flickrdownloadr.com/blogs/blogs/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr/">previous entry</a> on this blog discussed the idea of probably creating a native, Cocoa, Mac OS X port for the then, Windows-only, WPF version of the app.</p>
+
+<p>Any action started much later from the date of the post; to be precise, more than two months later with the creation of a new repository with <a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/commit/3f94a6bc13c87f905e3f5be5e9872accb6930f05">this commit</a>. The research that happened in-between helped decide on a third alternative &ndash; that of completely porting over the .NET C#/WPF into a Mono, C#/GTK# app that could work on all of Windows, Mac and Linux.</p>
+
+<p>And exactly after two months and one day <a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/commit/de399a3526344ea96d1847eff2836e15674a7553">the v1.0</a> of the new GTKSharp enabled flickr downloadr was published on <a href="http://flickrdownloadr.com/blogs/">this website</a>.</p>
+
+<p>It really was an exhilarating journey of many frustrations, joy, learnings and moments of bliss &ndash; and there are a few things that I would like to follow up in separate entries here. Like:</p>
+
+<ol>
+<li>the parallel, multi-platform continuous integration/deployment that happens on <a href="https://ci.appveyor.com/project/floydpink/flickr-downloadr-gtk">AppVeyor (Windows)</a>, <a href="https://travis-ci.org/flickr-downloadr/flickr-downloadr-gtk">Travis CI (Mac)</a> and <a href="https://app.wercker.com/#applications/5363d07d2cbfc1b354003e84">Wercker (Linux)</a>.</li>
+<li>the building of a cross-platform installer using the free-for-open-source Enterprise edition of <a href="http://installbuilder.bitrock.com/">Install Builder</a> provided generously by the awesome guys at BitRock.</li>
+<li>the slight face-lift applied on the website along with the cut-over to a new, <a href="http://yeoman.io/">Yeoman</a> scaffolded web-app &ndash; complete with its automated <code>grunt</code> build for minification, image compression etc. (do a quick <em>View Source</em> on this page to see the results)</li>
+</ol>
+
+
+<p>&hellip;and many other such learnings and experiences.</p>
+
+<p>So, please spread the word of this new, free, open-source utility for batch downloading photos from flickr that is available on Windows, Mac OS X and Linux (Ubuntu &amp; Mint have been tested).</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Contemplating a Mac port of flickr-downloadr]]></title>

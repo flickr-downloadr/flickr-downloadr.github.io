@@ -4,10 +4,10 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>flickr downloadr</title>
+  <title>Category: Windows - flickr downloadr</title>
   <meta name="author" content="flickr downloadr">
 
-  
+  <meta name="description" content="Category: Windows">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -16,7 +16,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://flickrdownloadr.com/blogs">
+  <link rel="canonical" href="http://flickrdownloadr.com/blogsblog/categories/windows">
   <!-- Fav and touch icons -->
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blogs/../images/icons/apple-touch-icon-144-precomposed.png">
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/blogs/../images/icons/apple-touch-icon-114-precomposed.png">
@@ -76,11 +76,11 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
-                <li class="active">
+                <li >
                     <a href="/blogs/">Blog</a>
                 </li>
                 <!--
-                <li >
+                <li class="active">
                     <a href="/blogs/blog/archives">Archives</a>
                 </li>
                 -->
@@ -130,16 +130,31 @@
         <div id="content">
           <div class="row">
   <div class="page-content col-md-9">
-    <div class="blog-index">
+    <article role="article">
       
-      
-      
-        <article class="post">
+        <header class="page-header">
           
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
+          
+            <h1 class="entry-title">
+              Category: Windows
+              
+            </h1>
+          
+        </header>
+      
+      <div class="entry-content">
+        <div id="blog-archives" class="category">
+
+
+
+  
+  <h2>2014</h2>
+
+<article class="page-header">
+  
+<h1><a href="/blogs/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux/">Batch download flickr photos from Windows, Mac or Linux!</a></h1>
+<p class="meta text-muted">
+  
 
 
 
@@ -153,205 +168,26 @@
 
 
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-06-12T00:34:00-04:00" pubdate data-updated="true">Jun 12<span>th</span>, 2014</time>
-        
-      </p>
-    
-    
-      <h1 class="entry-title"><a href="/blogs/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux/">Batch Download Flickr Photos From Windows, Mac or Linux!</a></h1>
-    
-  </header>
-
-
-  <div class="entry-content clearfix"><p>The <a href="/blogs/blogs/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr/">previous entry</a> on this blog discussed the idea of probably creating a native, Cocoa, Mac OS X port for the then, Windows-only, WPF version of the app.</p>
-
-<p>Any action started much later from the date of the post; to be precise, more than two months later with the creation of a new repository with <a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/commit/3f94a6bc13c87f905e3f5be5e9872accb6930f05">this commit</a>. The research that happened in-between helped decide on a third alternative &ndash; that of completely porting over the .NET C#/WPF into a Mono, C#/GTK# app that could work on all of Windows, Mac and Linux.</p>
-
-<p>And exactly after two months and one day <a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/commit/de399a3526344ea96d1847eff2836e15674a7553">the v1.0</a> of the new GTKSharp enabled flickr downloadr was published on <a href="/blogs/">this website</a>.</p>
-
-<p>It really was an exhilarating journey of many frustrations, joy, learnings and moments of bliss &ndash; and there are a few things that I would like to follow up in separate entries here. Like:</p>
-
-<ol>
-<li>the parallel, multi-platform continuous integration/deployment that happens on <a href="https://ci.appveyor.com/project/floydpink/flickr-downloadr-gtk">AppVeyor (Windows)</a>, <a href="https://travis-ci.org/flickr-downloadr/flickr-downloadr-gtk">Travis CI (Mac)</a> and <a href="https://app.wercker.com/#applications/5363d07d2cbfc1b354003e84">Wercker (Linux)</a>.</li>
-<li>the building of a cross-platform installer using the free-for-open-source Enterprise edition of <a href="http://installbuilder.bitrock.com/">Install Builder</a> provided generously by the awesome guys at BitRock.</li>
-<li>the slight face-lift applied on the website along with the cut-over to a new, <a href="http://yeoman.io/">Yeoman</a> scaffolded web-app &ndash; complete with its automated <code>grunt</code> build for minification, image compression etc. (do a quick <em>View Source</em> on this page to see the results)</li>
-</ol>
-
-
-<p>&hellip;and many other such learnings and experiences.</p>
-
-<p>So, please spread the word of this new, free, open-source utility for batch downloading photos from flickr that is available on Windows, Mac OS X and Linux (Ubuntu &amp; Mint have been tested).</p>
-</div>
-  
   
 
-
-        </article>
-      
-      
-        <article class="post">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-01-20T14:06:00-05:00" pubdate data-updated="true">Jan 20<span>th</span>, 2014</time>
-        
-      </p>
-    
-    
-      <h1 class="entry-title"><a href="/blogs/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr/">Contemplating a Mac Port of Flickr-downloadr</a></h1>
-    
-  </header>
-
-
-  <div class="entry-content clearfix"><p>It&rsquo;s been a long time since something has been posted on this blog! And really, it&rsquo;s been quite a while since something has been done with the app at all.</p>
-
-<p>And the main reason for that is that I have been focussing more on mobile apps and web apps lately. Combine this with the fact that a Macbook Pro is the primary machine these days and there you have the reason for why this Windows/Visual Studio application has not been getting any attention at all.</p>
-
-<p>But because there is the Mac and there is an increasing desire to learn Cocoa and Objective-C, I have been toying with the idea of porting over the current WPF-based Windows desktop application into a Mac app.</p>
-
-<p>Stay tuned for updates!</p>
-</div>
+<span class="glyphicon glyphicon-tags"></span>&nbsp;
+<span class="categories">
   
+    <a class='category label label-primary' href='/blogs/blog/categories/cross-platform/'>Cross Platform</a> <a class='category label label-primary' href='/blogs/blog/categories/linux/'>Linux</a> <a class='category label label-primary' href='/blogs/blog/categories/mac/'>Mac</a> <a class='category label label-primary' href='/blogs/blog/categories/technical/'>Technical</a> <a class='category label label-primary' href='/blogs/blog/categories/windows/'>Windows</a> <a class='category label label-primary' href='/blogs/blog/categories/flickr-downloadr/'>flickr downloadr</a>
   
+</span>
 
 
-        </article>
-      
-      
-        <article class="post">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
+</p>
 
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-01-15T02:03:00-05:00" pubdate data-updated="true">Jan 15<span>th</span>, 2013</time>
-        
-      </p>
-    
-    
-      <h1 class="entry-title"><a href="/blogs/blog/2013/01/15/single-click-deployment-of-wpf-application-to-github-pages/">Single-click Deployment of WPF Application to GitHub Pages</a></h1>
-    
-  </header>
-
-
-  <div class="entry-content clearfix"><h2>Summary</h2>
-
-<p>This post will try to detail:</p>
-
-<ul>
-<li>how the <a href="http://nantcontrib.sourceforge.net/release/latest/help/tasks/version.html">NAntContrib Version task</a> is automating the version increment; and then building the <a href="/blogs/../">flickr downloadr</a> WPF app</li>
-<li>how the app is being published (via NAnt and MSBuild), for deployment to the <a href="/blogs/../downloads/latest">custom-installation url</a>, which is being hosted at <a href="http://pages.github.com/">GitHub Pages</a>)</li>
-<li>how some shell scripting helps to automate the upload of this published application to the site</li>
-</ul>
-
-
-<h2>Introduction</h2>
-
-<p>The <a href="/blogs/../downloads/latest">downloads</a> page on flickrdownloadr.com has a link to the latest published version of the application listed there along with the current version number. For the first few times, this page was being updated manually. But because it&rsquo;s still very early phases of development, where we are going to be releasing quite a few times and also because <a href="http://en.wikipedia.org/wiki/Release_early,_release_often">release early, release often</a> is a good philosophy to try and practice, the need to automate this app-deployment-process soon arose.</p>
-
-<p>Ideally, the publish process detailed here would be run from a CI environment, but that is not happening right now for a couple of reasons:</p>
-
-<ol>
-<li>There are no free and hosted CI services <em>that</em> runs the .NET version (v4.5) that flickrdownloadr is built on. Even though <a href="http://teamcity.codebetter.com">Codebetter CI</a> has kindly agreed to use their service for <a href="http://teamcity.codebetter.com/project.html?projectId=project228&amp;tab=projectOverview">this project</a> and there were quite a few successful builds earlier, they do not support v4.5 yet.</li>
-<li>The deploy shell script (that is explained below) relies on the SSH identity to authenticate to GitHub to be already established when it runs. I haven&rsquo;t figured out how else to handle the GitHub authentication (with write access) from a CI environment, without publicly storing the credentials in the repository.</li>
-</ol>
-
-
-<p>The app is being published using the <a href="http://msdn.microsoft.com/en-us/library/t71a733d(v=vs.110).aspx">ClickOnce deployment</a> methodology that is built-in to the Visual Studio IDE. Publishing a WPF application using ClickOnce manually, from within the Visual Studio IDE is a pretty straight-forward process and there are good tutorials to guide through the step-by-step wizard. But publishing from within the IDE is hardly something we could run as part of an automated setup.</p>
+</article>
 
 </div>
-  
-  
-    <footer>
-      <a class="btn btn-default" rel="full-article" href="/blogs/blog/2013/01/15/single-click-deployment-of-wpf-application-to-github-pages/">Read on &rarr;</a>
-    </footer>
-  
 
-
-        </article>
+      </div>
       
-      
-        <article class="post">
-          
-  <header class="page-header">
+    </article>
     
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-01-07T20:31:00-05:00" pubdate data-updated="true">Jan 7<span>th</span>, 2013</time>
-        
-      </p>
-    
-    
-      <h1 class="entry-title"><a href="/blogs/blog/2013/01/07/hello-world/">Hello, World!</a></h1>
-    
-  </header>
-
-
-  <div class="entry-content clearfix"><h4>Hello, and a hearty welcome to the flickr downloadr blog!</h4>
-
-<p><a href="/blogs/../">flickr downloadr</a> was conceived back in May 2012 when I surprisingly discovered that even with the awesome <a href="http://www.flickr.com/services/api/">API</a> that flickr provides there are no free and/or open source app that lets one download their photos <em>along with the metadata</em>. I also wanted to learn the <a href="http://msdn.microsoft.com/en-us/library/ms754130.aspx" title="Windows Presentation Foundation">WPF</a> and <strong>flickr downloadr</strong> was born.</p>
-
-<p>But soon after the authentication modules using <a href="http://en.wikipedia.org/wiki/OAuth" title="OAuth">OAuth</a> were done, the enthusiasm died and there was a brief hiatus in the development and it is recently that it has gained some momentum again. As of this writing, the latest beta version of the app works on any version of Windows that can run <a href="http://msdn.microsoft.com/en-us/library/w0x726c2.aspx">.NET framework 4.5</a>, which is Windows Vista (untested), Windows 7 and Windows 8.</p>
-
-</div>
-  
-  
-    <footer>
-      <a class="btn btn-default" rel="full-article" href="/blogs/blog/2013/01/07/hello-world/">Read on &rarr;</a>
-    </footer>
-  
-
-
-        </article>
-      
-    </div>
-
-    <ul class="pager">
-      
-        <li class="previous disabled"><a href="#">&larr;&nbsp;Older</a></li>
-      
-      <li><a href="/blogs/blog/archives">Blog Archives</a></li>
-      
-        <li class="next disabled"><a href="#">Newer&nbsp;&rarr;</a></li>
-      
-    </ul>
   </div>
 
   
@@ -380,7 +216,7 @@
       <h3 class="panel-title">GitHub Repos</h3>
   </div>
   <div class="list-group" id="gh_repos">
-    <p class="loading">Status updating&#8230;</p>
+    <p class="loading">Status updating...</p>
   </div>
   
     <div class="gh-profile-link pull-right text-muted">
