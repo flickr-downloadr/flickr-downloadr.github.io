@@ -4,11 +4,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: .NET - flickr downloadr</title>
+  <title>The CI chain reaction that builds flickr downloadr - flickr downloadr</title>
   <meta name="author" content="flickr downloadr">
 
   
-  <meta name="description" content="Category: .NET">
+  <meta name="description" content="As written on the last entry in this blog, I finally got to write something on points 1) and 2) there - the CI (continuous integration) builds that &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -17,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://flickrdownloadr.com/blogsblog/categories/dot-net">
+  <link rel="canonical" href="http://flickrdownloadr.com/blogs/blog/2014/12/08/the-ci-chain-reaction-that-builds-flickr-downloadr">
   <!-- Fav and touch icons -->
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blogs/../images/icons/apple-touch-icon-144-precomposed.png">
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/blogs/../images/icons/apple-touch-icon-114-precomposed.png">
@@ -30,18 +30,18 @@
 <!-- start twitter card summary -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@FlickrDownloadr">
-<meta name="twitter:url" content="http://flickrdownloadr.com/blogsblog/categories/dot-net">
-<meta name="twitter:title" content="Category: .NET">
-<meta name="twitter:description" content="Category: .NET">
+<meta name="twitter:url" content="http://flickrdownloadr.com/blogs/blog/2014/12/08/the-ci-chain-reaction-that-builds-flickr-downloadr">
+<meta name="twitter:title" content="The CI chain reaction that builds flickr downloadr">
+<meta name="twitter:description" content="As written on the last entry in this blog, I finally got to write something on points 1) and 2) there - the CI (continuous integration) builds that are running in parallel on AppVeyor, Travis CI and &hellip;">
 <meta name="twitter:image" content="http://flickrdownloadr.com/static/images/screenshot.png">
 <!-- end twitter card summary -->
 
 <!-- start facebook open graph tags -->
-<meta property="og:url" content="http://flickrdownloadr.com/blogsblog/categories/dot-net">
-<meta property="og:title" content="Category: .NET">
+<meta property="og:url" content="http://flickrdownloadr.com/blogs/blog/2014/12/08/the-ci-chain-reaction-that-builds-flickr-downloadr">
+<meta property="og:title" content="The CI chain reaction that builds flickr downloadr">
 <meta property="og:image" content="http://flickrdownloadr.com/static/images/screenshot.png">
 <meta property="og:site_name" content="flickrdownloadr">
-<meta property="og:description" content="Category: .NET">
+<meta property="og:description" content="As written on the last entry in this blog, I finally got to write something on points 1) and 2) there - the CI (continuous integration) builds that are running in parallel on AppVeyor, Travis CI and &hellip;">
 <!-- end facebook open graph tags -->
 <link href="/blogs/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -94,11 +94,11 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
-                <li >
+                <li class="active">
                     <a href="/blogs/">Blog</a>
                 </li>
                 <!--
-                <li class="active">
+                <li >
                     <a href="/blogs/blog/archives">Archives</a>
                 </li>
                 -->
@@ -148,77 +148,138 @@
         <div id="content">
           <div class="row">
   <div class="page-content col-md-9">
-    <article role="article">
+    <article class="hentry" role="article">
       
-        <header class="page-header">
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-12-08T14:01:26-05:00" pubdate data-updated="true">Dec 8<span>th</span>, 2014</time>
+        
+      </p>
+    
+    
+    <h1 class="entry-title">
+        The CI Chain Reaction That Builds Flickr Downloadr
+        
+    </h1>
+    
+  </header>
+
+
+<div class="entry-content clearfix"><blockquote><p>As written on <a href="/blogs/blogs/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux/">the last entry</a> in this blog, I finally got to write something on points 1) and 2) there &ndash; the CI (continuous integration) builds that are running in parallel on AppVeyor, Travis CI and Wercker and the multi-platform installers they create and publish to the website. I wrote this up as <a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/bba17e54cdca04e07eb3422d07cc82888bdbb986/continuous-integration.md">documentation on the main GitHub repository</a> but decided to cross-post here on the blog too.</p></blockquote>
+
+<h3>Automated Build Process</h3>
+
+<p>Every commit to the <code>master</code> branch <a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/">on the source code repository</a> kicks off CI builds (that builds and runs all the unit tests) in three different CI services:</p>
+
+<ul>
+<li><a href="https://ci.appveyor.com/project/floydpink/flickr-downloadr-gtk">AppVeyor</a> for Windows</li>
+<li><a href="https://travis-ci.org/flickr-downloadr/flickr-downloadr-gtk">Travis CI</a> for Mac OS X</li>
+<li><a href="https://app.wercker.com/project/bykey/065aabc1580cec6d31a2daeef61548b0">Wercker</a> for Linux</li>
+</ul>
+
+
+<p>Any commit that has the string <code>[deploy]</code> in the commit message will also build the installers for all three supported platforms, using <a href="http://installbuilder.bitrock.com/">BitRock InstallBuilder</a>.</p>
+
+<p>The installers will be committed separately from the CI builds to a new branch named <code>deploy-v&lt;VERSION&gt;</code> (as an example, for the version<code>v1.0.2.1</code>, the new branch will be <code>deploy-v1.0.2.1</code>) on the <a href="https://github.com/flickr-downloadr/flickr-downloadr.github.io"><code>flickr-downloadr/flickr-downloadr.github.io</code></a> repository.</p>
+
+<p><a href="https://github.com/flickr-downloadr/github-webhook">A custom webhook</a> on the <code>flickr-downloadr/flickr-downloadr.github.io</code> repo that runs on Heroku ensures that installers for all three platforms have been built successfully and then makes a commit with the name of the new branch, updated into the <code>branch</code> file on the <a href="https://github.com/flickr-downloadr/releases"><code>flickr-downloadr/releases</code></a> repository (<code>deploy-v1.0.2.1</code>, in the example above) and sends an email a deployment will be ready to be pushed to the website soon [<a href="https://github.com/flickr-downloadr/github-webhook/blob/c88f106965878d62992db286fcdbca02385def1a/deploy/index.js#L59">see here</a>].</p>
+
+<p>In the event that any of the CI builds fail to create the installer, after at least one installer gets successfully built and committed, the custom webhook waits for 30 minutes from the first installer getting committed and sends an email notifying of a build failure [<a href="https://github.com/flickr-downloadr/github-webhook/blob/c88f106965878d62992db286fcdbca02385def1a/helpers/index.js#L68">see here</a>].</p>
+
+<p>Yet another webhook on the <code>flickr-downloadr/releases</code> repo kicks off another build on <a href="https://app.wercker.com/project/bykey/d981bd85d611e5bb2082c94959272851">Wercker</a> to merge the new branch with all three installers (<code>deploy-v1.0.2.1</code> branch) into the <code>source</code> branch on <code>flickr-downloadr/flickr-downloadr.github.io</code> to make it ready for push into the <code>master</code> branch that runs <a href="http://flickrdownloadr.com">the main website</a>. This CI job does a few other things like archiving this version to <a href="http://sourceforge.net/projects/flickr-downloadr/files/">SourceForge</a> etc., as can be seen <a href="https://github.com/flickr-downloadr/releases/blob/master/wercker.yml">here</a>.</p>
+
+<p>The final push to the website is manual and can be done by running <code>grunt deploy</code> on the latest, merged version of the <code>source</code> branch and this will make the latest version installers current on the website.</p>
+</div>
+
+
+      <footer>
+        <p class="meta text-muted">
           
+  
+
+<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">Floyd Pink</span></span>
+
           
-            <h1 class="entry-title">
-              Category: .NET
-              
-            </h1>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-12-08T14:01:26-05:00" pubdate data-updated="true">Dec 8<span>th</span>, 2014</time>
           
-        </header>
-      
-      <div class="entry-content">
-        <div id="blog-archives" class="category">
-
-
-
-  
-  <h2>2013</h2>
-
-<article class="page-header">
-  
-<h1><a href="/blogs/blog/2013/01/15/single-click-deployment-of-wpf-application-to-github-pages/">Single-click deployment of WPF application to GitHub Pages</a></h1>
-<p class="meta text-muted">
-  
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-01-15T02:03:00-05:00" pubdate data-updated="true">Jan 15<span>th</span>, 2013</time>
-  
 
 <span class="glyphicon glyphicon-tags"></span>&nbsp;
 <span class="categories">
   
-    <a class='category label label-primary' href='/blogs/blog/categories/dot-net/'>.NET</a> <a class='category label label-primary' href='/blogs/blog/categories/clickonce-deployment/'>ClickOnce Deployment</a> <a class='category label label-primary' href='/blogs/blog/categories/github-pages/'>GitHub Pages</a> <a class='category label label-primary' href='/blogs/blog/categories/msbuild/'>MSBuild</a> <a class='category label label-primary' href='/blogs/blog/categories/nant/'>NAnt</a> <a class='category label label-primary' href='/blogs/blog/categories/technical/'>Technical</a> <a class='category label label-primary' href='/blogs/blog/categories/wpf-application/'>WPF Application</a> <a class='category label label-primary' href='/blogs/blog/categories/automation/'>automation</a> <a class='category label label-primary' href='/blogs/blog/categories/bash/'>bash</a> <a class='category label label-primary' href='/blogs/blog/categories/deployment/'>deployment</a> <a class='category label label-primary' href='/blogs/blog/categories/flickr-downloadr/'>flickr downloadr</a> <a class='category label label-primary' href='/blogs/blog/categories/git/'>git</a>
+    <a class='category label label-primary' href='/blogs/blog/categories/appveyor/'>AppVeyor</a> <a class='category label label-primary' href='/blogs/blog/categories/continuous-integration/'>Continuous Integration</a> <a class='category label label-primary' href='/blogs/blog/categories/linux/'>Linux</a> <a class='category label label-primary' href='/blogs/blog/categories/mac/'>Mac</a> <a class='category label label-primary' href='/blogs/blog/categories/technical/'>Technical</a> <a class='category label label-primary' href='/blogs/blog/categories/travis-ci/'>Travis CI</a> <a class='category label label-primary' href='/blogs/blog/categories/wercker/'>Wercker</a> <a class='category label label-primary' href='/blogs/blog/categories/windows/'>Windows</a> <a class='category label label-primary' href='/blogs/blog/categories/flickr-downloadr/'>flickr downloadr</a>
   
 </span>
 
 
-</p>
-
-</article>
-
+        </p>
+        
+          <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://flickrdownloadr.com/blogs/blog/2014/12/08/the-ci-chain-reaction-that-builds-flickr-downloadr/" data-via="FlickrDownloadr" data-counturl="http://flickrdownloadr.com/blogs/blog/2014/12/08/the-ci-chain-reaction-that-builds-flickr-downloadr/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
 </div>
 
-      </div>
-      
+        
+        
+          <ul class="meta text-muted pager">
+            
+            <li class="previous"><a href="/blogs/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux/" title="Previous Post: Batch download flickr photos from Windows, Mac or Linux!">&laquo; Batch download flickr photos from Windows, Mac or Linux!</a></li>
+            
+            
+          </ul>
+        
+      </footer>
     </article>
+    
+      <section>
+        <h1>Comments</h1>
+        <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      </section>
     
   </div>
 
   
-    <aside class="sidebar col-md-3">
-      
-        <section class="panel panel-default">
+  <aside class="sidebar col-md-3">
+    
+      <section class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Recent Posts</h3>
   </div>
   
   <div id="recent_posts" class="list-group">
     
-    <a class="list-group-item " href="/blogs/blog/2014/12/08/the-ci-chain-reaction-that-builds-flickr-downloadr/">The CI Chain Reaction That Builds Flickr Downloadr</a>
+    <a class="list-group-item active" href="/blogs/blog/2014/12/08/the-ci-chain-reaction-that-builds-flickr-downloadr/">The CI Chain Reaction That Builds Flickr Downloadr</a>
     
     <a class="list-group-item " href="/blogs/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux/">Batch Download Flickr Photos From Windows, Mac or Linux!</a>
     
@@ -289,8 +350,8 @@
 
 
 
-      
-    </aside>
+    
+  </aside>
   
 </div>
 
@@ -342,7 +403,10 @@
       var disqus_shortname = 'flickrdownloadr';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://flickrdownloadr.com/blogs/blog/2014/12/08/the-ci-chain-reaction-that-builds-flickr-downloadr/';
+        var disqus_url = 'http://flickrdownloadr.com/blogs/blog/2014/12/08/the-ci-chain-reaction-that-builds-flickr-downloadr/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
