@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Travis CI | flickr downloadr]]></title>
   <link href="http://flickrdownloadr.com/blogs/blog/categories/travis-ci/atom.xml" rel="self"/>
   <link href="http://flickrdownloadr.com/blogs/"/>
-  <updated>2014-12-08T14:19:43-05:00</updated>
+  <updated>2014-12-08T14:35:57-05:00</updated>
   <id>http://flickrdownloadr.com/blogs/</id>
   <author>
     <name><![CDATA[flickr downloadr]]></name>
@@ -18,7 +18,7 @@
     <link href="http://flickrdownloadr.com/blogs/blog/2014/12/08/the-ci-chain-reaction-that-builds-flickr-downloadr/"/>
     <updated>2014-12-08T14:01:26-05:00</updated>
     <id>http://flickrdownloadr.com/blogs/blog/2014/12/08/the-ci-chain-reaction-that-builds-flickr-downloadr</id>
-    <content type="html"><![CDATA[<blockquote><p>As written on <a href="/blogs/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux/">the last entry</a> in this blog, I finally got to write something on points 1) and 2) there &ndash; the CI (continuous integration) builds that are running in parallel on AppVeyor, Travis CI and Wercker and the multi-platform installers they create and publish to the website. I wrote this up as <a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/bba17e54cdca04e07eb3422d07cc82888bdbb986/continuous-integration.md">documentation on the main GitHub repository</a> but decided to cross-post here on the blog too.</p></blockquote>
+    <content type="html"><![CDATA[<blockquote><p>As written on <a href="/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux/">the last entry</a> in this blog, I finally got to write something on points 1) and 2) there &ndash; the CI (continuous integration) builds that are running in parallel on AppVeyor, Travis CI and Wercker and the multi-platform installers they create and publish to the website. I wrote this up as <a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/bba17e54cdca04e07eb3422d07cc82888bdbb986/continuous-integration.md">documentation on the main GitHub repository</a> but decided to cross-post here on the blog too.</p></blockquote>
 
 <h3>Automated Build Process</h3>
 
