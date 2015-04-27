@@ -27,7 +27,6 @@ body {
 }
 
 .fd-logo.non-main {
-  background      : url('../images/logo.png') no-repeat center;
   background-size : 75%;
 }
 
