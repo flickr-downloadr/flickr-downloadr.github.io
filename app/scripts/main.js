@@ -97,8 +97,8 @@ $(function () {
           commonName    : 'Mac OS X',
           shortName     : 'osx',
           iconName      : 'fa-apple',
-          installerPath : '/installer/osx/flickrdownloadr-%VERSION%-osx-installer.app.dmg',
-          installerFile : 'flickrdownloadr-%VERSION%-osx-installer.app.dmg'
+          installerPath : '/installer/osx/Install flickr downloadr (v%VERSION%).dmg',
+          installerFile : 'Install flickr downloadr (v%VERSION%).dmg'
         },
         'linux'     : {
           name          : 'Linux',
