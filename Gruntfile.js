@@ -15,6 +15,10 @@ module.exports = function (grunt) {
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
+  // Use connect 3.0 static
+  var serveStatic = require('serve-static');
+
+
   // Configurable paths
   var config = {
     app  : 'app',
@@ -25,10 +29,10 @@ module.exports = function (grunt) {
   grunt.initConfig({
 
     // Project settings
-    config        : config,
+    config : config,
 
     // Watches files for changes and runs tasks based on the changed files
-    watch         : {
+    watch : {
       bower      : {
         files : ['bower.json'],
         tasks : ['bowerInstall']
@@ -60,7 +64,7 @@ module.exports = function (grunt) {
     },
 
     // The actual grunt server settings
-    connect       : {
+    connect : {
       options    : {
         port       : 9000,
         open       : true,
@@ -72,9 +76,9 @@ module.exports = function (grunt) {
         options : {
           middleware : function (connect) {
             return [
-              connect.static('.tmp'),
-              connect().use('/bower_components', connect.static('./bower_components')),
-              connect.static(config.app)
+              serveStatic('.tmp'),
+              connect().use('/bower_components', serveStatic('./bower_components')),
+              serveStatic(config.app)
             ];
           }
         }
@@ -88,7 +92,7 @@ module.exports = function (grunt) {
     },
 
     // Empties folders to start fresh
-    clean         : {
+    clean : {
       dist   : {
         files : [
           {
@@ -105,7 +109,7 @@ module.exports = function (grunt) {
     },
 
     // Make sure code styles are up to par and there are no obvious mistakes
-    jshint        : {
+    jshint : {
       options : {
         jshintrc : '.jshintrc',
         reporter : require('jshint-stylish')
@@ -119,7 +123,7 @@ module.exports = function (grunt) {
     },
 
     // Add vendor prefixed styles
-    autoprefixer  : {
+    autoprefixer : {
       options : {
         browsers : ['last 1 version']
       },
@@ -136,7 +140,7 @@ module.exports = function (grunt) {
     },
 
     // Automatically inject Bower components into the HTML file
-    bowerInstall  : {
+    bowerInstall : {
       app : {
         src     : ['<%= config.app %>/index.html'],
         exclude : ['bower_components/bootstrap/dist/js/bootstrap.js']
@@ -144,7 +148,7 @@ module.exports = function (grunt) {
     },
 
     // Renames files for browser caching purposes
-    rev           : {
+    rev : {
       dist : {
         files : {
           src : [
@@ -169,7 +173,7 @@ module.exports = function (grunt) {
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration
-    usemin        : {
+    usemin : {
       options : {
         assetsDirs : ['<%= config.dist %>', '<%= config.dist %>/images']
       },
@@ -178,7 +182,7 @@ module.exports = function (grunt) {
     },
 
     // The following *-min tasks produce minified files in the dist folder
-    imagemin      : {
+    imagemin : {
       dist : {
         files : [
           {
@@ -204,7 +208,7 @@ module.exports = function (grunt) {
       }
     },
 
-    htmlmin      : {
+    htmlmin : {
       dist : {
         options : {
           collapseBooleanAttributes : true,
@@ -254,7 +258,7 @@ module.exports = function (grunt) {
     // },
 
     // Copies remaining files to places other tasks can use
-    copy         : {
+    copy : {
       dist   : {
         files : [
           {
@@ -297,7 +301,7 @@ module.exports = function (grunt) {
 
     // Generates a custom Modernizr build that includes only the tests you
     // reference in your app
-    modernizr    : {
+    modernizr : {
       dist : {
         devFile    : 'bower_components/modernizr/modernizr.js',
         outputFile : '<%= config.dist %>/scripts/vendor/modernizr.js',
@@ -313,7 +317,7 @@ module.exports = function (grunt) {
     },
 
     // Run some tasks in parallel to speed up build process
-    concurrent   : {
+    concurrent : {
       server : [
         'copy:styles'
       ],
