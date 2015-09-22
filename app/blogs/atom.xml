@@ -101,7 +101,7 @@
 
 <ul>
 <li>how the <a href="http://nantcontrib.sourceforge.net/release/latest/help/tasks/version.html">NAntContrib Version task</a> is automating the version increment; and then building the <a href="https://flickrdownloadr.com/blogs/../">flickr downloadr</a> WPF app</li>
-<li>how the app is being published (via NAnt and MSBuild), for deployment to the <a href="https://flickrdownloadr.com/blogs/../downloads/latest">custom-installation url</a>, which is being hosted at <a href="http://pages.github.com/">GitHub Pages</a>)</li>
+<li>how the app is being published (via NAnt and MSBuild), for deployment to the <a href="https://flickrdownloadr.com/blogs/../downloads/latest">custom-installation url</a>, which is being hosted at <a href="https://pages.github.com/">GitHub Pages</a>)</li>
 <li>how some shell scripting helps to automate the upload of this published application to the site</li>
 </ul>
 
