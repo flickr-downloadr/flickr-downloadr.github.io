@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Windows | flickr downloadr]]></title>
-  <link href="http://flickrdownloadr.com/blogs/blog/categories/windows/atom.xml" rel="self"/>
-  <link href="http://flickrdownloadr.com/blogs/"/>
-  <updated>2015-06-11T23:52:49-04:00</updated>
-  <id>http://flickrdownloadr.com/blogs/</id>
+  <link href="https://flickrdownloadr.com/blogs/blog/categories/windows/atom.xml" rel="self"/>
+  <link href="https://flickrdownloadr.com/blogs/"/>
+  <updated>2015-09-22T11:13:24-04:00</updated>
+  <id>https://flickrdownloadr.com/blogs/</id>
   <author>
     <name><![CDATA[flickr downloadr]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[The CI chain reaction that builds flickr downloadr]]></title>
-    <link href="http://flickrdownloadr.com/blogs/blog/2014/12/08/the-ci-chain-reaction-that-builds-flickr-downloadr/"/>
+    <link href="https://flickrdownloadr.com/blogs/blog/2014/12/08/the-ci-chain-reaction-that-builds-flickr-downloadr/"/>
     <updated>2014-12-08T14:01:26-05:00</updated>
-    <id>http://flickrdownloadr.com/blogs/blog/2014/12/08/the-ci-chain-reaction-that-builds-flickr-downloadr</id>
+    <id>https://flickrdownloadr.com/blogs/blog/2014/12/08/the-ci-chain-reaction-that-builds-flickr-downloadr</id>
     <content type="html"><![CDATA[<blockquote><p><strong>Update (6/11/2015)</strong> &ndash; Due to the recent news about malware on installers downloaded from SourceForge, I have decided to stay completely away from it. This is the reason for the move to GitHub releases for archiving the releases.</p>
 
 <hr />
@@ -43,7 +43,7 @@
 
 <p>In the event that any of the CI builds fail to create the installer, after at least one installer gets successfully built and committed, the custom webhook waits for 30 minutes from the first installer getting committed and sends an email notifying of a build failure [<a href="https://github.com/flickr-downloadr/github-webhook/blob/c88f106965878d62992db286fcdbca02385def1a/helpers/index.js#L68">see here</a>].</p>
 
-<p>Yet another webhook on the <code>flickr-downloadr/releases</code> repo kicks off another build on <a href="https://app.wercker.com/project/bykey/d981bd85d611e5bb2082c94959272851">Wercker</a> to merge the new branch with all three installers (<code>deploy-v1.0.2.1</code> branch) into the <code>source</code> branch on <code>flickr-downloadr/flickr-downloadr.github.io</code> to make it ready for push into the <code>master</code> branch that runs <a href="http://flickrdownloadr.com">the main website</a>. This CI job does a few other things like archiving this version to <del>SourceForge</del><a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/releases">GitHub releases</a> etc., as can be seen <a href="https://github.com/flickr-downloadr/releases/blob/master/wercker.yml">here</a>.</p>
+<p>Yet another webhook on the <code>flickr-downloadr/releases</code> repo kicks off another build on <a href="https://app.wercker.com/project/bykey/d981bd85d611e5bb2082c94959272851">Wercker</a> to merge the new branch with all three installers (<code>deploy-v1.0.2.1</code> branch) into the <code>source</code> branch on <code>flickr-downloadr/flickr-downloadr.github.io</code> to make it ready for push into the <code>master</code> branch that runs <a href="https://flickrdownloadr.com">the main website</a>. This CI job does a few other things like archiving this version to <del>SourceForge</del><a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/releases">GitHub releases</a> etc., as can be seen <a href="https://github.com/flickr-downloadr/releases/blob/master/wercker.yml">here</a>.</p>
 
 <p>The final push to the website is manual and can be done by running <code>grunt deploy</code> on the latest, merged version of the <code>source</code> branch and this will make the latest version installers current on the website.</p>
 ]]></content>
@@ -51,9 +51,9 @@
   
   <entry>
     <title type="html"><![CDATA[Batch download flickr photos from Windows, Mac or Linux!]]></title>
-    <link href="http://flickrdownloadr.com/blogs/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux/"/>
+    <link href="https://flickrdownloadr.com/blogs/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux/"/>
     <updated>2014-06-12T00:34:00-04:00</updated>
-    <id>http://flickrdownloadr.com/blogs/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux</id>
+    <id>https://flickrdownloadr.com/blogs/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux</id>
     <content type="html"><![CDATA[<p>The <a href="/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr/">previous entry</a> on this blog discussed the idea of probably creating a native, Cocoa, Mac OS X port for the then, Windows-only, WPF version of the app.</p>
 
 <p>Any action started much later from the date of the post; to be precise, more than two months later with the creation of a new repository with <a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/commit/3f94a6bc13c87f905e3f5be5e9872accb6930f05">this commit</a>. The research that happened in-between helped decide on a third alternative &ndash; that of completely porting over the .NET C#/WPF into a Mono, C#/GTK# app that could work on all of Windows, Mac and Linux.</p>
