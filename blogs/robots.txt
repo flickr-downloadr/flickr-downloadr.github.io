@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://flickrdownloadr.com/blogs/sitemap.xml 
+Sitemap: https://flickrdownloadr.com/blogs/sitemap.xml 

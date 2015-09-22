@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Objective-C | flickr downloadr]]></title>
-  <link href="http://flickrdownloadr.com/blogs/blog/categories/objective-c/atom.xml" rel="self"/>
-  <link href="http://flickrdownloadr.com/blogs/"/>
-  <updated>2015-06-11T23:52:49-04:00</updated>
-  <id>http://flickrdownloadr.com/blogs/</id>
+  <link href="https://flickrdownloadr.com/blogs/blog/categories/objective-c/atom.xml" rel="self"/>
+  <link href="https://flickrdownloadr.com/blogs/"/>
+  <updated>2015-09-22T12:05:01-04:00</updated>
+  <id>https://flickrdownloadr.com/blogs/</id>
   <author>
     <name><![CDATA[flickr downloadr]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Contemplating a Mac port of flickr-downloadr]]></title>
-    <link href="http://flickrdownloadr.com/blogs/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr/"/>
+    <link href="https://flickrdownloadr.com/blogs/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr/"/>
     <updated>2014-01-20T14:06:00-05:00</updated>
-    <id>http://flickrdownloadr.com/blogs/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr</id>
+    <id>https://flickrdownloadr.com/blogs/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr</id>
     <content type="html"><![CDATA[<p>It&rsquo;s been a long time since something has been posted on this blog! And really, it&rsquo;s been quite a while since something has been done with the app at all.</p>
 
 <p>And the main reason for that is that I have been focussing more on mobile apps and web apps lately. Combine this with the fact that a Macbook Pro is the primary machine these days and there you have the reason for why this Windows/Visual Studio application has not been getting any attention at all.</p>
