@@ -4,7 +4,7 @@ https://keybase.io/floydpink
 
 I hereby claim:
 
-  * I am an admin of http://flickrdownloadr.com
+  * I am an admin of https://flickrdownloadr.com
   * I am floydpink (https://keybase.io/floydpink) on keybase.
   * I have a public key with fingerprint F79E FDED 6BAC 4B7D C436  A838 9B5A 929A C7A3 F555
 
