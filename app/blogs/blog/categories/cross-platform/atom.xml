@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Cross Platform | flickr downloadr]]></title>
-  <link href="http://flickrdownloadr.com/blogs/blog/categories/cross-platform/atom.xml" rel="self"/>
-  <link href="http://flickrdownloadr.com/blogs/"/>
-  <updated>2016-01-02T23:21:17-05:00</updated>
-  <id>http://flickrdownloadr.com/blogs/</id>
+  <link href="https://flickrdownloadr.com/blogs/blog/categories/cross-platform/atom.xml" rel="self"/>
+  <link href="https://flickrdownloadr.com/blogs/"/>
+  <updated>2017-01-07T22:50:02-05:00</updated>
+  <id>https://flickrdownloadr.com/blogs/</id>
   <author>
     <name><![CDATA[flickr downloadr]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Batch download flickr photos from Windows, Mac or Linux!]]></title>
-    <link href="http://flickrdownloadr.com/blogs/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux/"/>
+    <link href="https://flickrdownloadr.com/blogs/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux/"/>
     <updated>2014-06-12T00:34:00-04:00</updated>
-    <id>http://flickrdownloadr.com/blogs/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux</id>
+    <id>https://flickrdownloadr.com/blogs/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux</id>
     <content type="html"><![CDATA[<p>The <a href="/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr/">previous entry</a> on this blog discussed the idea of probably creating a native, Cocoa, Mac OS X port for the then, Windows-only, WPF version of the app.</p>
 
 <p>Any action started much later from the date of the post; to be precise, more than two months later with the creation of a new repository with <a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/commit/3f94a6bc13c87f905e3f5be5e9872accb6930f05">this commit</a>. The research that happened in-between helped decide on a third alternative &ndash; that of completely porting over the .NET C#/WPF into a Mono, C#/GTK# app that could work on all of Windows, Mac and Linux.</p>

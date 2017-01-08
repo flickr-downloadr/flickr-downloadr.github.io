@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: MSBuild | flickr downloadr]]></title>
-  <link href="http://flickrdownloadr.com/blogs/blog/categories/msbuild/atom.xml" rel="self"/>
-  <link href="http://flickrdownloadr.com/blogs/"/>
-  <updated>2016-01-02T23:21:17-05:00</updated>
-  <id>http://flickrdownloadr.com/blogs/</id>
+  <link href="https://flickrdownloadr.com/blogs/blog/categories/msbuild/atom.xml" rel="self"/>
+  <link href="https://flickrdownloadr.com/blogs/"/>
+  <updated>2017-01-07T22:50:02-05:00</updated>
+  <id>https://flickrdownloadr.com/blogs/</id>
   <author>
     <name><![CDATA[flickr downloadr]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Single-click deployment of WPF application to GitHub Pages]]></title>
-    <link href="http://flickrdownloadr.com/blogs/blog/2013/01/15/single-click-deployment-of-wpf-application-to-github-pages/"/>
+    <link href="https://flickrdownloadr.com/blogs/blog/2013/01/15/single-click-deployment-of-wpf-application-to-github-pages/"/>
     <updated>2013-01-15T02:03:00-05:00</updated>
-    <id>http://flickrdownloadr.com/blogs/blog/2013/01/15/single-click-deployment-of-wpf-application-to-github-pages</id>
+    <id>https://flickrdownloadr.com/blogs/blog/2013/01/15/single-click-deployment-of-wpf-application-to-github-pages</id>
     <content type="html"><![CDATA[<h2>Summary</h2>
 
 <p>This post will try to detail:</p>
@@ -135,9 +135,9 @@ pause
   &lt;arg value="/p:ProductName=flickr downloadr (beta v${buildnumber.version})"/&gt;
   &lt;arg value="/p:ApplicationVersion=${buildnumber.version}"/&gt;
   &lt;arg value="/p:PublishDir=${bin.dir}\Deploy\"/&gt;
-  &lt;arg value="/p:InstallUrl=http://flickrdownloadr.com/downloads/latest/"/&gt;
-  &lt;arg value="/p:SupportUrl=http://flickrdownloadr.com/downloads/latest/"/&gt;
-  &lt;arg value="/p:ErrorReportUrl=http://flickrdownloadr.com/"/&gt;
+  &lt;arg value="/p:InstallUrl=https://flickrdownloadr.com/downloads/latest/"/&gt;
+  &lt;arg value="/p:SupportUrl=https://flickrdownloadr.com/downloads/latest/"/&gt;
+  &lt;arg value="/p:ErrorReportUrl=https://flickrdownloadr.com/"/&gt;
   &lt;arg value="/p:BootstrapperEnabled=true"/&gt;
   &lt;arg value="/p:CreateDesktopShortcut=true"/&gt;
   &lt;arg value="/p:CreateWebPageOnPublish=true"/&gt;
@@ -214,7 +214,7 @@ pause
     &lt;attribute type="AssemblyTitleAttribute" value="flickrDownloadr" /&gt;
     &lt;attribute type="AssemblyDescriptionAttribute" value="A desktop application for windows that would help download all (or selected) photos from the user's photostream (in one of the selected sizes) along with the tags, titles and descriptions." /&gt;
     &lt;attribute type="AssemblyConfigurationAttribute" value="${project.build.type}" /&gt;
-    &lt;attribute type="AssemblyCompanyAttribute" value="http://flickrdownloadr.com" /&gt;
+    &lt;attribute type="AssemblyCompanyAttribute" value="https://flickrdownloadr.com" /&gt;
     &lt;attribute type="AssemblyProductAttribute" value="flickr downloadr" /&gt;
     &lt;attribute type="AssemblyCopyrightAttribute" value="Copyright ${csharp-functions::get-copyright-symbol()} 2012-${datetime::get-year(datetime::now())} Haridas Pachuveetil" /&gt;
     &lt;attribute type="AssemblyTrademarkAttribute" value="" /&gt;
