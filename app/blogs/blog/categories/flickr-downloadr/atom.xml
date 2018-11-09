@@ -4,7 +4,7 @@
   <title><![CDATA[Category: flickr downloadr | flickr downloadr]]></title>
   <link href="https://flickrdownloadr.com/blogs/blog/categories/flickr-downloadr/atom.xml" rel="self"/>
   <link href="https://flickrdownloadr.com/blogs/"/>
-  <updated>2018-01-27T00:27:14-05:00</updated>
+  <updated>2018-11-09T18:09:56-05:00</updated>
   <id>https://flickrdownloadr.com/blogs/</id>
   <author>
     <name><![CDATA[flickr downloadr]]></name>
@@ -293,7 +293,7 @@ pause
     &lt;attribute type="AssemblyConfigurationAttribute" value="${project.build.type}" /&gt;
     &lt;attribute type="AssemblyCompanyAttribute" value="https://flickrdownloadr.com" /&gt;
     &lt;attribute type="AssemblyProductAttribute" value="flickr downloadr" /&gt;
-    &lt;attribute type="AssemblyCopyrightAttribute" value="Copyright ${csharp-functions::get-copyright-symbol()} 2012-${datetime::get-year(datetime::now())} Haridas Pachuveetil" /&gt;
+    &lt;attribute type="AssemblyCopyrightAttribute" value="Copyright ${csharp-functions::get-copyright-symbol()} 2012-${datetime::get-year(datetime::now())} flickr downloadr" /&gt;
     &lt;attribute type="AssemblyTrademarkAttribute" value="" /&gt;
     &lt;attribute type="AssemblyCultureAttribute" value="" /&gt;
     &lt;attribute type="AssemblyVersionAttribute" value="${buildnumber.version}" /&gt;
@@ -326,7 +326,7 @@ SSH_ENV=&quot;$HOME/.ssh/environment&quot;
 function start_agent {
     echo &quot;Initializing new SSH agent...&quot;
     # spawn ssh-agent
-    ssh-agent | sed &#39;s/^echo/#echo/&#39; &gt; &quot;$SSH_ENV&quot;
+    ssh-agent | sed 's/^echo/#echo/' &gt; &quot;$SSH_ENV&quot;
     echo succeeded
     chmod 600 &quot;$SSH_ENV&quot;
     . &quot;$SSH_ENV&quot; &gt; /dev/null

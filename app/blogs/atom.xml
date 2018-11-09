@@ -4,7 +4,7 @@
   <title><![CDATA[flickr downloadr]]></title>
   <link href="https://flickrdownloadr.com/blogs/atom.xml" rel="self"/>
   <link href="https://flickrdownloadr.com/blogs/"/>
-  <updated>2018-01-27T00:27:14-05:00</updated>
+  <updated>2018-11-09T18:09:56-05:00</updated>
   <id>https://flickrdownloadr.com/blogs/</id>
   <author>
     <name><![CDATA[flickr downloadr]]></name>
@@ -371,7 +371,7 @@
 </span><span class='line'>        <span class="nt">&lt;attribute</span> <span class="na">type=</span><span class="s">&quot;AssemblyConfigurationAttribute&quot;</span> <span class="na">value=</span><span class="s">&quot;${project.build.type}&quot;</span> <span class="nt">/&gt;</span>
 </span><span class='line'>        <span class="nt">&lt;attribute</span> <span class="na">type=</span><span class="s">&quot;AssemblyCompanyAttribute&quot;</span> <span class="na">value=</span><span class="s">&quot;https://flickrdownloadr.com&quot;</span> <span class="nt">/&gt;</span>
 </span><span class='line'>        <span class="nt">&lt;attribute</span> <span class="na">type=</span><span class="s">&quot;AssemblyProductAttribute&quot;</span> <span class="na">value=</span><span class="s">&quot;flickr downloadr&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;attribute</span> <span class="na">type=</span><span class="s">&quot;AssemblyCopyrightAttribute&quot;</span> <span class="na">value=</span><span class="s">&quot;Copyright ${csharp-functions::get-copyright-symbol()} 2012-${datetime::get-year(datetime::now())} Haridas Pachuveetil&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;attribute</span> <span class="na">type=</span><span class="s">&quot;AssemblyCopyrightAttribute&quot;</span> <span class="na">value=</span><span class="s">&quot;Copyright ${csharp-functions::get-copyright-symbol()} 2012-${datetime::get-year(datetime::now())} flickr downloadr&quot;</span> <span class="nt">/&gt;</span>
 </span><span class='line'>        <span class="nt">&lt;attribute</span> <span class="na">type=</span><span class="s">&quot;AssemblyTrademarkAttribute&quot;</span> <span class="na">value=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;</span>
 </span><span class='line'>        <span class="nt">&lt;attribute</span> <span class="na">type=</span><span class="s">&quot;AssemblyCultureAttribute&quot;</span> <span class="na">value=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;</span>
 </span><span class='line'>        <span class="nt">&lt;attribute</span> <span class="na">type=</span><span class="s">&quot;AssemblyVersionAttribute&quot;</span> <span class="na">value=</span><span class="s">&quot;${buildnumber.version}&quot;</span> <span class="nt">/&gt;</span>
@@ -403,7 +403,7 @@ SSH_ENV=&quot;$HOME/.ssh/environment&quot;
 function start_agent {
     echo &quot;Initializing new SSH agent...&quot;
     # spawn ssh-agent
-    ssh-agent | sed &#39;s/^echo/#echo/&#39; &gt; &quot;$SSH_ENV&quot;
+    ssh-agent | sed 's/^echo/#echo/' &gt; &quot;$SSH_ENV&quot;
     echo succeeded
     chmod 600 &quot;$SSH_ENV&quot;
     . &quot;$SSH_ENV&quot; &gt; /dev/null
