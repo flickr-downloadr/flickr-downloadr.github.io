@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Cocoa | flickr downloadr]]></title>
+  <link href="https://flickrdownloadr.com/blogs/blog/categories/cocoa/atom.xml" rel="self"/>
+  <link href="https://flickrdownloadr.com/blogs/"/>
+  <updated>2018-11-09T18:09:56-05:00</updated>
+  <id>https://flickrdownloadr.com/blogs/</id>
+  <author>
+    <name><![CDATA[flickr downloadr]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Contemplating a Mac port of flickr-downloadr]]></title>
+    <link href="https://flickrdownloadr.com/blogs/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr/"/>
+    <updated>2014-01-20T14:06:00-05:00</updated>
+    <id>https://flickrdownloadr.com/blogs/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr</id>
+    <content type="html"><![CDATA[<p>It&rsquo;s been a long time since something has been posted on this blog! And really, it&rsquo;s been quite a while since something has been done with the app at all.</p>
+
+<p>And the main reason for that is that I have been focussing more on mobile apps and web apps lately. Combine this with the fact that a Macbook Pro is the primary machine these days and there you have the reason for why this Windows/Visual Studio application has not been getting any attention at all.</p>
+
+<p>But because there is the Mac and there is an increasing desire to learn Cocoa and Objective-C, I have been toying with the idea of porting over the current WPF-based Windows desktop application into a Mac app.</p>
+
+<p>Stay tuned for updates!</p>
+]]></content>
+  </entry>
+  
+</feed>
