@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Windows | flickr downloadr]]></title>
+  <link href="http://flickr-downloadr.github.io/blog/categories/windows/atom.xml" rel="self"/>
+  <link href="http://flickr-downloadr.github.io/"/>
+  <updated>2018-11-10T16:05:47-05:00</updated>
+  <id>http://flickr-downloadr.github.io/</id>
+  <author>
+    <name><![CDATA[flickr downloadr]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[The CI chain reaction that builds flickr downloadr]]></title>
+    <link href="http://flickr-downloadr.github.io/blog/2014/12/08/the-ci-chain-reaction-that-builds-flickr-downloadr/"/>
+    <updated>2014-12-08T14:01:26-05:00</updated>
+    <id>http://flickr-downloadr.github.io/blog/2014/12/08/the-ci-chain-reaction-that-builds-flickr-downloadr</id>
+    <content type="html"><![CDATA[<blockquote><p><strong>Update (6/11/2015)</strong> &ndash; Due to the recent news about malware on installers downloaded from SourceForge, I have decided to stay completely away from it. This is the reason for the move to GitHub releases for archiving the releases.</p>
+
+<hr />
+
+<p>As written on <a href="/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux/">the last entry</a> in this blog, I finally got to write something on points 1) and 2) there &ndash; the CI (continuous integration) builds that are running in parallel on AppVeyor, Travis CI and Wercker and the multi-platform installers they create and publish to the website. I wrote this up as <a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/blob/bba17e54cdca04e07eb3422d07cc82888bdbb986/continuous-integration.md">documentation on the main GitHub repository</a> but decided to cross-post here on the blog too.</p></blockquote>
+
+<h3>Automated Build Process</h3>
+
+<p>Every commit to the <code>master</code> branch <a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/">on the source code repository</a> kicks off CI builds (that builds and runs all the unit tests) in three different CI services:</p>
+
+<ul>
+<li><a href="https://ci.appveyor.com/project/floydpink/flickr-downloadr-gtk">AppVeyor</a> for Windows</li>
+<li><a href="https://travis-ci.org/flickr-downloadr/flickr-downloadr-gtk">Travis CI</a> for Mac OS X</li>
+<li><a href="https://app.wercker.com/project/bykey/065aabc1580cec6d31a2daeef61548b0">Wercker</a> for Linux</li>
+</ul>
+
+
+<p>Any commit that has the string <code>[deploy]</code> in the commit message will also build the installers for all three supported platforms, using <a href="http://installbuilder.bitrock.com/">BitRock InstallBuilder</a>.</p>
+
+<p>The installers will be committed separately from the CI builds to a new branch named <code>deploy-v&lt;VERSION&gt;</code> (as an example, for the version<code>v1.0.2.1</code>, the new branch will be <code>deploy-v1.0.2.1</code>) on the <a href="https://github.com/flickr-downloadr/flickr-downloadr.github.io"><code>flickr-downloadr/flickr-downloadr.github.io</code></a> repository.</p>
+
+<p><a href="https://github.com/flickr-downloadr/github-webhook">A custom webhook</a> on the <code>flickr-downloadr/flickr-downloadr.github.io</code> repo that runs on Heroku ensures that installers for all three platforms have been built successfully and then makes a commit with the name of the new branch, updated into the <code>branch</code> file on the <a href="https://github.com/flickr-downloadr/releases"><code>flickr-downloadr/releases</code></a> repository (<code>deploy-v1.0.2.1</code>, in the example above) and sends an email a deployment will be ready to be pushed to the website soon [<a href="https://github.com/flickr-downloadr/github-webhook/blob/c88f106965878d62992db286fcdbca02385def1a/deploy/index.js#L59">see here</a>].</p>
+
+<p>In the event that any of the CI builds fail to create the installer, after at least one installer gets successfully built and committed, the custom webhook waits for 30 minutes from the first installer getting committed and sends an email notifying of a build failure [<a href="https://github.com/flickr-downloadr/github-webhook/blob/c88f106965878d62992db286fcdbca02385def1a/helpers/index.js#L68">see here</a>].</p>
+
+<p>Yet another webhook on the <code>flickr-downloadr/releases</code> repo kicks off another build on <a href="https://app.wercker.com/project/bykey/d981bd85d611e5bb2082c94959272851">Wercker</a> to merge the new branch with all three installers (<code>deploy-v1.0.2.1</code> branch) into the <code>source</code> branch on <code>flickr-downloadr/flickr-downloadr.github.io</code> to make it ready for push into the <code>master</code> branch that runs <a href="https://flickrdownloadr.com">the main website</a>. This CI job does a few other things like archiving this version to <del>SourceForge</del><a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/releases">GitHub releases</a> etc., as can be seen <a href="https://github.com/flickr-downloadr/releases/blob/master/wercker.yml">here</a>.</p>
+
+<p>The final push to the website is manual and can be done by running <code>grunt deploy</code> on the latest, merged version of the <code>source</code> branch and this will make the latest version installers current on the website.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Batch download flickr photos from Windows, Mac or Linux!]]></title>
+    <link href="http://flickr-downloadr.github.io/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux/"/>
+    <updated>2014-06-12T00:34:00-04:00</updated>
+    <id>http://flickr-downloadr.github.io/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux</id>
+    <content type="html"><![CDATA[<p>The <a href="/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr/">previous entry</a> on this blog discussed the idea of probably creating a native, Cocoa, Mac OS X port for the then, Windows-only, WPF version of the app.</p>
+
+<p>Any action started much later from the date of the post; to be precise, more than two months later with the creation of a new repository with <a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/commit/3f94a6bc13c87f905e3f5be5e9872accb6930f05">this commit</a>. The research that happened in-between helped decide on a third alternative &ndash; that of completely porting over the .NET C#/WPF into a Mono, C#/GTK# app that could work on all of Windows, Mac and Linux.</p>
+
+<p>And exactly after two months and one day <a href="https://github.com/flickr-downloadr/flickr-downloadr-gtk/commit/de399a3526344ea96d1847eff2836e15674a7553">the v1.0</a> of the new GTKSharp enabled flickr downloadr was published on <a href="/../">this website</a>.</p>
+
+<p>It really was an exhilarating journey of many frustrations, joy, learnings and moments of bliss &ndash; and there are a few things that I would like to follow up in separate entries here. Like:</p>
+
+<ol>
+<li>the parallel, multi-platform continuous integration/deployment that happens on <a href="https://ci.appveyor.com/project/floydpink/flickr-downloadr-gtk">AppVeyor (Windows)</a>, <a href="https://travis-ci.org/flickr-downloadr/flickr-downloadr-gtk">Travis CI (Mac)</a> and <a href="https://app.wercker.com/#applications/5363d07d2cbfc1b354003e84">Wercker (Linux)</a>.</li>
+<li>the building of a cross-platform installer using the free-for-open-source Enterprise edition of <a href="http://installbuilder.bitrock.com/">Install Builder</a> provided generously by the awesome guys at BitRock.</li>
+<li>the slight face-lift applied on the website along with the cut-over to a new, <a href="http://yeoman.io/">Yeoman</a> scaffolded web-app &ndash; complete with its automated <code>grunt</code> build for minification, image compression etc. (do a quick <em>View Source</em> on this page to see the results)</li>
+</ol>
+
+
+<p>&hellip;and many other such learnings and experiences.</p>
+
+<p>So, please spread the word of this new, free, open-source utility for batch downloading photos from flickr that is available on Windows, Mac OS X and Linux (Ubuntu &amp; Mint have been tested).</p>
+]]></content>
+  </entry>
+  
+</feed>
