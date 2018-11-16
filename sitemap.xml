@@ -1,113 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-<url>
-  <loc>https://flickrdownloadr.com/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/downloads/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/documentation/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/blog/2013/01/15/single-click-deployment-of-wpf-application-to-github-pages/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/downloads/latest/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/blog/2013/01/07/hello-world/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/blog/archives/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/blog/categories/cocoa/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/blog/categories/mac/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/blog/categories/objective-c/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/blog/categories/technical/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/blog/categories/flickr-downloadr/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/blog/categories/dot-net/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/blog/categories/clickonce-deployment/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/blog/categories/github-pages/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/blog/categories/msbuild/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/blog/categories/nant/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/blog/categories/wpf-application/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/blog/categories/automation/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/blog/categories/bash/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/blog/categories/deployment/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/blog/categories/git/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/blog/categories/general/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
-<url>
-  <loc>https://flickrdownloadr.com/blogs/blog/categories/history/</loc>
-  <lastmod>2014-05-30T23:15:54+00:00</lastmod>
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://flickrdownloadr.com/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/2013/01/07/hello-world/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/2013/01/15/single-click-deployment-of-wpf-application-to-github-pages/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/2014/01/20/contemplating-a-mac-port-of-flickr-downloadr/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/2014/06/12/batch-download-flickr-photos-from-windows-mac-or-linux/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/2014/12/08/the-ci-chain-reaction-that-builds-flickr-downloadr/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/archives/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/appveyor/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/automation/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/bash/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/clickonce-deployment/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/cocoa/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/continuous-integration/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/cross-platform/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/deployment/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/dot-net/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/flickr-downloadr/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/general/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/git/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/github-pages/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/history/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/linux/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/mac/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/msbuild/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/nant/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/objective-c/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/technical/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/travis-ci/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/wercker/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/windows/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/blog/categories/wpf-application/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/documentation/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/donate/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/downloads/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/downloads/latest/</loc>
+    </url>
+    <url>
+        <loc>https://flickrdownloadr.com/blogs/atom.xml</loc>
+    </url>
 </urlset>
