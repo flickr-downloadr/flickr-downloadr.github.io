@@ -130,10 +130,6 @@ $(function () {
           title : 'Send us an email',
           href  : 'mailto:contact.us@flickrdownloadr.com'
         },
-        'google+'   : {
-          title : 'Follow us on Google+',
-          href  : 'https://plus.google.com/u/0/112082983921398252462/about'
-        },
         'pinterest' : {
           title : 'Follow us on Pinterest',
           href  : 'http://pinterest.com/flickrdownloadr/'
