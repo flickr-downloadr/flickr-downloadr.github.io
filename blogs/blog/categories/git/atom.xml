@@ -4,7 +4,7 @@
   <title><![CDATA[Category: git | flickr downloadr]]></title>
   <link href="https://flickrdownloadr.com/blogs/blog/categories/git/atom.xml" rel="self"/>
   <link href="https://flickrdownloadr.com/blogs/"/>
-  <updated>2019-02-12T20:04:12-05:00</updated>
+  <updated>2020-11-19T08:19:56-05:00</updated>
   <id>https://flickrdownloadr.com/blogs/</id>
   <author>
     <name><![CDATA[flickr downloadr]]></name>
@@ -81,15 +81,13 @@
 
 <p>The sequence of steps from the single-click deployment process, gets kicked off by the <code>deploy.bat</code> file. Here are the contents of that file:</p>
 
-<p><code>bat deploy.bat https://github.com/flickr-downloadr/flickr-downloadr/blob/master/build/deploy.bat on GitHub
-go deploy Release
+<pre><code class="bat deploy.bat https://github.com/flickr-downloadr/flickr-downloadr/blob/master/build/deploy.bat on GitHub">go deploy Release
 pause
-</code></p>
+</code></pre>
 
 <p>Here <code>go</code> is another batch file that is there in the same directory:</p>
 
-<p><code>bat go.bat https://github.com/flickr-downloadr/flickr-downloadr/blob/master/build/go.bat on GitHub
-@echo off
+<pre><code class="bat go.bat https://github.com/flickr-downloadr/flickr-downloadr/blob/master/build/go.bat on GitHub">@echo off
 IF dummy==dummy%2 (
 nant\nant-0.92\bin\NAnt.exe -buildfile:FlickrDownloadr.build %1 -D:project.build.type=Debug
 ) ELSE (
@@ -97,57 +95,49 @@ nant\nant-0.92\bin\NAnt.exe -buildfile:FlickrDownloadr.build %1 -D:project.build
 )
 date /t &amp;&amp; time /t
 pause
-</code></p>
+</code></pre>
 
 <p>So, as evident here, this calls NAnt with <code>FlickrDownloadr.build</code> as the build file and <code>deploy</code> as the target to run, with <code>Release</code> as the build configuration.</p>
 
-<p>``` xml deploy <a href="https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L110">https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L110</a> on GitHub
-  <target name="deploy" depends="publish"></p>
-
-<pre><code>&lt;exec program="bash.exe" basedir="C:\Program Files (x86)\Git\bin\" verbose="true"&gt;
-  &lt;environment&gt;
-    &lt;variable name="HOME" value="${environment::get-variable('userprofile')}"/&gt;
-    &lt;variable name="ADDPATH" value=".:/usr/local/bin:/mingw/bin:/bin:/bin"/&gt;
-    &lt;variable name="BUILDNUMBER" value="${buildnumber.version}"/&gt;
-  &lt;/environment&gt;
-  &lt;arg file="deploy.sh" /&gt;
-&lt;/exec&gt;
+<pre><code class="xml deploy https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L110 on GitHub">  &lt;target name="deploy" depends="publish"&gt;
+    &lt;exec program="bash.exe" basedir="C:\Program Files (x86)\Git\bin\" verbose="true"&gt;
+      &lt;environment&gt;
+        &lt;variable name="HOME" value="${environment::get-variable('userprofile')}"/&gt;
+        &lt;variable name="ADDPATH" value=".:/usr/local/bin:/mingw/bin:/bin:/bin"/&gt;
+        &lt;variable name="BUILDNUMBER" value="${buildnumber.version}"/&gt;
+      &lt;/environment&gt;
+      &lt;arg file="deploy.sh" /&gt;
+    &lt;/exec&gt;
+  &lt;/target&gt;
 </code></pre>
-
-<p>  </target>
-```</p>
 
 <p>This target first waits for its dependant target <code>publish</code> to execute. Let&rsquo;s see what that does first and we shall come back to this target to see when it would execute the <code>deploy.sh</code> bash script.</p>
 
-<p>``` xml publish <a href="https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L121">https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L121</a> on GitHub
-  <target name="publish" depends="compilesolution"></p>
-
-<pre><code>&lt;msbuild project="${source.directory}\${flickrdownloadr.app.project}"&gt;
-  &lt;arg value="/v:m"/&gt;
-  &lt;arg value="/p:IsWebBootstrapper=true"/&gt;
-  &lt;arg value="/p:UpdateEnabled=true"/&gt;
-  &lt;arg value="/p:UpdateMode=Foreground"/&gt;
-  &lt;arg value="/p:UpdateInterval=7"/&gt;
-  &lt;arg value="/p:UpdateIntervalUnits=Days"/&gt;
-  &lt;arg value="/p:UpdatePeriodically=false"/&gt;
-  &lt;arg value="/p:Configuration=${project.build.type}"/&gt;
-  &lt;arg value="/p:PublisherName=flickrdownloadr"/&gt;
-  &lt;arg value="/p:ProductName=flickr downloadr (beta v${buildnumber.version})"/&gt;
-  &lt;arg value="/p:ApplicationVersion=${buildnumber.version}"/&gt;
-  &lt;arg value="/p:PublishDir=${bin.dir}\Deploy\"/&gt;
-  &lt;arg value="/p:InstallUrl=https://flickrdownloadr.com/downloads/latest/"/&gt;
-  &lt;arg value="/p:SupportUrl=https://flickrdownloadr.com/downloads/latest/"/&gt;
-  &lt;arg value="/p:ErrorReportUrl=https://flickrdownloadr.com/"/&gt;
-  &lt;arg value="/p:BootstrapperEnabled=true"/&gt;
-  &lt;arg value="/p:CreateDesktopShortcut=true"/&gt;
-  &lt;arg value="/p:CreateWebPageOnPublish=true"/&gt;
-  &lt;arg value="/p:WebPage=index.html"/&gt;
-  &lt;arg value="/t:publish" /&gt;
-&lt;/msbuild&gt;
+<pre><code class="xml publish https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L121 on GitHub">  &lt;target name="publish" depends="compilesolution"&gt;
+    &lt;msbuild project="${source.directory}\${flickrdownloadr.app.project}"&gt;
+      &lt;arg value="/v:m"/&gt;
+      &lt;arg value="/p:IsWebBootstrapper=true"/&gt;
+      &lt;arg value="/p:UpdateEnabled=true"/&gt;
+      &lt;arg value="/p:UpdateMode=Foreground"/&gt;
+      &lt;arg value="/p:UpdateInterval=7"/&gt;
+      &lt;arg value="/p:UpdateIntervalUnits=Days"/&gt;
+      &lt;arg value="/p:UpdatePeriodically=false"/&gt;
+      &lt;arg value="/p:Configuration=${project.build.type}"/&gt;
+      &lt;arg value="/p:PublisherName=flickrdownloadr"/&gt;
+      &lt;arg value="/p:ProductName=flickr downloadr (beta v${buildnumber.version})"/&gt;
+      &lt;arg value="/p:ApplicationVersion=${buildnumber.version}"/&gt;
+      &lt;arg value="/p:PublishDir=${bin.dir}\Deploy\"/&gt;
+      &lt;arg value="/p:InstallUrl=https://flickrdownloadr.com/downloads/latest/"/&gt;
+      &lt;arg value="/p:SupportUrl=https://flickrdownloadr.com/downloads/latest/"/&gt;
+      &lt;arg value="/p:ErrorReportUrl=https://flickrdownloadr.com/"/&gt;
+      &lt;arg value="/p:BootstrapperEnabled=true"/&gt;
+      &lt;arg value="/p:CreateDesktopShortcut=true"/&gt;
+      &lt;arg value="/p:CreateWebPageOnPublish=true"/&gt;
+      &lt;arg value="/p:WebPage=index.html"/&gt;
+      &lt;arg value="/t:publish" /&gt;
+    &lt;/msbuild&gt;
+  &lt;/target&gt;
 </code></pre>
-
-<p>  </target>
-```</p>
 
 <p>This target again has another dependant target which is the compilation of the solution. Before we go there though, let&rsquo;s take one more closer look at this <code>publish</code> target.</p>
 
@@ -155,30 +145,22 @@ pause
 
 <p>The <code>compilesolution</code> task is another straight-forward one like this:</p>
 
-<p>``` xml compilesolution <a href="https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L40">https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L40</a> on GitHub
-  <target name="compilesolution" depends="cleanBin, createBin, increment-version"></p>
+<pre><code class="xml compilesolution https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L40 on GitHub">  &lt;target name="compilesolution" depends="cleanBin, createBin, increment-version"&gt;
+    &lt;echo message="Compiling Solution:" /&gt;
 
-<pre><code>&lt;echo message="Compiling Solution:" /&gt;
-
-&lt;exec program="msbuild.exe"  basedir="C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319"
-          commandline='"${source.directory}\${flickrdownloadr.solution}" /p:Platform="Any CPU" /p:Configuration=${project.build.type} /t:Rebuild /v:m /m' workingdir="." /&gt;
+    &lt;exec program="msbuild.exe"  basedir="C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319"
+              commandline='"${source.directory}\${flickrdownloadr.solution}" /p:Platform="Any CPU" /p:Configuration=${project.build.type} /t:Rebuild /v:m /m' workingdir="." /&gt;
+  &lt;/target&gt;
 </code></pre>
-
-<p>  </target>
-```</p>
 
 <p>As mentioned earlier, this time around MSBuild is being invoked on the Visual Studio solution itself. But the most interesting aspect here is the <code>increment-version</code> target that is a dependency:</p>
 
-<p>``` xml increment-version <a href="https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L66">https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L66</a> on GitHub
-  <target name="increment-version"></p>
-
-<pre><code>&lt;echo message="Incrementing the version:" /&gt;
-&lt;version buildtype="NoIncrement" revisiontype="Increment" startdate="2012-04-02" verbose="true"/&gt;
-&lt;call target="create-common-assemblyinfo" /&gt;
+<pre><code class="xml increment-version https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L66 on GitHub">  &lt;target name="increment-version"&gt;
+    &lt;echo message="Incrementing the version:" /&gt;
+    &lt;version buildtype="NoIncrement" revisiontype="Increment" startdate="2012-04-02" verbose="true"/&gt;
+    &lt;call target="create-common-assemblyinfo" /&gt;
+  &lt;/target&gt;
 </code></pre>
-
-<p>  </target>
-```</p>
 
 <p>First the NAntContrib <code>version</code> task is being run and then the <code>create-common-assemblyinfo</code> target is called.</p>
 
@@ -186,48 +168,44 @@ pause
 
 <p>Then we get to the <a href="http://nant.sourceforge.net/release/latest/help/tasks/asminfo.html">NAnt asminfo</a> task to generate one, shared <code>CommonAssemblyInfo.cs</code> file, which is linked to by all the projects in the solution as their <code>AssemblyInfo.cs</code> modules.</p>
 
-<p>``` xml create-common-assemblyinfo <a href="https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L72">https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L72</a> on GitHub
-  <target name="create-common-assemblyinfo"></p>
-
-<pre><code>&lt;!-- ensure source/CommonAssemblyInfo.cs is writable if it already exists --&gt;
-&lt;attrib file="${source.directory}/CommonAssemblyInfo.cs" readonly="false" if="${file::exists('${source.directory}/CommonAssemblyInfo.cs')}" /&gt;
-&lt;!-- Get Copyright Symbol --&gt;
-&lt;script language="C#" prefix="csharp-functions" &gt;
-  &lt;code&gt;
-    &lt;![CDATA[
-          [Function("get-copyright-symbol")]
-          public static string Testfunc(  ) {
-              return "\u00a9";
-          }
-        ]]&gt;
-  &lt;/code&gt;
-&lt;/script&gt;
-&lt;!-- generate the source file holding the common assembly-level attributes --&gt;
-&lt;asminfo output="${source.directory}/CommonAssemblyInfo.cs" language="CSharp"&gt;
-  &lt;imports&gt;
-    &lt;import namespace="System" /&gt;
-    &lt;import namespace="System.Reflection" /&gt;
-    &lt;import namespace="System.Runtime.InteropServices" /&gt;
-  &lt;/imports&gt;
-  &lt;attributes&gt;
-    &lt;attribute type="ComVisibleAttribute" value="false" /&gt;
-    &lt;attribute type="AssemblyTitleAttribute" value="flickrDownloadr" /&gt;
-    &lt;attribute type="AssemblyDescriptionAttribute" value="A desktop application for windows that would help download all (or selected) photos from the user's photostream (in one of the selected sizes) along with the tags, titles and descriptions." /&gt;
-    &lt;attribute type="AssemblyConfigurationAttribute" value="${project.build.type}" /&gt;
-    &lt;attribute type="AssemblyCompanyAttribute" value="https://flickrdownloadr.com" /&gt;
-    &lt;attribute type="AssemblyProductAttribute" value="flickr downloadr" /&gt;
-    &lt;attribute type="AssemblyCopyrightAttribute" value="Copyright ${csharp-functions::get-copyright-symbol()} 2012-${datetime::get-year(datetime::now())} flickr downloadr" /&gt;
-    &lt;attribute type="AssemblyTrademarkAttribute" value="" /&gt;
-    &lt;attribute type="AssemblyCultureAttribute" value="" /&gt;
-    &lt;attribute type="AssemblyVersionAttribute" value="${buildnumber.version}" /&gt;
-    &lt;attribute type="AssemblyFileVersionAttribute" value="${buildnumber.version}" /&gt;
-    &lt;attribute type="AssemblyInformationalVersionAttribute" value="${buildnumber.major}.${buildnumber.minor}" /&gt;
-  &lt;/attributes&gt;
-&lt;/asminfo&gt;
+<pre><code class="xml create-common-assemblyinfo https://github.com/flickr-downloadr/flickr-downloadr/blob/5ed83541e657318da0cf5ef25bac53c60a709eea/build/FlickrDownloadr.build#L72 on GitHub">  &lt;target name="create-common-assemblyinfo"&gt;
+    &lt;!-- ensure source/CommonAssemblyInfo.cs is writable if it already exists --&gt;
+    &lt;attrib file="${source.directory}/CommonAssemblyInfo.cs" readonly="false" if="${file::exists('${source.directory}/CommonAssemblyInfo.cs')}" /&gt;
+    &lt;!-- Get Copyright Symbol --&gt;
+    &lt;script language="C#" prefix="csharp-functions" &gt;
+      &lt;code&gt;
+        &lt;![CDATA[
+              [Function("get-copyright-symbol")]
+              public static string Testfunc(  ) {
+                  return "\u00a9";
+              }
+            ]]&gt;
+      &lt;/code&gt;
+    &lt;/script&gt;
+    &lt;!-- generate the source file holding the common assembly-level attributes --&gt;
+    &lt;asminfo output="${source.directory}/CommonAssemblyInfo.cs" language="CSharp"&gt;
+      &lt;imports&gt;
+        &lt;import namespace="System" /&gt;
+        &lt;import namespace="System.Reflection" /&gt;
+        &lt;import namespace="System.Runtime.InteropServices" /&gt;
+      &lt;/imports&gt;
+      &lt;attributes&gt;
+        &lt;attribute type="ComVisibleAttribute" value="false" /&gt;
+        &lt;attribute type="AssemblyTitleAttribute" value="flickrDownloadr" /&gt;
+        &lt;attribute type="AssemblyDescriptionAttribute" value="A desktop application for windows that would help download all (or selected) photos from the user's photostream (in one of the selected sizes) along with the tags, titles and descriptions." /&gt;
+        &lt;attribute type="AssemblyConfigurationAttribute" value="${project.build.type}" /&gt;
+        &lt;attribute type="AssemblyCompanyAttribute" value="https://flickrdownloadr.com" /&gt;
+        &lt;attribute type="AssemblyProductAttribute" value="flickr downloadr" /&gt;
+        &lt;attribute type="AssemblyCopyrightAttribute" value="Copyright ${csharp-functions::get-copyright-symbol()} 2012-${datetime::get-year(datetime::now())} flickr downloadr" /&gt;
+        &lt;attribute type="AssemblyTrademarkAttribute" value="" /&gt;
+        &lt;attribute type="AssemblyCultureAttribute" value="" /&gt;
+        &lt;attribute type="AssemblyVersionAttribute" value="${buildnumber.version}" /&gt;
+        &lt;attribute type="AssemblyFileVersionAttribute" value="${buildnumber.version}" /&gt;
+        &lt;attribute type="AssemblyInformationalVersionAttribute" value="${buildnumber.major}.${buildnumber.minor}" /&gt;
+      &lt;/attributes&gt;
+    &lt;/asminfo&gt;
+  &lt;/target&gt;
 </code></pre>
-
-<p>  </target>
-```</p>
 
 <p>I noticed (and learned about) this little beauty for the first time in the <a href="https://github.com/nant/nant/blob/7d81f6f2e4f35711e57de7306773cefc3875cd71/NAnt.build#L92">NAnt build file</a> for the NAnt project itself!</p>
 
@@ -249,7 +227,7 @@ SSH_ENV=&quot;$HOME/.ssh/environment&quot;
 function start_agent {
     echo &quot;Initializing new SSH agent...&quot;
     # spawn ssh-agent
-    ssh-agent | sed 's/^echo/#echo/' &gt; &quot;$SSH_ENV&quot;
+    ssh-agent | sed &#39;s/^echo/#echo/&#39; &gt; &quot;$SSH_ENV&quot;
     echo succeeded
     chmod 600 &quot;$SSH_ENV&quot;
     . &quot;$SSH_ENV&quot; &gt; /dev/null
