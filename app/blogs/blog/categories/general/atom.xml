@@ -4,7 +4,7 @@
   <title><![CDATA[Category: General | flickr downloadr]]></title>
   <link href="https://flickrdownloadr.com/blogs/blog/categories/general/atom.xml" rel="self"/>
   <link href="https://flickrdownloadr.com/blogs/"/>
-  <updated>2019-02-12T20:04:12-05:00</updated>
+  <updated>2020-11-19T08:19:56-05:00</updated>
   <id>https://flickrdownloadr.com/blogs/</id>
   <author>
     <name><![CDATA[flickr downloadr]]></name>
@@ -24,10 +24,7 @@
 
 <p>But soon after the authentication modules using <a href="http://en.wikipedia.org/wiki/OAuth" title="OAuth">OAuth</a> were done, the enthusiasm died and there was a brief hiatus in the development and it is recently that it has gained some momentum again. As of this writing, the latest beta version of the app works on any version of Windows that can run <a href="http://msdn.microsoft.com/en-us/library/w0x726c2.aspx">.NET framework 4.5</a>, which is Windows Vista (untested), Windows 7 and Windows 8.</p>
 
-<!-- more -->
-
-
-<p>There are quite a few rough edges and a few known issues, but when signed in with a flickr <a href="http://www.flickr.com/help/limits/#28">Pro</a> (read <em>paid</em>) account, the app would show all of the photos from the logged in user&rsquo;s photostream. All of the photos, or a selection could then be downloaded and again, as of the version of this writing (v0.6.3.1), the location where photos are downloaded, the size, and the associated metadata are all hard-coded.</p>
+<p><!-- more -->There are quite a few rough edges and a few known issues, but when signed in with a flickr <a href="http://www.flickr.com/help/limits/#28">Pro</a> (read <em>paid</em>) account, the app would show all of the photos from the logged in user&rsquo;s photostream. All of the photos, or a selection could then be downloaded and again, as of the version of this writing (v0.6.3.1), the location where photos are downloaded, the size, and the associated metadata are all hard-coded.</p>
 
 <p>In the coming months, the plan is to add a way to capture user preferences for some of the things mentioned above and also to fix the few known bugs/defects.</p>
 
