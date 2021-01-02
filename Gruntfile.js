@@ -331,7 +331,7 @@ module.exports = function (grunt) {
       ]
     },
 
-    // Deploy to master branch on GitHub
+    // Deploy to main branch on GitHub
     buildcontrol : {
       options : {
         dir     : '<%= config.dist %>',
@@ -342,7 +342,7 @@ module.exports = function (grunt) {
       pages   : {
         options : {
           remote : 'git@github.com:flickr-downloadr/flickr-downloadr.github.io.git',
-          branch : 'master'
+          branch : 'main'
         }
       }
     }
