@@ -1,12 +1,9 @@
 {
   "name": "flickr-downloadr-github-io",
   "version": "0.0.1",
-  "dependencies": {},
   "devDependencies": {
     "grunt": "^1.4.1",
     "grunt-autoprefixer": "~3.0.4",
-    "grunt-bower-install": "~1.6.0",
-    "grunt-build-control": "^0.7.1",
     "grunt-concurrent": "~3.0.0",
     "grunt-contrib-clean": "~2.0.0",
     "grunt-contrib-concat": "~1.0.1",
@@ -28,7 +25,10 @@
     "serve-static": "^1.14.1",
     "time-grunt": "~2.0.0"
   },
+  "scripts": {
+    "postinstall": "bower install --config.interactive=false "
+  },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=14.0.0"
   }
 }

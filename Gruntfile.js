@@ -139,14 +139,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // Automatically inject Bower components into the HTML file
-    bowerInstall : {
-      app : {
-        src     : ['<%= config.app %>/index.html'],
-        exclude : ['bower_components/bootstrap/dist/js/bootstrap.js']
-      }
-    },
-
     // Renames files for browser caching purposes
     rev : {
       dist : {
@@ -329,22 +321,6 @@ module.exports = function (grunt) {
         'imagemin',
         'svgmin'
       ]
-    },
-
-    // Deploy to main branch on GitHub
-    buildcontrol : {
-      options : {
-        dir     : '<%= config.dist %>',
-        commit  : true,
-        push    : true,
-        message : 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch% [ci skip]'
-      },
-      pages   : {
-        options : {
-          remote : 'git@github.com:flickr-downloadr/flickr-downloadr.github.io.git',
-          branch : 'main'
-        }
-      }
     }
   });
 
@@ -380,11 +356,6 @@ module.exports = function (grunt) {
     'rev',
     'usemin',
     'htmlmin'
-  ]);
-
-  grunt.registerTask('deploy', [
-    'build',
-    'buildcontrol:pages'
   ]);
 
   grunt.registerTask('default', [
