@@ -2,7 +2,7 @@
   "name": "flickr-downloadr-github-io",
   "version": "0.0.1",
   "devDependencies": {
-    "grunt": "^1.5.3",
+    "grunt": "^1.6.0",
     "grunt-autoprefixer": "~3.0.4",
     "grunt-concurrent": "~3.0.0",
     "grunt-contrib-clean": "~2.0.1",
